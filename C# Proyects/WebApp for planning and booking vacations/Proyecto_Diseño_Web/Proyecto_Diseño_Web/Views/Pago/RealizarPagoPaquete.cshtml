@@ -1,0 +1,78 @@
+﻿@model Proyecto_Diseño_Web.Models.TableViewModels.PagoPaqueteViewModel
+
+@{
+    ViewBag.Title = "Realizar Pago";
+}
+
+<main>
+    <h2>Realizar Pago Paquete</h2>
+
+    @using (Html.BeginForm("RealizarPagoPaquete", "Pago", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Detalles del Paquete</h4>
+            <hr />
+
+            @Html.HiddenFor(model => model.IdPaquete)
+
+            <!-- Actividades del paquete -->
+            <div class="form-group">
+                <label class="control-label col-md-2">Actividades:</label>
+                <div class="col-md-10">
+                    <ul>
+                        @foreach (var actividad in Model.Actividades)
+                        {
+                            <li>@actividad.Nombre - <span>₡</span>@actividad.Precio.ToString()</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Precio total y descuento -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.PrecioTotalOriginal, "Precio Total", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p class="form-control-static"><span>₡</span>@Model.PrecioTotalOriginal.ToString()</p>
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descuento, "Descuento Total", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p class="form-control-static">@Model.Descuento.ToString()<span>%</span></p>
+                </div>
+            </div>
+
+            @Html.HiddenFor(model => model.PrecioTotalFinal)
+            <div class="form-group">
+                @Html.LabelFor(model => model.PrecioTotalFinal, "Precio Final", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <p class="form-control-static"><span>₡</span>@Model.PrecioTotalFinal.ToString()</p>
+                </div>
+            </div>
+
+            <!-- Selección de tarjeta -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.TarjetaId, "Seleccionar Tarjeta", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.TarjetaId, (SelectList)ViewBag.Tarjetas, "Seleccione una Tarjeta", new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.TarjetaId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <br />
+            <a href="@Url.Action("CrearTarjetaPaquete", "Pago", new { idPaquete = Model.IdPaquete })" class="btn btn-primary">
+                Agregar nueva tarjeta
+            </a>
+            <br />
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Realizar Pago" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</main>
+
+

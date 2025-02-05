@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Proyecto_Final_Diseño_WebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Actividades_Destino">
+    <Key>
+      <PropertyRef Name="IdActividad" />
+    </Key>
+    <Property Name="IdActividad" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="150" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="300" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="Destinos_IdDestino" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Precio" Type="numeric" Precision="28" Scale="0" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Proyecto_Final_Diseño_Web.dbo.Actividades_Itinerario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Actividades_Itinerario">
+    <Key>
+      <PropertyRef Name="Destinos_IdDestino" />
+      <PropertyRef Name="Actividades_Destino_IdActividad" />
+      <PropertyRef Name="Itinerarios_IdItinerario" />
+    </Key>
+    <Property Name="Descripcion" Type="varchar" MaxLength="300" />
+    <Property Name="Fecha_actividad" Type="date" />
+    <Property Name="Destinos_IdDestino" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Actividades_Destino_IdActividad" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Itinerarios_IdItinerario" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'Proyecto_Final_Diseño_Web.dbo.Actividades_Paquete' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="Actividades_Paquete">
+    <Key>
+      <PropertyRef Name="Paquetes_de_viaje_IdPaquete" />
+      <PropertyRef Name="Actividades_Destino_IdActividad" />
+    </Key>
+    <Property Name="Paquetes_de_viaje_IdPaquete" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Actividades_Destino_IdActividad" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="nulo" Type="int" />
+  </EntityType>
+  <EntityType Name="Descuentos">
+    <Key>
+      <PropertyRef Name="IdDescuento" />
+    </Key>
+    <Property Name="IdDescuento" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Porcentaje" Type="numeric" Precision="28" Scale="0" />
+    <Property Name="Actividades_Destino_IdActividad" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Destinos">
+    <Key>
+      <PropertyRef Name="IdDestino" />
+    </Key>
+    <Property Name="IdDestino" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Provincia" Type="varchar" MaxLength="10" />
+    <Property Name="Categoria" Type="varchar" MaxLength="20" />
+    <Property Name="Precio_Minimo" Type="numeric" Precision="28" Scale="0" />
+    <Property Name="Precio_Maximo" Type="numeric" Precision="28" Scale="0" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="Direccion" Type="varchar" MaxLength="200" />
+    <Property Name="Imagen" Type="image" />
+  </EntityType>
+  <EntityType Name="Itinerarios">
+    <Key>
+      <PropertyRef Name="IdItinerario" />
+    </Key>
+    <Property Name="IdItinerario" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="70" />
+    <Property Name="Usuarios_Id" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Paquetes_de_viaje">
+    <Key>
+      <PropertyRef Name="IdPaquete" />
+    </Key>
+    <Property Name="IdPaquete" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre_del_paquete" Type="varchar" MaxLength="30" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="300" />
+    <Property Name="Precio" Type="numeric" Precision="28" Scale="0" />
+    <Property Name="Destinos_IdDestino" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reseñas">
+    <Key>
+      <PropertyRef Name="IdReseña" />
+    </Key>
+    <Property Name="IdReseña" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Calificacion" Type="numeric" Precision="1" Scale="0" />
+    <Property Name="Comentario" Type="varchar" MaxLength="200" />
+    <Property Name="Usuarios_Id" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Destinos_IdDestino" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reservas">
+    <Key>
+      <PropertyRef Name="IdReserva" />
+    </Key>
+    <Property Name="IdReserva" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Fecha_de_inicio" Type="date" />
+    <Property Name="Fecha_final" Type="date" />
+    <Property Name="Tipo_de_servicio" Type="varchar" MaxLength="50" />
+    <Property Name="Precio" Type="numeric" Precision="28" Scale="0" />
+    <Property Name="Estado_de_la_reserva" Type="varchar" MaxLength="50" />
+    <Property Name="Actividades_Destino_IdActividad" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Usuarios_Id" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tarjetas">
+    <Key>
+      <PropertyRef Name="IdTarjeta" />
+    </Key>
+    <Property Name="IdTarjeta" Type="numeric" Precision="28" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Numero_de_tarjeta" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Fecha_de_vencimiento" Type="date" Nullable="false" />
+    <Property Name="Codigo_de_seguridad" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Usuarios_Id" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="numeric" Precision="28" Scale="0" Nullable="false" />
+    <Property Name="Correo" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Contraseña" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="Fecha_de_nacimiento" Type="date" />
+    <Property Name="Genero" Type="varchar" MaxLength="1" />
+    <Property Name="Rol" Type="varchar" MaxLength="1" />
+    <Property Name="Telefono" Type="numeric" Precision="28" Scale="0" />
+    <Property Name="Cedula" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="100" />
+    <Property Name="Nombre_Completo" Type="varchar" MaxLength="255" />
+    <Property Name="Preferencias_de_Viaje" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="Actividades_Destino_Destinos_FK">
+    <End Role="Destinos" Type="Self.Destinos" Multiplicity="1" />
+    <End Role="Actividades_Destino" Type="Self.Actividades_Destino" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destinos">
+        <PropertyRef Name="IdDestino" />
+      </Principal>
+      <Dependent Role="Actividades_Destino">
+        <PropertyRef Name="Destinos_IdDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Actividades_Itinerario_Actividades_Destino_FK">
+    <End Role="Actividades_Destino" Type="Self.Actividades_Destino" Multiplicity="1" />
+    <End Role="Actividades_Itinerario" Type="Self.Actividades_Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividades_Destino">
+        <PropertyRef Name="IdActividad" />
+      </Principal>
+      <Dependent Role="Actividades_Itinerario">
+        <PropertyRef Name="Actividades_Destino_IdActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Actividades_Itinerario_Destinos_FK">
+    <End Role="Destinos" Type="Self.Destinos" Multiplicity="1" />
+    <End Role="Actividades_Itinerario" Type="Self.Actividades_Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destinos">
+        <PropertyRef Name="IdDestino" />
+      </Principal>
+      <Dependent Role="Actividades_Itinerario">
+        <PropertyRef Name="Destinos_IdDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Actividades_Itinerario_Itinerarios_FK">
+    <End Role="Itinerarios" Type="Self.Itinerarios" Multiplicity="1" />
+    <End Role="Actividades_Itinerario" Type="Self.Actividades_Itinerario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Itinerarios">
+        <PropertyRef Name="IdItinerario" />
+      </Principal>
+      <Dependent Role="Actividades_Itinerario">
+        <PropertyRef Name="Itinerarios_IdItinerario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Actividades_Paquete_Actividades_Destino_FK">
+    <End Role="Actividades_Destino" Type="Self.Actividades_Destino" Multiplicity="1" />
+    <End Role="Actividades_Paquete" Type="Self.Actividades_Paquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividades_Destino">
+        <PropertyRef Name="IdActividad" />
+      </Principal>
+      <Dependent Role="Actividades_Paquete">
+        <PropertyRef Name="Actividades_Destino_IdActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Actividades_Paquete_Paquetes_de_viaje_FK">
+    <End Role="Paquetes_de_viaje" Type="Self.Paquetes_de_viaje" Multiplicity="1" />
+    <End Role="Actividades_Paquete" Type="Self.Actividades_Paquete" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Paquetes_de_viaje">
+        <PropertyRef Name="IdPaquete" />
+      </Principal>
+      <Dependent Role="Actividades_Paquete">
+        <PropertyRef Name="Paquetes_de_viaje_IdPaquete" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Descuentos_Actividades_Destino_FK">
+    <End Role="Actividades_Destino" Type="Self.Actividades_Destino" Multiplicity="1" />
+    <End Role="Descuentos" Type="Self.Descuentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividades_Destino">
+        <PropertyRef Name="IdActividad" />
+      </Principal>
+      <Dependent Role="Descuentos">
+        <PropertyRef Name="Actividades_Destino_IdActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Itinerarios_Usuarios_FK">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Itinerarios" Type="Self.Itinerarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Itinerarios">
+        <PropertyRef Name="Usuarios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Paquetes_de_viaje_Destinos_FK">
+    <End Role="Destinos" Type="Self.Destinos" Multiplicity="1" />
+    <End Role="Paquetes_de_viaje" Type="Self.Paquetes_de_viaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destinos">
+        <PropertyRef Name="IdDestino" />
+      </Principal>
+      <Dependent Role="Paquetes_de_viaje">
+        <PropertyRef Name="Destinos_IdDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Reseñas_Destinos_FK">
+    <End Role="Destinos" Type="Self.Destinos" Multiplicity="1" />
+    <End Role="Reseñas" Type="Self.Reseñas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Destinos">
+        <PropertyRef Name="IdDestino" />
+      </Principal>
+      <Dependent Role="Reseñas">
+        <PropertyRef Name="Destinos_IdDestino" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Reseñas_Usuarios_FK">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Reseñas" Type="Self.Reseñas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reseñas">
+        <PropertyRef Name="Usuarios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Reservas_Actividad_FK">
+    <End Role="Actividades_Destino" Type="Self.Actividades_Destino" Multiplicity="1" />
+    <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actividades_Destino">
+        <PropertyRef Name="IdActividad" />
+      </Principal>
+      <Dependent Role="Reservas">
+        <PropertyRef Name="Actividades_Destino_IdActividad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Reservas_Usuarios_FK">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Reservas" Type="Self.Reservas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Reservas">
+        <PropertyRef Name="Usuarios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Tarjetas_Usuarios_FK">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Tarjetas" Type="Self.Tarjetas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tarjetas">
+        <PropertyRef Name="Usuarios_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DeleteActividadesItinerario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Destinos_IdDestino" Type="numeric" Mode="In" />
+    <Parameter Name="Actividades_Destino_IdActividad" Type="numeric" Mode="In" />
+    <Parameter Name="Itinerarios_IdItinerario" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="DeleteActividadesPaquete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Paquetes_de_viaje_IdPaquete" Type="numeric" Mode="In" />
+    <Parameter Name="Actividades_Destino_IdActividad" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="InsertActividadesItinerario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Fecha_actividad" Type="date" Mode="In" />
+    <Parameter Name="Destinos_IdDestino" Type="numeric" Mode="In" />
+    <Parameter Name="Actividades_Destino_IdActividad" Type="numeric" Mode="In" />
+    <Parameter Name="Itinerarios_IdItinerario" Type="numeric" Mode="In" />
+  </Function>
+  <Function Name="InsertActividadesPaquete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Paquetes_de_viaje_IdPaquete" Type="numeric" Mode="In" />
+    <Parameter Name="Actividades_Destino_IdActividad" Type="numeric" Mode="In" />
+    <Parameter Name="nulo" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Proyecto_Final_Diseño_WebModelStoreContainer">
+    <EntitySet Name="Actividades_Destino" EntityType="Self.Actividades_Destino" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Descuentos" EntityType="Self.Descuentos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Destinos" EntityType="Self.Destinos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Itinerarios" EntityType="Self.Itinerarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paquetes_de_viaje" EntityType="Self.Paquetes_de_viaje" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reseñas" EntityType="Self.Reseñas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reservas" EntityType="Self.Reservas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tarjetas" EntityType="Self.Tarjetas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Actividades_Itinerario" EntityType="Self.Actividades_Itinerario" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Actividades_Itinerario].[Descripcion] AS [Descripcion], 
+[Actividades_Itinerario].[Fecha_actividad] AS [Fecha_actividad], 
+[Actividades_Itinerario].[Destinos_IdDestino] AS [Destinos_IdDestino], 
+[Actividades_Itinerario].[Actividades_Destino_IdActividad] AS [Actividades_Destino_IdActividad], 
+[Actividades_Itinerario].[Itinerarios_IdItinerario] AS [Itinerarios_IdItinerario]
+FROM [dbo].[Actividades_Itinerario] AS [Actividades_Itinerario]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Actividades_Paquete" EntityType="Self.Actividades_Paquete" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[Actividades_Paquete].[Paquetes_de_viaje_IdPaquete] AS [Paquetes_de_viaje_IdPaquete], 
+[Actividades_Paquete].[Actividades_Destino_IdActividad] AS [Actividades_Destino_IdActividad], 
+[Actividades_Paquete].[nulo] AS [nulo]
+FROM [dbo].[Actividades_Paquete] AS [Actividades_Paquete]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="Actividades_Destino_Destinos_FK" Association="Self.Actividades_Destino_Destinos_FK">
+      <End Role="Destinos" EntitySet="Destinos" />
+      <End Role="Actividades_Destino" EntitySet="Actividades_Destino" />
+    </AssociationSet>
+    <AssociationSet Name="Actividades_Itinerario_Actividades_Destino_FK" Association="Self.Actividades_Itinerario_Actividades_Destino_FK">
+      <End Role="Actividades_Destino" EntitySet="Actividades_Destino" />
+      <End Role="Actividades_Itinerario" EntitySet="Actividades_Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="Actividades_Itinerario_Destinos_FK" Association="Self.Actividades_Itinerario_Destinos_FK">
+      <End Role="Destinos" EntitySet="Destinos" />
+      <End Role="Actividades_Itinerario" EntitySet="Actividades_Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="Actividades_Itinerario_Itinerarios_FK" Association="Self.Actividades_Itinerario_Itinerarios_FK">
+      <End Role="Itinerarios" EntitySet="Itinerarios" />
+      <End Role="Actividades_Itinerario" EntitySet="Actividades_Itinerario" />
+    </AssociationSet>
+    <AssociationSet Name="Actividades_Paquete_Actividades_Destino_FK" Association="Self.Actividades_Paquete_Actividades_Destino_FK">
+      <End Role="Actividades_Destino" EntitySet="Actividades_Destino" />
+      <End Role="Actividades_Paquete" EntitySet="Actividades_Paquete" />
+    </AssociationSet>
+    <AssociationSet Name="Actividades_Paquete_Paquetes_de_viaje_FK" Association="Self.Actividades_Paquete_Paquetes_de_viaje_FK">
+      <End Role="Paquetes_de_viaje" EntitySet="Paquetes_de_viaje" />
+      <End Role="Actividades_Paquete" EntitySet="Actividades_Paquete" />
+    </AssociationSet>
+    <AssociationSet Name="Descuentos_Actividades_Destino_FK" Association="Self.Descuentos_Actividades_Destino_FK">
+      <End Role="Actividades_Destino" EntitySet="Actividades_Destino" />
+      <End Role="Descuentos" EntitySet="Descuentos" />
+    </AssociationSet>
+    <AssociationSet Name="Itinerarios_Usuarios_FK" Association="Self.Itinerarios_Usuarios_FK">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Itinerarios" EntitySet="Itinerarios" />
+    </AssociationSet>
+    <AssociationSet Name="Paquetes_de_viaje_Destinos_FK" Association="Self.Paquetes_de_viaje_Destinos_FK">
+      <End Role="Destinos" EntitySet="Destinos" />
+      <End Role="Paquetes_de_viaje" EntitySet="Paquetes_de_viaje" />
+    </AssociationSet>
+    <AssociationSet Name="Reseñas_Destinos_FK" Association="Self.Reseñas_Destinos_FK">
+      <End Role="Destinos" EntitySet="Destinos" />
+      <End Role="Reseñas" EntitySet="Reseñas" />
+    </AssociationSet>
+    <AssociationSet Name="Reseñas_Usuarios_FK" Association="Self.Reseñas_Usuarios_FK">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Reseñas" EntitySet="Reseñas" />
+    </AssociationSet>
+    <AssociationSet Name="Reservas_Actividad_FK" Association="Self.Reservas_Actividad_FK">
+      <End Role="Actividades_Destino" EntitySet="Actividades_Destino" />
+      <End Role="Reservas" EntitySet="Reservas" />
+    </AssociationSet>
+    <AssociationSet Name="Reservas_Usuarios_FK" Association="Self.Reservas_Usuarios_FK">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Reservas" EntitySet="Reservas" />
+    </AssociationSet>
+    <AssociationSet Name="Tarjetas_Usuarios_FK" Association="Self.Tarjetas_Usuarios_FK">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Tarjetas" EntitySet="Tarjetas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

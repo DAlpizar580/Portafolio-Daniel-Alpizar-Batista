@@ -1,0 +1,185 @@
+﻿@using ParqueoULACIT.Models.TableViewModel
+@model IEnumerable<ParqueoULACIT.Models.ViewModel.HistorialEstudianteViewModel>
+
+@{
+    ViewBag.Title = "Historial de Uso de Parqueos";
+    Layout = "~/Views/Shared/_LayoutPersonalAdmin.cshtml";
+}
+
+<h2 class="titulo">Historial de Uso de Parqueos</h2>
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<form method="get" action="/PersonalAdministrativo/HistorialAdmin" class="card table-striped filtros-form" onsubmit="return validateFilters()">
+    <div class="filtros-container">
+        <div class="filtro-item">
+            <label for="mes" style="color: white;">Mes:</label>
+            <select id="mes" name="mes" class="form-control">
+                <option value="">Seleccione un mes</option>
+                <option value="1">Enero</option>
+                <option value="2">Febrero</option>
+                <option value="3">Marzo</option>
+                <option value="4">Abril</option>
+                <option value="5">Mayo</option>
+                <option value="6">Junio</option>
+                <option value="7">Julio</option>
+                <option value="8">Agosto</option>
+                <option value="9">Septiembre</option>
+                <option value="10">Octubre</option>
+                <option value="11">Noviembre</option>
+                <option value="12">Diciembre</option>
+            </select>
+        </div>
+        <div class="filtro-item">
+            <label for="anio" style="color: white;">Año:</label>
+            <input type="number" id="anio" name="anio" class="form-control" placeholder="Ingrese un año válido" min="1900" max="@DateTime.Now.Year" />
+        </div>
+        <div class="filtro-item">
+            <label for="idParqueo" style="color: white;">Parqueo:</label>
+            <select id="idParqueo" name="idParqueo" class="form-control">
+                <option value="">Todos los parqueos</option>
+                @if (ViewBag.Parqueos != null)
+                {
+                    foreach (var parqueo in ViewBag.Parqueos as List<ParqueoTableViewModel>)
+                    {
+                        <option value="@parqueo.ID_Parqueo" @(ViewBag.IdParqueoSeleccionado != null && ViewBag.IdParqueoSeleccionado == parqueo.ID_Parqueo ? "selected" : "")>
+                            @parqueo.Nombre
+                        </option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="filtro-item filtro-boton">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+            <a href="/PersonalAdministrativo/HistorialAdmin" class="btn btn-secondary ml-2">Borrar Filtros</a>
+        </div>
+    </div>
+</form>
+
+@if (Model != null && Model.Any())
+{
+    <h3>Resultados</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Número de Placa</th>
+                <th>Parqueo</th>
+                <th>Movimiento</th>
+                <th>Tipo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var registro in Model)
+            {
+                <tr>
+                    <td>@registro.Fecha.ToString("dd/MM/yyyy")</td>
+                    <td>@registro.Hora.ToString(@"hh\:mm\:ss")</td>
+                    <td>@registro.Numero_Placa</td>
+                    <td>@registro.Parqueo</td>
+                    <td>@registro.MovimientoNombre</td>
+                    <td>@registro.TipoNombre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+    <p>No se encontraron registros.</p>
+}
+
+<script>
+    function validateFilters() {
+        const mes = document.getElementById("mes").value;
+        const anioInput = document.getElementById("anio");
+        const anio = anioInput.value;
+
+        // Validación: Si se selecciona un mes, el año es obligatorio
+        if (mes && !anio) {
+            anioInput.setCustomValidity("Seleccione un año.");
+            anioInput.reportValidity();
+            return false;
+        }
+
+        // Validación: Año dentro del rango permitido
+        if (anio && (anio < 1900 || anio > new Date().getFullYear())) {
+            anioInput.setCustomValidity("Por favor ingrese un año válido entre 1900 y el año actual.");
+            anioInput.reportValidity();
+            return false;
+        }
+
+        // Si todo está correcto, limpiamos mensajes de error
+        anioInput.setCustomValidity("");
+        return true;
+    }
+
+    // Escuchar el evento input para limpiar los mensajes personalizados
+    document.getElementById("anio").addEventListener("input", function () {
+        this.setCustomValidity(""); // Limpia mensajes personalizados en tiempo real
+    });
+</script>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        color: white;
+        background-image: url('@Url.Content("~/Content/images/fondoGris.jpg")');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+    .filtros-form {
+        padding: 20px;
+        font-size: larger;
+        width: 60%;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        background: rgb(107 0 221 / 72%);
+        border-radius: 1rem;
+        border: 1px solid rgb(201 0 255 / 50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .filtros-container {
+        display: flex;
+        gap: 20px; /* Espacio entre elementos */
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .filtro-item {
+        flex: 1; /* Los campos ocupan el mismo espacio */
+    }
+
+    .filtro-boton {
+        display: flex;
+        justify-content: flex-end; /* Alinear el botón al lado derecho */
+        margin-left: -10px; /* Reducir espacio entre el botón y el campo "Año" */
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        border-color: #545b62;
+        color: white;
+    }
+
+    .ml-2 {
+        margin-left: 10px; /* Separación entre los botones */
+    }
+</style>

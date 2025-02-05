@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Proyecto_Final_Diseño_WebModelStoreContainer" CdmEntityContainer="Proyecto_Final_Diseño_WebEntities">
+    <EntitySetMapping Name="Actividades_Destino">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Actividades_Destino">
+        <MappingFragment StoreEntitySet="Actividades_Destino">
+          <ScalarProperty Name="IdActividad" ColumnName="IdActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Destinos_IdDestino" ColumnName="Destinos_IdDestino" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Descuentos">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Descuentos">
+        <MappingFragment StoreEntitySet="Descuentos">
+          <ScalarProperty Name="IdDescuento" ColumnName="IdDescuento" />
+          <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+          <ScalarProperty Name="Actividades_Destino_IdActividad" ColumnName="Actividades_Destino_IdActividad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Destinos">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Destinos">
+        <MappingFragment StoreEntitySet="Destinos">
+          <ScalarProperty Name="IdDestino" ColumnName="IdDestino" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Precio_Minimo" ColumnName="Precio_Minimo" />
+          <ScalarProperty Name="Precio_Maximo" ColumnName="Precio_Maximo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Itinerarios">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Itinerarios">
+        <MappingFragment StoreEntitySet="Itinerarios">
+          <ScalarProperty Name="IdItinerario" ColumnName="IdItinerario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Usuarios_Id" ColumnName="Usuarios_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paquetes_de_viaje">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Paquetes_de_viaje">
+        <MappingFragment StoreEntitySet="Paquetes_de_viaje">
+          <ScalarProperty Name="IdPaquete" ColumnName="IdPaquete" />
+          <ScalarProperty Name="Nombre_del_paquete" ColumnName="Nombre_del_paquete" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Destinos_IdDestino" ColumnName="Destinos_IdDestino" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reseñas">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Reseñas">
+        <MappingFragment StoreEntitySet="Reseñas">
+          <ScalarProperty Name="IdReseña" ColumnName="IdReseña" />
+          <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+          <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+          <ScalarProperty Name="Usuarios_Id" ColumnName="Usuarios_Id" />
+          <ScalarProperty Name="Destinos_IdDestino" ColumnName="Destinos_IdDestino" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reservas">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Reservas">
+        <MappingFragment StoreEntitySet="Reservas">
+          <ScalarProperty Name="IdReserva" ColumnName="IdReserva" />
+          <ScalarProperty Name="Fecha_de_inicio" ColumnName="Fecha_de_inicio" />
+          <ScalarProperty Name="Fecha_final" ColumnName="Fecha_final" />
+          <ScalarProperty Name="Tipo_de_servicio" ColumnName="Tipo_de_servicio" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Estado_de_la_reserva" ColumnName="Estado_de_la_reserva" />
+          <ScalarProperty Name="Actividades_Destino_IdActividad" ColumnName="Actividades_Destino_IdActividad" />
+          <ScalarProperty Name="Usuarios_Id" ColumnName="Usuarios_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tarjetas">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Tarjetas">
+        <MappingFragment StoreEntitySet="Tarjetas">
+          <ScalarProperty Name="IdTarjeta" ColumnName="IdTarjeta" />
+          <ScalarProperty Name="Numero_de_tarjeta" ColumnName="Numero_de_tarjeta" />
+          <ScalarProperty Name="Fecha_de_vencimiento" ColumnName="Fecha_de_vencimiento" />
+          <ScalarProperty Name="Codigo_de_seguridad" ColumnName="Codigo_de_seguridad" />
+          <ScalarProperty Name="Usuarios_Id" ColumnName="Usuarios_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Contraseña" ColumnName="Contraseña" />
+          <ScalarProperty Name="Fecha_de_nacimiento" ColumnName="Fecha_de_nacimiento" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
+          <ScalarProperty Name="Preferencias_de_Viaje" ColumnName="Preferencias_de_Viaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actividades_Itinerario">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Actividades_Itinerario">
+        <MappingFragment StoreEntitySet="Actividades_Itinerario">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Fecha_actividad" ColumnName="Fecha_actividad" />
+          <ScalarProperty Name="Destinos_IdDestino" ColumnName="Destinos_IdDestino" />
+          <ScalarProperty Name="Actividades_Destino_IdActividad" ColumnName="Actividades_Destino_IdActividad" />
+          <ScalarProperty Name="Itinerarios_IdItinerario" ColumnName="Itinerarios_IdItinerario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Actividades_Paquete">
+      <EntityTypeMapping TypeName="Proyecto_Final_Diseño_WebModel.Actividades_Paquete">
+        <MappingFragment StoreEntitySet="Actividades_Paquete">
+          <ScalarProperty Name="Paquetes_de_viaje_IdPaquete" ColumnName="Paquetes_de_viaje_IdPaquete" />
+          <ScalarProperty Name="Actividades_Destino_IdActividad" ColumnName="Actividades_Destino_IdActividad" />
+          <ScalarProperty Name="nulo" ColumnName="nulo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteActividadesItinerario" FunctionName="Proyecto_Final_Diseño_WebModel.Store.DeleteActividadesItinerario" />
+    <FunctionImportMapping FunctionImportName="DeleteActividadesPaquete" FunctionName="Proyecto_Final_Diseño_WebModel.Store.DeleteActividadesPaquete" />
+    <FunctionImportMapping FunctionImportName="InsertActividadesItinerario" FunctionName="Proyecto_Final_Diseño_WebModel.Store.InsertActividadesItinerario" />
+    <FunctionImportMapping FunctionImportName="InsertActividadesPaquete" FunctionName="Proyecto_Final_Diseño_WebModel.Store.InsertActividadesPaquete" />
+  </EntityContainerMapping>
+</Mapping>

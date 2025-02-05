@@ -1,0 +1,247 @@
+﻿@using System.Web.Mvc
+@model ParqueoULACIT.Models.ViewModel.ParqueoViewModel
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@{
+    ViewBag.Title = "Editar Parqueo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+
+<h2 class="titulo">Registrar Parqueo</h2>
+@using (Html.BeginForm("EditarParqueo", "Admin", FormMethod.Post))
+{
+    <div class="card p-4 mb-4">
+        <div class="form-group mb-4">
+            @Html.HiddenFor(model => model.ID_Parqueo)
+
+            @Html.LabelFor(model => model.Nombre)
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+        <div class="form-group mb-4">
+            @Html.LabelFor(model => model.Capacidad_Espacios_Regulares)
+            @Html.TextBoxFor(model => model.Capacidad_Espacios_Regulares, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Capacidad_Espacios_Regulares)
+        </div>
+        <div class="form-group mb-4">
+            @Html.LabelFor(model => model.Capacidad_Espacios_Moto)
+            @Html.TextBoxFor(model => model.Capacidad_Espacios_Moto, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Capacidad_Espacios_Moto)
+        </div>
+        <div class="form-group mb-4">
+            @Html.LabelFor(model => model.Capacidad_Espacios_7600)
+            @Html.TextBoxFor(model => model.Capacidad_Espacios_7600, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Capacidad_Espacios_7600)
+        </div>
+        <div class="mt-2">
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+            <button type="button" class="btn btn-danger"
+                    onclick="document.location.href = '@Url.Content("~/Admin/ListarParqueos")'">
+                Regresar
+            </button>
+        </div>
+    </div>
+}
+
+@if (ViewBag.Message != null && ViewBag.Message == "Parqueo editado exitosamente.") {  
+
+        <script type="text/javascript">
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: "Parqueo editado exitosamente."
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Limpia el formulario manualmente
+                document.querySelector("form").reset(); // Esto reinicia todos los campos del formulario
+            }
+        });
+        </script>
+    }
+
+
+
+
+    <style>
+      /* Title animation */
+  .titulo {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: white;
+      z-index: 1;
+      padding: 15px;
+  }
+
+  .titulo {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      font-weight: bold;
+      color: white;
+      z-index: 1;
+      padding: 15px 30px; /* Más espacio para acomodar la flecha */
+
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent; /* 40px height (20+20) */
+      border-left: 20px solid #6f42c1 !important
+  }
+
+      .titulo:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: #6f42c1;
+          z-index: -1;
+          animation: slideIn 3s forwards;
+          border-top: 20px solid transparent;
+          border-bottom: 20px solid transparent; /* 40px height (20+20) */
+          border-left: 20px solid #6f42c1 !important
+      }
+
+      .titulo:after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 0;
+          height: 0;
+          z-index: -1;
+          width: 0;
+          height: 0;
+      }
+
+  @@keyframes slideIn {
+      from {
+          left: -100%;
+      }
+
+      to {
+          left: 0;
+      }
+  }
+
+
+  /* Custom card style for form container */
+    .card {
+        padding: 60px;
+        margin-top: 70px;
+        align-items: center;
+        width: 49%;
+        margin: auto;
+        display: flex;
+        color: white;
+        text-align:center;
+        background: rgb(14 11 16 / 43%);
+        /* backdrop-filter: blur(10px); */
+        border-radius: 1rem;
+        border: 1px solid rgb(201 0 255 / 50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        /* flex-direction: row; */
+        margin-bottom: 30px;
+    }
+  /* Estilos personalizados para la barra de navegación */
+  .navbar {
+      background: linear-gradient(to left, #ffffff00 0%, #6f2c91 100%);
+  }
+
+  .navbar-nav .nav-link {
+      color: #fff !important; /* Texto blanco */
+      font-weight: 500; /* Levele de peso en el texto */
+      transition: color 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
+  }
+
+      .navbar-nav .nav-link:hover {
+          color: #fff !important; /* Mantener texto blanco */
+          background-color: #9c4dcc; /* Color morado más claro en hover */
+          border-radius: 5px; /* Bordes redondeados al hacer hover */
+      }
+
+  .navbar-brand {
+      color: #fff !important; /* Color blanco para la marca */
+      font-size: 1.5rem; /* Tamaño de fuente más grande */
+      font-weight: bold; /* Negrita para el texto */
+  }
+
+  .navbar-toggler {
+      border-color: #fff; /* Color blanco para el botón de navegación */
+  }
+
+  .navbar-toggler-icon {
+      background-color: #fff; /* Color blanco para el icono de menú */
+  }
+
+  .btn-outline-secondary {
+      border-color: #fff; /* Borde blanco para el botón de cerrar sesión */
+      color: #fff; /* Texto blanco */
+      transition: color 0.3s ease, border-color 0.3s ease; /* Transiciones suaves */
+  }
+
+      .btn-outline-secondary:hover {
+          background-color: #9c4dcc; /* Fondo morado al hacer hover */
+          border-color: #9c4dcc; /* Borde morado al hacer hover */
+          color: #fff; /* Texto blanco */
+      }
+
+  .navbar-collapse {
+      justify-content: flex-end; /* Alineación a la derecha */
+  }
+
+  @@font-face {
+      font-family: 'body';
+      src: url('@Url.Content("~/Content/Font/Roboto-Regular.otf")') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+  }
+
+        body {
+            overflow: hidden;
+            height: 920px;
+            margin: 0;
+            padding: 0;
+            color: black;
+            font-family: 'body';
+            background-image: url('@Url.Content("~/Content/images/parqueoN.jpg")');
+            background-size: cover;
+            background-repeat: round;
+            background-attachment: fixed;
+            background-color: black;
+            backdrop-filter: blur(10px);
+        }
+
+
+
+  .btn-primary {
+      background-color: #6f42c1;
+      border: none;
+      transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+      background-color: #5a32a3;
+  }
+
+
+        .form-control {
+            text-align: center;
+        }
+
+    </style>
+
+

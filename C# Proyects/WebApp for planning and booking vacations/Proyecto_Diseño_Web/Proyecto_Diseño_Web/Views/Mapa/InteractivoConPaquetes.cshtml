@@ -1,0 +1,72 @@
+﻿@model List<Proyecto_Diseño_Web.Models.Paquetes_de_viaje>
+
+@{
+    ViewBag.Title = "Mapa Interactivo con Paquetes de Viaje";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Mapa Interactivo</h2>
+    <hr />
+
+    <!-- Mapa Interactivo -->
+    <div id="map" style="width: 100%; height: 500px; border: 1px solid #ddd; margin-bottom: 20px;"></div>
+
+    <!-- Tabla de Paquetes -->
+    <h2 class="mt-4">Paquetes de Viaje</h2>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var paquete in Model)
+            {
+                <tr>
+                    <td>@paquete.IdPaquete</td>
+                    <td>@paquete.Nombre_del_paquete</td>
+                    <td>@paquete.Descripcion</td>
+                    <td>$@paquete.Precio</td>
+                    <td>
+                        <!-- Enlace para ver actividades asociadas al paquete -->
+                        <a href="@Url.Action("ActividadesPorPaquete", "Paquetes", new { idPaquete = paquete.IdPaquete })" class="btn btn-primary">Ver Actividades</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+<script>
+    // Crear el mapa interactivo
+    var map = L.map('map').setView([9.8564, -83.9167], 9); // Coordenadas de Cartago
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Definir puntos de interés
+    var puntos = [
+        { lat: 9.9833, lng: -83.8667, nombre: "Volcán Irazú" },
+        { lat: 9.5667, lng: -83.8500, nombre: "Cerro de la Muerte" },
+        { lat: 9.7572, lng: -83.8491, nombre: "Parque Nacional Tapantí" },
+        { lat: 9.8000, lng: -83.9000, nombre: "Valle de Orosi" },
+        { lat: 10.1000, lng: -83.9500, nombre: "Laguna de Hule" },
+        { lat: 9.4748, lng: -83.5630, nombre: "Cerro Chirripó" },
+        { lat: 9.6500, lng: -83.7750, nombre: "Reserva Forestal Río Macho" },
+        { lat: 9.8636, lng: -83.9142, nombre: "Cerro Dragón" }
+    ];
+
+    // Agregar marcadores al mapa
+    puntos.forEach(function (punto) {
+        L.marker([punto.lat, punto.lng]).addTo(map)
+            .bindPopup(`<b>${punto.nombre}</b>`);
+    });
+</script>

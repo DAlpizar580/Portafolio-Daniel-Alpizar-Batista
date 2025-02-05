@@ -1,0 +1,393 @@
+﻿@{
+    ViewBag.Title = "Verificar Entrada";
+    Layout = "~/Views/Shared/_LayoutGuardia.cshtml";
+}
+
+
+<h2 class="titulo">Verificar Entrada</h2>
+
+<div class="mainContainer">
+
+    <form action="~/GuardiaDeSeguridad/VerificarEntrada" method="post" class="table-striped">
+        <label for="placa">Ingrese la placa del vehiculo:</label>
+        <input type="text" id="placa" name="placa" required oninput="mostrarPlaca3D(this.value)" class="placa-input" />
+
+        <label for="IdTipoVehiculo">Seleccione el tipo de vehiculo:</label>
+        @Html.DropDownList("IdTipoVehiculo",
+                           ViewBag.TipoVehiculo as SelectList ?? new SelectList(new List<SelectListItem>()),
+                           "Selecciona un tipo de vehículo",
+                           new { id = "IdTipoVehiculo", required = "required" })
+
+    <button type="submit" class="btn btn-primary" style="background-color: #9c4dcc;"  >Verificar</button>
+    </form>
+
+
+
+
+
+    <!-- Semáforo visual -->
+    <div class="semaforo">
+        <div class="trafficlight">
+         
+            <div class="red"></div>
+            <div class="green"></div>
+        </div>
+    </div>
+
+
+    @if (ViewBag.Mensaje != null)
+    {
+        <p id="mensaje">@ViewBag.Mensaje</p>
+    }
+
+
+
+</div>
+
+<!-- ESTILOS -->
+<style>
+
+
+
+
+    p {
+        padding: 15px;
+        border-block-color: #ffff;
+        background-color: #333333;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-size: x-large;
+    }
+
+
+
+    .titulo {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: white;
+        z-index: 1;
+        padding: 15px 30px; /* Más espacio para acomodar la flecha */
+
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent; /* 40px height (20+20) */
+        border-left: 20px solid #6f42c1 !important
+    }
+
+        .titulo:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #6f42c1;
+            z-index: -1;
+            animation: slideIn 3s forwards;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent; /* 40px height (20+20) */
+            border-left: 20px solid #6f42c1 !important
+        }
+
+        .titulo:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            z-index: -1;
+            width: 0;
+            height: 0;
+        }
+
+    @@keyframes slideIn {
+        from {
+            left: -100%;
+        }
+
+        to {
+            left: 0;
+        }
+    }
+
+
+    body {
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-family: 'body';
+        background-image: url('@Url.Content("~/Content/images/parqueo2.jpg")');
+        background-size: cover;
+        background-repeat: round;
+        background-attachment: fixed;
+        background-color: black;
+
+    }
+
+
+
+    .mainContainer {
+        width: 1310px;
+        position: static;
+        margin-bottom: 480px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: center;
+        flex-wrap: nowrap;
+    }
+
+    /* Estilo para la caja de la placa */
+    .placa-input {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #0044cc;
+        background-image: url(/Content/images/PLACA.jpg);
+        background-size: cover;
+        text-align: center;
+        width: 470px;
+        height: 145px;
+        padding: 10px;
+        border: 5px solid #0044cc;
+        border-radius: 8px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 2px 2px 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        position: relative;
+        margin: 10px 0;
+        text-transform: uppercase;
+    }
+
+    /* Estilo de la placa con imagen de fondo */
+    .placa-preview {
+        margin-top: 8%;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #0044cc;
+        background-image: url(/Content/images/PLACA.jpg);
+        background-size: cover;
+        text-align: center;
+        width: 470px;
+        height: 243px;
+        padding: 20px;
+        border: 5px solid #0044cc;
+        border-radius: 8px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2), 2px 2px 3px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    /* Estilo para los números de la placa */
+    #placaNumber {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #0b4eb7;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    /* Estilo para el formulario y centrarlo en la página */
+    form {
+        border: 2px solid #6f42c1;
+        margin-top: 100px;
+        align-items: center;
+        margin-left: 10px;
+        width: 35%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    label, input, select, button {
+        margin: 10px 0;
+        font-size: 1.2em;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        background-color: #0044cc;
+        color: white;
+        cursor: pointer;
+        border: none;
+    }
+
+    button:hover {
+        background-color: #0033a0;
+    }
+
+    /* Semáforo */
+    .trafficlight {
+        background: #222;
+        background-image: linear-gradient(transparent 2%, #111 2%, transparent 3%, #111 30%);
+        width: 170px;
+        height: 300px;
+        border-radius: 20px;
+        position: relative;
+        border: solid 5px #333;
+        margin-left: 280px;
+    }
+
+
+
+    .red, .green {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        position: absolute;
+        left: 35px;
+        box-shadow: 0 0 20px #111 inset;
+        opacity: 0.1;
+    }
+
+    .red {
+        top: 20px;
+        background: red;
+        background-image: radial-gradient(brown, transparent);
+    }
+
+    .green {
+        top: 145px;
+        background: green;
+        background-image: radial-gradient(lime, transparent);
+    }
+
+    /* Clase para activar luz */
+    .active {
+        opacity: 1;
+        animation: pulse 1s infinite;
+        box-shadow: 0 0 20px #111 inset, 0 0 10px currentColor;
+    }
+
+    @@keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+    }
+
+
+
+    /*ESTILOS DE TABLA*/
+    .table-striped > tbody > tr:nth-of-type(odd) > * {
+        color: white !important;
+        --bs-table-color-type: var(--bs-table-striped-color);
+        --bs-table-bg-type: var(--bs-table-striped-bg);
+    }
+
+    .table-striped > tbody > tr:nth-of-type(odd) > * {
+        --bs-table-accent-bg: var(--bs-table-striped-bg);
+        /* color: var(--bs-table-striped-color); */
+    }
+
+    table.table-striped th, table.table-striped td {
+        /* padding: 15px; */
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+
+    .table > :not(caption) > * > * {
+        /* padding: .5rem .5rem; */
+        /* color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color))); */
+        /* background-color: var(--bs-table-bg); */
+        /* border-bottom-width: var(--bs-border-width); */
+        /* box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg))); */
+    }
+
+    .table > thead {
+        background-color: #6f42c1 !important;
+    }
+
+    .table > :not(caption) > * > * {
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+        padding: 0.5rem 0.5rem;
+        background-color: var(--bs-table-bg);
+        border-bottom-width: 1px;
+        box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+    }
+
+    thead, tbody, tfoot, tr, td, th {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+    }
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+    user agent stylesheet
+    td {
+        display: table-cell;
+        vertical-align: inherit;
+        unicode-bidi: isolate;
+    }
+
+    table.table-striped {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<!--SCRIPT PARA REPLICAR LA PLACA QUE SE VAYA INGRESANDO-->
+<script>
+    // Controla el semáforo según el mensaje
+    document.addEventListener("DOMContentLoaded", function () {
+        const mensaje = document.getElementById("mensaje");
+
+        if (mensaje && mensaje.textContent) {
+            const redLight = document.querySelector(".trafficlight .red");
+            const greenLight = document.querySelector(".trafficlight .green");
+
+            if (mensaje.textContent.includes("Puede ingresar") || mensaje.textContent.includes("Ingreso Temporal primer vez")) {
+                greenLight.classList.add("active");
+                redLight.classList.remove("active");
+            } else {
+                redLight.classList.add("active");
+                greenLight.classList.remove("active");
+            }
+        }
+    });
+
+    // Mostrar el número de la placa en 3D en tiempo real
+    function mostrarPlaca3D(placa) {
+        const placaPreview = document.getElementById("placaNumber");
+        placaPreview.textContent = placa.toUpperCase();
+    }
+</script>

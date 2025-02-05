@@ -1,0 +1,88 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.ActividadesDestinoTVM>
+
+@{
+    ViewBag.Title = "Actividades del Paquete";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+<main>
+    <h2 class="mt-4">Actividades</h2>
+    <hr />
+
+    <div>
+        @using (Html.BeginForm("ActividadesPaquete", "PaquetesDeViaje", FormMethod.Get))
+        {
+            <b>Buscar por:</b>
+            @Html.RadioButton("SearchBy", "Nombre", true) <text>Nombre</text>
+            @Html.RadioButton("SearchBy", "Descripcion") <text>Descripción</text> <br />
+            @Html.TextBox("search", "", htmlAttributes: new { @class = "w-50 form-control" })
+            <input type="hidden" name="idDestino" value="@ViewBag.IdDestino" />
+            <input type="hidden" name="idPaquete" value="@ViewBag.IdPaquete" />
+            <input type="submit" value="Buscar" class="btn btn-success" />
+        }
+    </div>
+
+    <h3>Actividades incluidas en el paquete</h3>
+    <div class="row">
+        @foreach (var actividad in (List<Proyecto_Diseño_Web.Models.TableViewModels.ActividadesDestinoTVM>)ViewBag.ActividadesIncluidas)
+        {
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@actividad.Nombre</h5>
+                        <p class="card-text">Descripción: @actividad.Descripcion</p>
+                        <p class="card-text">Fecha: @actividad.Fecha.Value.ToString("dd/MM/yyyy")</p>
+                        <p class="card-text">Precio: @actividad.Precio</p>
+
+                        @using (Html.BeginForm("EliminarActividadDelPaquete", "PaquetesDeViaje", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="idDestino" value="@actividad.Destinos_IdDestino" />
+                            <input type="hidden" name="IDActividad" value="@actividad.IdActividad" />
+                            <input type="hidden" name="IDPaquete" value="@ViewBag.IdPaquete" />
+                            <button type="submit" class="btn btn-danger">
+                                Eliminar del paquete
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <h3>Actividades disponibles para añadir</h3>
+    <div class="row">
+        @foreach (var actividad in Model)
+        {
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@actividad.Nombre</h5>
+                        <p class="card-text">Descripción: @actividad.Descripcion</p>
+                        <p class="card-text">Fecha: @actividad.Fecha.Value.ToString("dd/MM/yyyy")</p>
+                        <p class="card-text">Precio: @actividad.Precio</p>
+
+                        @using (Html.BeginForm("ActividadesPaquete", "PaquetesDeViaje", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="idDestino" value="@actividad.Destinos_IdDestino" />
+                            <input type="hidden" name="IDActividad" value="@actividad.IdActividad" />
+                            <input type="hidden" name="IDPaquete" value="@ViewBag.IdPaquete" />
+                            <button type="submit" class="btn btn-success">
+                                Añadir al paquete
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Edit", "PaquetesDeViaje", new { id = ViewBag.IdPaquete })'">
+                Volver
+            </button>
+        </div>
+    </div>
+</main>

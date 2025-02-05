@@ -1,0 +1,148 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Models\\Model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Estudiante\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Estudiante\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Shared\\_LayoutPersonalAdmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Shared\\_LayoutPersonalAdmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\PersonalAdministrativo\\HistorialAdmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\PersonalAdministrativo\\HistorialAdmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\PersonalAdministrativo\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\PersonalAdministrativo\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Controllers\\PersonalAdministrativoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\PersonalAdministrativoController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Estudiante\\HistorialEstudiante.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Estudiante\\HistorialEstudiante.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Models\\Model1.edmx",
+              "RelativeDocumentMoniker": "Models\\Model1.edmx",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Models\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "Models\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-02-05T08:35:45.215Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAEoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-12-21T16:14:36.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Estudiante\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Estudiante\\Index.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Estudiante\\Index.cshtml",
+              "RelativeToolTip": "Views\\Estudiante\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T16:11:33.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_LayoutPersonalAdmin.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Shared\\_LayoutPersonalAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutPersonalAdmin.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Shared\\_LayoutPersonalAdmin.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutPersonalAdmin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T16:10:47.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HistorialAdmin.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\PersonalAdministrativo\\HistorialAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\PersonalAdministrativo\\HistorialAdmin.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\PersonalAdministrativo\\HistorialAdmin.cshtml",
+              "RelativeToolTip": "Views\\PersonalAdministrativo\\HistorialAdmin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T15:55:44.792Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\PersonalAdministrativo\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\PersonalAdministrativo\\Index.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\PersonalAdministrativo\\Index.cshtml",
+              "RelativeToolTip": "Views\\PersonalAdministrativo\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T15:49:40.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PersonalAdministrativoController.cs",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Controllers\\PersonalAdministrativoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PersonalAdministrativoController.cs",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Controllers\\PersonalAdministrativoController.cs",
+              "RelativeToolTip": "Controllers\\PersonalAdministrativoController.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAUwHUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T15:34:06.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HistorialEstudiante.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Estudiante\\HistorialEstudiante.cshtml",
+              "RelativeDocumentMoniker": "Views\\Estudiante\\HistorialEstudiante.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\C# Proyects\\Parking lot access control system for ULACIT\\App\\Views\\Estudiante\\HistorialEstudiante.cshtml",
+              "RelativeToolTip": "Views\\Estudiante\\HistorialEstudiante.cshtml",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T15:23:06.851Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

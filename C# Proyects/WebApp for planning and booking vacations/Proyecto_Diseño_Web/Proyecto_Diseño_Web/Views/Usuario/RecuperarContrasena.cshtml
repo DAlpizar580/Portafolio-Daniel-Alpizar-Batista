@@ -1,0 +1,35 @@
+﻿@model Proyecto_Diseño_Web.Models.ViewModels.RecuperacionViewModel
+
+@{
+    ViewBag.Title = "Recuperar Contraseña";
+    Layout = "~/Views/Usuario/_LayoutPage1.cshtml";
+}
+<div class="wrapper">
+
+    <h2>Recuperar Contraseña</h2>
+
+    @using (Html.BeginForm("EnviarCodigo", "Usuario", FormMethod.Post))
+    {
+        <div class="input-box">
+            <label for="Correo">Correo:</label>
+            @Html.TextBoxFor(m => m.Correo, new { @class = "form-control", placeholder = "Correo electrónico" })
+        </div>
+
+        <div class="input-box">
+            <label for="Cedula">Cédula:</label>
+            @Html.TextBoxFor(m => m.Cedula, new { @class = "form-control", placeholder = "Cédula" })
+        </div>
+
+        <button type="submit" class="btn" >Enviar Código de Recuperación</button>
+    }
+
+    @if (ViewBag.Error != null)
+    {
+        <p style="color:red;">@ViewBag.Error</p>
+    }
+
+    @if (ViewBag.Mensaje != null)
+    {
+        <p style="color:green;">@ViewBag.Mensaje</p>
+    }
+</div>

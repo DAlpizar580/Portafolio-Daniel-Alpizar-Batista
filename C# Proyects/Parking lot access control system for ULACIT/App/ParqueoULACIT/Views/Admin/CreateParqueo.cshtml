@@ -1,0 +1,234 @@
+﻿@using System.Web.Mvc
+@model ParqueoULACIT.Models.ViewModel.ParqueoViewModel
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+}
+@{
+    ViewBag.Title = "Registrar Parqueo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<h2 class="titulo">
+
+    Registrar Parqueo
+
+</h2>
+@using (Html.BeginForm("CreateParqueo", "Admin", FormMethod.Post))
+{
+    <div class="card p-4 mb-3">
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Nombre)
+            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", value = "" })
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Capacidad_Espacios_Regulares)
+            @Html.TextBoxFor(model => model.Capacidad_Espacios_Regulares, new { @class = "form-control", value = "" })
+            @Html.ValidationMessageFor(model => model.Capacidad_Espacios_Regulares)
+        </div>
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Capacidad_Espacios_Moto)
+            @Html.TextBoxFor(model => model.Capacidad_Espacios_Moto, new { @class = "form-control", value = "" })
+            @Html.ValidationMessageFor(model => model.Capacidad_Espacios_Moto)
+        </div>
+        <div class="form-group mb-3">
+            @Html.LabelFor(model => model.Capacidad_Espacios_7600)
+            @Html.TextBoxFor(model => model.Capacidad_Espacios_7600, new { @class = "form-control", value = "" })
+            @Html.ValidationMessageFor(model => model.Capacidad_Espacios_7600)
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" id="submitBtn" class="btn btn-primary">Registrar</button>
+
+            <button type="button" class="btn btn-danger" onclick="document.location.href = '@Url.Content("~/Admin/ListarParqueos")'">Regresar</button>
+
+        </div>
+    </div>
+}
+
+@if (ViewBag.Message != null && ViewBag.Message == "Parqueo creado exitosamente.")
+{
+   
+    <script type="text/javascript">
+        Swal.fire({
+            icon: 'success',
+            title: '¡Éxito!',
+            text: '@Html.Raw(ViewBag.Message)'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Limpia el formulario manualmente
+                document.querySelector("form").reset(); // Esto reinicia todos los campos del formulario
+            }
+        });
+    </script>
+}
+
+
+
+
+
+
+<style>
+
+    .botones {
+        display: flex;
+        height: 80px;
+        align-content: space-between;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        font-size: larger;
+    }
+
+
+
+    span {
+        font-weight: bolder;
+        font-size: medium;
+        color: red;
+    }
+
+
+
+
+    /* General body style */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'body';
+        background-image: url('@Url.Content("~/Content/images/administrativo.jpg")');
+        background-size: cover;
+        background-repeat: round;
+        background-attachment: fixed;
+        background-color: black;
+    }
+
+    /* Navbar styles */
+    .navbar {
+        background: linear-gradient(to left, #ffffff00 0%, #6f2c91 100%);
+    }
+
+    .navbar-nav .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #fff !important;
+        background-color: #9c4dcc;
+        border-radius: 5px;
+    }
+
+    .navbar-brand, .navbar-toggler-icon {
+        color: #fff !important;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #9c4dcc;
+        border-color: #9c4dcc;
+        color: #fff;
+    }
+
+    /* Custom card style for form container */
+    .card {
+        align-content: center;
+        align-items: baseline;
+        width: 50%;
+        margin: auto;
+        display: flex;
+        color: white;
+        background: rgb(14 11 16 / 43%);
+        /* backdrop-filter: blur(10px); */
+        border-radius: 1rem;
+        border: 1px solid rgb(201 0 255 / 50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Custom button style */
+    .btn-primary {
+        background-color: #6f42c1;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #5a32a3;
+    }
+
+    /* Title animation */
+
+    /* title styles */
+
+
+
+    .titulo {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: white;
+        z-index: 1;
+        padding: 15px 30px; /* Más espacio para acomodar la flecha */
+
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent; /* 40px height (20+20) */
+        border-left: 20px solid #6f42c1 !important
+    }
+
+        .titulo:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #6f42c1;
+            z-index: -1;
+            animation: slideIn 3s forwards;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent; /* 40px height (20+20) */
+            border-left: 20px solid #6f42c1 !important
+        }
+
+        .titulo:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            z-index: -1;
+            width: 0;
+            height: 0;
+        }
+
+    @@keyframes slideIn {
+        from {
+            left: -100%;
+        }
+
+        to {
+            left: 0;
+        }
+    }
+    /*FIN DE TITULO*/
+
+
+
+
+
+
+
+</style>

@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SistemaParqueoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="ID_Bitacora" />
+          </Key>
+          <Property Name="ID_Bitacora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="Hora" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Numero_Placa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Movimiento" Type="int" Nullable="false" />
+          <Property Name="ID_Parqueo" Type="int" Nullable="false" />
+          <Property Name="ID_Tipo" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movimiento">
+          <Key>
+            <PropertyRef Name="ID_Movimiento" />
+          </Key>
+          <Property Name="ID_Movimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo_Movimiento" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parqueo">
+          <Key>
+            <PropertyRef Name="ID_Parqueo" />
+          </Key>
+          <Property Name="ID_Parqueo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Capacidad_Espacios_Regulares" Type="int" Nullable="false" />
+          <Property Name="Capacidad_Espacios_Moto" Type="int" Nullable="false" />
+          <Property Name="Capacidad_Espacios_7600" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Rol" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Vehiculo">
+          <Key>
+            <PropertyRef Name="ID_Tipo" />
+          </Key>
+          <Property Name="ID_Tipo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+          </Key>
+          <Property Name="ID_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido_1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellido_2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Correo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contrasena" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Fecha_Nacimiento" Type="date" Nullable="false" />
+          <Property Name="Identificacion" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Numero_Carne" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ID_Rol" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="ID_Vehiculo" />
+          </Key>
+          <Property Name="ID_Vehiculo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Marca" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Numero_Placa" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID_Tipo" Type="int" Nullable="false" />
+          <Property Name="ID_Usuario" Type="int" Nullable="false" />
+          <Property Name="Espacio_7600" Type="bit" Nullable="false" />
+          <Property Name="Estado" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Bitacora_Movimiento">
+          <End Role="Movimiento" Type="Self.Movimiento" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movimiento">
+              <PropertyRef Name="ID_Movimiento" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="ID_Movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Parqueo">
+          <End Role="Parqueo" Type="Self.Parqueo" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parqueo">
+              <PropertyRef Name="ID_Parqueo" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="ID_Parqueo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Tipo_Vehiculo">
+          <End Role="Tipo_Vehiculo" Type="Self.Tipo_Vehiculo" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Vehiculo">
+              <PropertyRef Name="ID_Tipo" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="ID_Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="ID_Rol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="ID_Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculo_Tipo">
+          <End Role="Tipo_Vehiculo" Type="Self.Tipo_Vehiculo" Multiplicity="1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Vehiculo">
+              <PropertyRef Name="ID_Tipo" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="ID_Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculo_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="ID_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SistemaParqueoModelStoreContainer">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movimiento" EntityType="Self.Movimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parqueo" EntityType="Self.Parqueo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bitacora_Movimiento" Association="Self.FK_Bitacora_Movimiento">
+            <End Role="Movimiento" EntitySet="Movimiento" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Parqueo" Association="Self.FK_Bitacora_Parqueo">
+            <End Role="Parqueo" EntitySet="Parqueo" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Tipo_Vehiculo" Association="Self.FK_Bitacora_Tipo_Vehiculo">
+            <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculo_Tipo" Association="Self.FK_Vehiculo_Tipo">
+            <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculo_Usuario" Association="Self.FK_Vehiculo_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SistemaParqueoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Bitacora">
+          <Key>
+            <PropertyRef Name="ID_Bitacora" />
+          </Key>
+          <Property Name="ID_Bitacora" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Hora" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Numero_Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Movimiento" Type="Int32" Nullable="false" />
+          <Property Name="ID_Parqueo" Type="Int32" Nullable="false" />
+          <Property Name="ID_Tipo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movimiento" Relationship="Self.FK_Bitacora_Movimiento" FromRole="Bitacora" ToRole="Movimiento" />
+          <NavigationProperty Name="Parqueo" Relationship="Self.FK_Bitacora_Parqueo" FromRole="Bitacora" ToRole="Parqueo" />
+          <NavigationProperty Name="Tipo_Vehiculo" Relationship="Self.FK_Bitacora_Tipo_Vehiculo" FromRole="Bitacora" ToRole="Tipo_Vehiculo" />
+        </EntityType>
+        <EntityType Name="Movimiento">
+          <Key>
+            <PropertyRef Name="ID_Movimiento" />
+          </Key>
+          <Property Name="ID_Movimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo_Movimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bitacora" Relationship="Self.FK_Bitacora_Movimiento" FromRole="Movimiento" ToRole="Bitacora" />
+        </EntityType>
+        <EntityType Name="Parqueo">
+          <Key>
+            <PropertyRef Name="ID_Parqueo" />
+          </Key>
+          <Property Name="ID_Parqueo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Capacidad_Espacios_Regulares" Type="Int32" Nullable="false" />
+          <Property Name="Capacidad_Espacios_Moto" Type="Int32" Nullable="false" />
+          <Property Name="Capacidad_Espacios_7600" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bitacora" Relationship="Self.FK_Bitacora_Parqueo" FromRole="Parqueo" ToRole="Bitacora" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="ID_Rol" />
+          </Key>
+          <Property Name="ID_Rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Rol" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Tipo_Vehiculo">
+          <Key>
+            <PropertyRef Name="ID_Tipo" />
+          </Key>
+          <Property Name="ID_Tipo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Bitacora" Relationship="Self.FK_Bitacora_Tipo_Vehiculo" FromRole="Tipo_Vehiculo" ToRole="Bitacora" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Vehiculo_Tipo" FromRole="Tipo_Vehiculo" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="ID_Usuario" />
+          </Key>
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellido_1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Apellido_2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Correo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fecha_Nacimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Identificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Numero_Carne" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Rol" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_Usuario_Rol" FromRole="Usuario" ToRole="Rol" />
+          <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Vehiculo_Usuario" FromRole="Usuario" ToRole="Vehiculo" />
+        </EntityType>
+        <EntityType Name="Vehiculo">
+          <Key>
+            <PropertyRef Name="ID_Vehiculo" />
+          </Key>
+          <Property Name="ID_Vehiculo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Marca" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Numero_Placa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Tipo" Type="Int32" Nullable="false" />
+          <Property Name="ID_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Espacio_7600" Type="Boolean" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Tipo_Vehiculo" Relationship="Self.FK_Vehiculo_Tipo" FromRole="Vehiculo" ToRole="Tipo_Vehiculo" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK_Vehiculo_Usuario" FromRole="Vehiculo" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Bitacora_Movimiento">
+          <End Role="Movimiento" Type="Self.Movimiento" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movimiento">
+              <PropertyRef Name="ID_Movimiento" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="ID_Movimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Parqueo">
+          <End Role="Parqueo" Type="Self.Parqueo" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parqueo">
+              <PropertyRef Name="ID_Parqueo" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="ID_Parqueo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bitacora_Tipo_Vehiculo">
+          <End Role="Tipo_Vehiculo" Type="Self.Tipo_Vehiculo" Multiplicity="1" />
+          <End Role="Bitacora" Type="Self.Bitacora" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Vehiculo">
+              <PropertyRef Name="ID_Tipo" />
+            </Principal>
+            <Dependent Role="Bitacora">
+              <PropertyRef Name="ID_Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="ID_Rol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="ID_Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculo_Tipo">
+          <End Role="Tipo_Vehiculo" Type="Self.Tipo_Vehiculo" Multiplicity="1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Vehiculo">
+              <PropertyRef Name="ID_Tipo" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="ID_Tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehiculo_Usuario">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="ID_Usuario" />
+            </Principal>
+            <Dependent Role="Vehiculo">
+              <PropertyRef Name="ID_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SistemaParqueoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bitacora" EntityType="Self.Bitacora" />
+          <EntitySet Name="Movimiento" EntityType="Self.Movimiento" />
+          <EntitySet Name="Parqueo" EntityType="Self.Parqueo" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Tipo_Vehiculo" EntityType="Self.Tipo_Vehiculo" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="Vehiculo" EntityType="Self.Vehiculo" />
+          <AssociationSet Name="FK_Bitacora_Movimiento" Association="Self.FK_Bitacora_Movimiento">
+            <End Role="Movimiento" EntitySet="Movimiento" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Parqueo" Association="Self.FK_Bitacora_Parqueo">
+            <End Role="Parqueo" EntitySet="Parqueo" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bitacora_Tipo_Vehiculo" Association="Self.FK_Bitacora_Tipo_Vehiculo">
+            <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
+            <End Role="Bitacora" EntitySet="Bitacora" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_Rol" Association="Self.FK_Usuario_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculo_Tipo" Association="Self.FK_Vehiculo_Tipo">
+            <End Role="Tipo_Vehiculo" EntitySet="Tipo_Vehiculo" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehiculo_Usuario" Association="Self.FK_Vehiculo_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Vehiculo" EntitySet="Vehiculo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SistemaParqueoModelStoreContainer" CdmEntityContainer="SistemaParqueoEntities">
+          <EntitySetMapping Name="Bitacora">
+            <EntityTypeMapping TypeName="SistemaParqueoModel.Bitacora">
+              <MappingFragment StoreEntitySet="Bitacora">
+                <ScalarProperty Name="ID_Bitacora" ColumnName="ID_Bitacora" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Hora" ColumnName="Hora" />
+                <ScalarProperty Name="Numero_Placa" ColumnName="Numero_Placa" />
+                <ScalarProperty Name="ID_Movimiento" ColumnName="ID_Movimiento" />
+                <ScalarProperty Name="ID_Parqueo" ColumnName="ID_Parqueo" />
+                <ScalarProperty Name="ID_Tipo" ColumnName="ID_Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movimiento">
+            <EntityTypeMapping TypeName="SistemaParqueoModel.Movimiento">
+              <MappingFragment StoreEntitySet="Movimiento">
+                <ScalarProperty Name="ID_Movimiento" ColumnName="ID_Movimiento" />
+                <ScalarProperty Name="Tipo_Movimiento" ColumnName="Tipo_Movimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parqueo">
+            <EntityTypeMapping TypeName="SistemaParqueoModel.Parqueo">
+              <MappingFragment StoreEntitySet="Parqueo">
+                <ScalarProperty Name="ID_Parqueo" ColumnName="ID_Parqueo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Capacidad_Espacios_Regulares" ColumnName="Capacidad_Espacios_Regulares" />
+                <ScalarProperty Name="Capacidad_Espacios_Moto" ColumnName="Capacidad_Espacios_Moto" />
+                <ScalarProperty Name="Capacidad_Espacios_7600" ColumnName="Capacidad_Espacios_7600" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="SistemaParqueoModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+                <ScalarProperty Name="Nombre_Rol" ColumnName="Nombre_Rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Vehiculo">
+            <EntityTypeMapping TypeName="SistemaParqueoModel.Tipo_Vehiculo">
+              <MappingFragment StoreEntitySet="Tipo_Vehiculo">
+                <ScalarProperty Name="ID_Tipo" ColumnName="ID_Tipo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="SistemaParqueoModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido_1" ColumnName="Apellido_1" />
+                <ScalarProperty Name="Apellido_2" ColumnName="Apellido_2" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="Numero_Carne" ColumnName="Numero_Carne" />
+                <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehiculo">
+            <EntityTypeMapping TypeName="SistemaParqueoModel.Vehiculo">
+              <MappingFragment StoreEntitySet="Vehiculo">
+                <ScalarProperty Name="ID_Vehiculo" ColumnName="ID_Vehiculo" />
+                <ScalarProperty Name="Marca" ColumnName="Marca" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Numero_Placa" ColumnName="Numero_Placa" />
+                <ScalarProperty Name="ID_Tipo" ColumnName="ID_Tipo" />
+                <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+                <ScalarProperty Name="Espacio_7600" ColumnName="Espacio_7600" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

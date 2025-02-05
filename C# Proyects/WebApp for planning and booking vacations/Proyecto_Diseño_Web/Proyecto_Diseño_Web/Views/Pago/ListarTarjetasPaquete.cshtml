@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Proyecto_Diseño_Web.Models.TableViewModels.TarjetasTVM>
+@{
+    ViewBag.Title = "Mis Tarjetas";
+}
+
+<main>
+    <h2>Mis Tarjetas</h2>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    @if (!Model.Any())
+    {
+        <p>No tienes tarjetas registradas.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Número de Tarjeta</th>
+                    <th>Fecha de Vencimiento</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tarjeta in Model)
+                {
+                    <tr>
+                        <td>**** **** **** @tarjeta.Numero_de_tarjeta.ToString().Substring(12, 4)</td>
+                        <td>@tarjeta.Fecha_de_vencimiento.ToString("MM/yyyy")</td>
+                        <td>
+                            @using (Html.BeginForm("EliminarTarjetaPaquete", "Pago", FormMethod.Post))
+                            {
+                                <input type="hidden" name="idTarjeta" value="@tarjeta.IdTarjeta" />
+                                <input type="hidden" name="idPaquete" value="@ViewBag.IdPaquete" />
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    <a href="@Url.Action("CrearTarjetaPaquete", "Pago", new { idPaquete = ViewBag.IdPaquete })" class="btn btn-secondary">Volver</a>
+</main>

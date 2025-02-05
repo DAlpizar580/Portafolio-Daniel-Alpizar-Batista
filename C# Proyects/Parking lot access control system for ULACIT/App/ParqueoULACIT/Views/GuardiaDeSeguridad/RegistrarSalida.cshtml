@@ -1,0 +1,286 @@
+﻿
+@{
+    ViewBag.Title = "RegistrarSalida";
+    Layout = "~/Views/Shared/_LayoutGuardia.cshtml";
+}
+
+<title>Registrar Salida</title>
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <h2 class="titulo">Registrar Salida de Vehículo</h2>
+
+    <div class="fix card row">
+        <form action="~/GuardiaDeSeguridad/RegistrarSalida" method="post">
+            <label for="placa">Número de Placa:</label>
+            <input type="text" id="placa" name="placa" required>
+            <label>Tipo de Vehiculo:</label>
+            <select id="tipo" name="tipo" required>
+                <option value="1">Carro</option>
+                <option value="2">Moto</option>
+            </select>
+            <button type="submit">Registrar Salida</button>
+        </form>
+        <br>
+        <div>
+            @if (ViewBag.Mensaje != null && ViewBag.Mensaje != "Salida registrada exitosamente.")
+            {
+                //<p>@ViewBag.Mensaje</p>
+                {
+                    <script>
+                // Asegura que el script de SweetAlert solo se ejecute si hay un error
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '@Html.Raw(@ViewBag.Mensaje)',  /*esta linea es para que salga la Ñ sino no saldria */
+
+                });
+                    </script>
+                }
+
+            }
+
+
+           
+            
+            
+            
+            
+@if (ViewBag.Mensaje != null && ViewBag.Mensaje == "Salida registrada exitosamente.")
+{
+
+    {
+                    <script>
+  Swal.fire({
+    icon: 'success',
+    title: '¡Éxito!',
+    text: '@Html.Raw(ViewBag.Mensaje)', /* Esto maneja caracteres especiales como la Ñ */
+});
+        </script>
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+    </div>
+</body>
+
+
+<style>
+
+    .fix {
+        display: flex;
+        padding: 109px !important;
+        justify-content: center;
+    }
+
+
+
+    /* Custom card style for form container */
+    .card {
+        text-align: center;
+        font-size: larger;
+        align-items: center;
+        width: 480px;
+        margin: auto;
+        padding: 30px;
+        display: flex;
+        color: white;
+        background: rgb(14 11 16 / 43%);
+        backdrop-filter: blur(10px);
+        border-radius: 1rem;
+        border: 1px solid rgb(201 0 255 / 50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+    }
+
+    /* Estilos personalizados para la barra de navegación */
+    .navbar {
+        background: linear-gradient(to left, #ffffff00 0%, #6f2c91 100%);
+    }
+
+    .navbar-nav .nav-link {
+        color: #fff !important; /* Texto blanco */
+        font-weight: 500; /* Levele de peso en el texto */
+        transition: color 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff !important; /* Mantener texto blanco */
+            background-color: #9c4dcc; /* Color morado más claro en hover */
+            border-radius: 5px; /* Bordes redondeados al hacer hover */
+        }
+
+    .navbar-brand {
+        color: #fff !important; /* Color blanco para la marca */
+        font-size: 1.5rem; /* Tamaño de fuente más grande */
+        font-weight: bold; /* Negrita para el texto */
+    }
+
+    .navbar-toggler {
+        border-color: #fff; /* Color blanco para el botón de navegación */
+    }
+
+    .navbar-toggler-icon {
+        background-color: #fff; /* Color blanco para el icono de menú */
+    }
+
+    .btn-outline-secondary {
+        border-color: #fff; /* Borde blanco para el botón de cerrar sesión */
+        color: #fff; /* Texto blanco */
+        transition: color 0.3s ease, border-color 0.3s ease; /* Transiciones suaves */
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #9c4dcc; /* Fondo morado al hacer hover */
+            border-color: #9c4dcc; /* Borde morado al hacer hover */
+            color: #fff; /* Texto blanco */
+        }
+
+    .navbar-collapse {
+        justify-content: flex-end; /* Alineación a la derecha */
+    }
+
+
+
+        body {
+        margin: 0;
+        padding: 0;
+        color: black;
+        font-family: 'body';
+        background-image: url('@Url.Content("~/Content/images/parqueo.jpg")');
+        background-size: cover;
+        background-repeat: round;
+        background-attachment: fixed;
+        background-color: black;
+    }
+
+
+    @@media (min-width: 576px) {
+        .navbar-expand-sm .navbar-nav {
+            flex-direction: row-reverse;
+        }
+    }
+
+
+
+    .titulo {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: white;
+        z-index: 1;
+        padding: 15px 30px; /* Más espacio para acomodar la flecha */
+
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent; /* 40px height (20+20) */
+        border-left: 20px solid #6f42c1 !important
+    }
+
+        .titulo:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #6f42c1;
+            z-index: -1;
+            animation: slideIn 3s forwards;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent; /* 40px height (20+20) */
+            border-left: 20px solid #6f42c1 !important
+        }
+
+        .titulo:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            z-index: -1;
+            width: 0;
+            height: 0;
+        }
+
+    @@keyframes slideIn {
+        from {
+            left: -100%;
+        }
+
+        to {
+            left: 0;
+        }
+    }
+
+
+
+
+
+    /* Estilo general para inputs */
+    input[type="text"], select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0 20px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.9);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        input[type="text"]:focus, select:focus {
+            border-color: #6f2c91;
+            box-shadow: 0 0 5px rgba(111, 44, 145, 0.5);
+            outline: none;
+        }
+
+    /* Estilo para botones */
+    button[type="submit"] {
+        width: 100%;
+        background-color: #6f2c91;
+        color: white;
+        padding: 12px 20px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #9c4dcc;
+            transform: scale(1.05);
+        }
+
+        button[type="submit"]:active {
+            background-color: #520b6d;
+        }
+
+    /* Estilo para el contenedor del formulario */
+    form {
+        width: 100%;
+    }
+
+</style>
+

@@ -1,0 +1,307 @@
+﻿@model ParqueoULACIT.Models.ViewModel.VehiculoViewModel
+@{
+    ViewBag.Title = "Registro de Vehículo";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2 class="titulo">
+    Registro de Vehículo</h2>
+
+@using (Html.BeginForm("Add", "Vehiculo", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+{
+    <div class="card row">
+        <div>
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Numero_Placa, "Placa")
+                @Html.TextBoxFor(model => model.Numero_Placa, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Numero_Placa)
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.ID_Tipo, new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.ID_Tipo,
+                    new SelectList(Model.TiposVehiculo, "ID_Tipo", "Tipo"),
+                    "Seleccione un tipo",
+                    new { @class = "form-control", id = "ddlTipoVehiculo" })
+                @Html.ValidationMessageFor(model => model.ID_Tipo, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Marca, "Marca")
+                @Html.DropDownList("Marca", (SelectList)ViewBag.Marca, "Selecciona una marca", new { @class = "form-control", id = "ddlMarcas" })
+                @Html.ValidationMessageFor(model => model.Marca)
+            </div>
+        </div>
+
+        <div>
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Color)
+                @Html.TextBoxFor(model => model.Color, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Color)
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.ID_Usuario, new { @class = "form-label" })
+                @Html.DropDownListFor(model => model.ID_Usuario,
+                    new SelectList(Model.Usuarios, "ID_Usuario", "DescripcionUsuario"),
+                    "Seleccione un propietario",
+                    new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ID_Usuario, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group mb-3">
+                @Html.LabelFor(model => model.Espacio_7600, "Requiere espacio Ley 7600")
+                @Html.CheckBoxFor(model => model.Espacio_7600)
+                @Html.ValidationMessageFor(model => model.Espacio_7600)
+            </div>
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-danger" onclick="document.location.href = '@Url.Content("~/Vehiculo/Index")'">Regresar</button>
+
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var ddlTipoVehiculo = $('#ddlTipoVehiculo');
+            var ddlMarcas = $('#ddlMarcas');
+
+            // Mensaje de Error
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <text>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: '@TempData["ErrorMessage"]'
+                    });
+                </text>
+            }
+
+            // Mensaje de Éxito
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <text>
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Éxito!',
+                        text: '@TempData["SuccessMessage"]'
+                    });
+                </text>
+            }
+
+
+            // Llamar a ObtenerMarcas cuando el tipo de vehículo ya esté seleccionado
+            var selectedTipo = ddlTipoVehiculo.val();
+            if (selectedTipo) {
+                cargarMarcas(selectedTipo);
+            }
+
+            ddlTipoVehiculo.change(function() {
+                cargarMarcas($(this).val());
+            });
+
+            function cargarMarcas(idTipo) {
+                $.getJSON('@Url.Action("ObtenerMarcas", "Vehiculo")', { idTipo: idTipo }, function(data) {
+                    ddlMarcas.empty();
+                    ddlMarcas.append($('<option></option>').val('').text('Selecciona una marca'));
+                    $.each(data, function(i, marca) {
+                        ddlMarcas.append($('<option></option>').val(marca).text(marca));
+                    });
+
+                    // Seleccionar la marca previamente seleccionada si existe
+                    var selectedMarca = '@Model.Marca';
+                    if (selectedMarca) {
+                        ddlMarcas.val(selectedMarca);
+                    }
+                });
+            }
+        });
+    </script>
+}
+
+
+
+<style>
+
+    /* Title animation */
+    .titulo {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: white;
+        z-index: 1;
+        padding: 15px;
+    }
+
+    .titulo {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: white;
+        z-index: 1;
+        padding: 15px 30px; /* Más espacio para acomodar la flecha */
+
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent; /* 40px height (20+20) */
+        border-left: 20px solid #6f42c1 !important
+    }
+
+        .titulo:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #6f42c1;
+            z-index: -1;
+            animation: slideIn 3s forwards;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent; /* 40px height (20+20) */
+            border-left: 20px solid #6f42c1 !important
+        }
+
+        .titulo:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            z-index: -1;
+            width: 0;
+            height: 0;
+        }
+
+    @@keyframes slideIn {
+        from {
+            left: -100%;
+        }
+
+        to {
+            left: 0;
+        }
+    }
+
+
+    /* Custom card style for form container */
+    .card {
+        padding : 30px;
+        margin-top: 5%;
+        align-items: center;
+        width: 31%;
+        display: flex;
+        color: white;
+        background: rgb(14 11 16 / 43%);
+        /* backdrop-filter: blur(10px); */
+        border-radius: 1rem;
+        border: 1px solid rgb(201 0 255 / 50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+    }
+    /* Estilos personalizados para la barra de navegación */
+    .navbar {
+        background: linear-gradient(to left, #ffffff00 0%, #6f2c91 100%);
+    }
+
+    .navbar-nav .nav-link {
+        color: #fff !important; /* Texto blanco */
+        font-weight: 500; /* Levele de peso en el texto */
+        transition: color 0.3s ease, background-color 0.3s ease; /* Transiciones suaves */
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: #fff !important; /* Mantener texto blanco */
+            background-color: #9c4dcc; /* Color morado más claro en hover */
+            border-radius: 5px; /* Bordes redondeados al hacer hover */
+        }
+
+    .navbar-brand {
+        color: #fff !important; /* Color blanco para la marca */
+        font-size: 1.5rem; /* Tamaño de fuente más grande */
+        font-weight: bold; /* Negrita para el texto */
+    }
+
+    .navbar-toggler {
+        border-color: #fff; /* Color blanco para el botón de navegación */
+    }
+
+    .navbar-toggler-icon {
+        background-color: #fff; /* Color blanco para el icono de menú */
+    }
+
+    .btn-outline-secondary {
+        border-color: #fff; /* Borde blanco para el botón de cerrar sesión */
+        color: #fff; /* Texto blanco */
+        transition: color 0.3s ease, border-color 0.3s ease; /* Transiciones suaves */
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #9c4dcc; /* Fondo morado al hacer hover */
+            border-color: #9c4dcc; /* Borde morado al hacer hover */
+            color: #fff; /* Texto blanco */
+        }
+
+    .navbar-collapse {
+        justify-content: flex-end; /* Alineación a la derecha */
+    }
+
+    @@font-face {
+        font-family: 'body';
+        src: url('@Url.Content("~/Content/Font/Roboto-Regular.otf")') format('opentype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        color: black;
+        font-family: 'body';
+        background-image: url('@Url.Content("~/Content/images/carro.jpg")');
+        background-size: cover;
+        background-repeat: round;
+        background-attachment: fixed;
+        background-color: black;
+    }
+
+
+
+    .btn-primary {
+        background-color: #6f42c1;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #5a32a3;
+    }
+    /* Custom card style for form container */
+    .card {
+        align-items: center;
+        width: 480px;
+        margin: auto;
+        display: flex;
+        color: white;
+        background: rgb(14 11 16 / 43%);
+        /* backdrop-filter: blur(10px); */
+        border-radius: 1rem;
+        border: 1px solid rgb(201 0 255 / 50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+    }
+</style>
+

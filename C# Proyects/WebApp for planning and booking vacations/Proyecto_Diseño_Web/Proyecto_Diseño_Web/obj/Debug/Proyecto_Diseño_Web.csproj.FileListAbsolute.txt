@@ -1,0 +1,234 @@
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Proyecto_Diseño_Web.dll.config
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Proyecto_Diseño_Web.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Proyecto_Diseño_Web.pdb
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csc.exe
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csc.exe.config
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csc.rsp
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csi.exe
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csi.exe.config
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csi.rsp
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.AppContext.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Collections.Immutable.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Console.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Globalization.Calendars.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.IO.Compression.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.IO.FileSystem.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Net.Http.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Net.Sockets.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.ValueTuple.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Xml.XPath.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\vbc.exe
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\vbc.exe.config
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\vbc.rsp
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\VBCSCompiler.exe
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\VBCSCompiler.exe.config
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Antlr3.Runtime.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\EntityFramework.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Auth.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Core.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Oauth2.v2.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.Bson.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Buffers.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.CodeDom.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Memory.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Net.Http.Formatting.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Numerics.Vectors.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Threading.Tasks.Extensions.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Helpers.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Mvc.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Optimization.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Razor.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.Deployment.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.Razor.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\WebGrease.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\EntityFramework.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.pdb
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Auth.pdb
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Auth.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Core.pdb
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Core.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Oauth2.v2.pdb
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Oauth2.v2.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.Bson.pdb
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.Bson.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Buffers.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.CodeDom.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Memory.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Net.Http.Formatting.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Numerics.Vectors.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Threading.Tasks.Extensions.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Helpers.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Mvc.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Optimization.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Razor.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.Deployment.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.Razor.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Antlr3.Runtime.pdb
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.Helpers.resources.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.Mvc.resources.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.Optimization.resources.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.Razor.resources.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.WebPages.resources.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.WebPages.Deployment.resources.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.WebPages.Razor.resources.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto_Diseño_Web.csproj.AssemblyReference.cache
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto_Diseño_Web.csproj.CoreCompileInputs.cache
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto.95B0F096.Up2Date
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto_Diseño_Web.dll
+E:\Documentos\Cosas de la U\ULACIT\2024\Desarrollo Web\Proyecto_Diseno_Web\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto_Diseño_Web.pdb
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Proyecto_Diseño_Web.dll.config
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Proyecto_Diseño_Web.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Proyecto_Diseño_Web.pdb
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csc.exe
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csc.exe.config
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csc.rsp
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csi.exe
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csi.exe.config
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\csi.rsp
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.AppContext.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Collections.Immutable.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Console.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Globalization.Calendars.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.IO.Compression.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.IO.FileSystem.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Net.Http.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Net.Sockets.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Reflection.Metadata.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.ValueTuple.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Xml.XPath.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\vbc.exe
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\vbc.exe.config
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\vbc.rsp
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\VBCSCompiler.exe
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\roslyn\VBCSCompiler.exe.config
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Antlr3.Runtime.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\EntityFramework.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Auth.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Core.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Oauth2.v2.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.Bson.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Buffers.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.CodeDom.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Memory.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Net.Http.Formatting.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Numerics.Vectors.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Threading.Tasks.Extensions.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Helpers.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Mvc.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Optimization.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Razor.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.Deployment.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.Razor.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\WebGrease.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\EntityFramework.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.pdb
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Auth.pdb
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Auth.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Core.pdb
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Core.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Oauth2.v2.pdb
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Google.Apis.Oauth2.v2.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.Bson.pdb
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.Bson.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Buffers.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.CodeDom.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Memory.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Net.Http.Formatting.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Numerics.Vectors.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Threading.Tasks.Extensions.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Helpers.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Mvc.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Optimization.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.Razor.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.Deployment.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\System.Web.WebPages.Razor.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Newtonsoft.Json.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Antlr3.Runtime.pdb
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.Helpers.resources.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.Mvc.resources.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.Optimization.resources.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.Razor.resources.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.WebPages.resources.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.WebPages.Deployment.resources.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\bin\es\System.Web.WebPages.Razor.resources.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto_Diseño_Web.csproj.AssemblyReference.cache
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto_Diseño_Web.csproj.CoreCompileInputs.cache
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto.95B0F096.Up2Date
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto_Diseño_Web.dll
+E:\Documentos\Portafolio\Portafolio-Daniel-Alpizar-Batista\C# Proyects\WebApp for planning and booking vacations\Proyecto_Diseño_Web\Proyecto_Diseño_Web\obj\Debug\Proyecto_Diseño_Web.pdb

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Ingresar Cédula";
+}
+
+<h2>Ingrese su Cédula para Continuar</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.Error))
+{
+    <div style="color:red;">
+        @ViewBag.Error
+    </div>
+}
+
+<form action="/Usuario/SolicitarCedulaGoogle" method="post">
+    <label for="Cedula">Cédula:</label>
+    <input type="text" id="Cedula" name="cedula" required />
+    <br />
+    <button type="submit">Continuar</button>
+</form>

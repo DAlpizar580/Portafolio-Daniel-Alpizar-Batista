@@ -1,0 +1,2 @@
+For this environment to work, the tables padron_completo and Telefonos_General must be imported using the files in their respective folders.
+In addition, the tables and fields in the tables must be named the same as those used in the stored procedures that involve them.

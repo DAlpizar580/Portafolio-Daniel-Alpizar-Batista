@@ -1,0 +1,76 @@
+﻿@model Proyecto_Diseño_Web.Models.TableViewModels.ActividadesDestinoTVM
+@{
+    ViewBag.Title = "Edit Activity";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+<main>
+    <h2>Edit Activity</h2>
+
+    @using (Html.BeginForm("Edit", "ActividadesDestino", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Activity</h4>
+    <hr />
+
+    @if (Model == null)
+    {
+        <p class="text-danger">No existe la actividad.</p>
+    }
+    else
+    {
+        @Html.HiddenFor(model => model.IdActividad)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Precio, new { @class = "form-control", type = "number" })
+                @Html.ValidationMessageFor(model => model.Precio, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Fecha, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+                @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descuento, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Descuento, new { @class = "form-control", type = "number", step = "0.01", min = "0" })
+                @Html.ValidationMessageFor(model => model.Descuento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Destinos_IdDestino)
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+</div>
+    }
+</main>

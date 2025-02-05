@@ -1,0 +1,65 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.ResenaTVM>
+@{
+    ViewBag.Title = "Reseñas del Destino";
+    var userId = Convert.ToDecimal(Session["UserId"]);
+}
+
+<main>
+    <h2 class="mt-4">Reseñas del Destino</h2><hr />
+    <br />
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Error"]
+        </div>
+    }
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Crear", "Resenas", new { idDestino = Model[0].Destinos_IdDestino })'">
+                Crear Reseña
+            </button>
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() == 0)
+    {
+                <p>No hay reseñas</p>
+    }
+    else
+    {
+    <div class="mt-4">
+        <h3>Mis Reseñas</h3>
+        @foreach (var reseña in Model.Where(r => r.Usuarios_Id == userId))
+        {
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Calificación: @reseña.Calificacion</h5>
+                    <p class="card-text">Comentario: @reseña.Comentario</p>
+                    <p class="card-text">Usuario: @reseña.UsuarioNombre</p>
+                    @using (Html.BeginForm("EliminarResena", "Resenas", new { idReseña = reseña.IdReseña }, FormMethod.Post))
+                    {
+                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                    }
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="mt-4">
+        <h3>Otras Reseñas</h3>
+        @foreach (var reseña in Model.Where(r => r.Usuarios_Id != userId))
+        {
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5 class="card-title">Calificación: @reseña.Calificacion</h5>
+                    <p class="card-text">Comentario: @reseña.Comentario</p>
+                    <p class="card-text">Usuario: @reseña.UsuarioNombre</p>
+                </div>
+            </div>
+        }
+    </div>
+    }
+</main>
+

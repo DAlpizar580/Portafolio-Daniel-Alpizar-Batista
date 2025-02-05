@@ -1,0 +1,39 @@
+﻿@model Proyecto_Diseño_Web.Models.ViewModels.CompletarInformacionViewModel
+@{
+    ViewBag.Title = "CompletarInformacion";
+}
+
+
+
+
+<h2>Completar Información</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label>Nombre</label>
+        @Html.TextBoxFor(m => m.Nombre, new { @readonly = "readonly" })
+    </div>
+    <div>
+        <label>Apellidos</label>
+        @Html.TextBoxFor(m => m.Apellidos, new { @readonly = "readonly" })
+    </div>
+    <div>
+        <label>Correo</label>
+        @Html.TextBoxFor(m => m.Correo, new { @readonly = "readonly" })
+    </div>
+    <div>
+        <label>Teléfono</label>
+        @Html.TextBoxFor(m => m.Telefono, new { placeholder = "Ingrese su teléfono" })
+    </div>
+    <div>
+        <label>Fecha de Nacimiento</label>
+        @Html.TextBoxFor(m => m.Fecha_de_nacimiento, new { type = "date" })
+    </div>
+    <div>
+        <label>Género</label>
+        @Html.DropDownListFor(m => m.Genero, new SelectList(new[] { "M", "F", "O" }, "O"))
+    </div>
+    <button type="submit">Guardar</button>
+}
+

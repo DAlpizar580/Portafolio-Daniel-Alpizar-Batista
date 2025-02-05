@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="42f6a92a7f564f0fafd92ef34d64b9f0" Name="Diagram1">
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Actividades_Destino" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Descuentos" Width="1.5" PointX="5.25" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Destinos" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Itinerarios" Width="1.5" PointX="3" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Paquetes_de_viaje" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Reseñas" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Reservas" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Tarjetas" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Usuarios" Width="1.5" PointX="3.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Actividades_Itinerario" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Proyecto_Final_Diseño_WebModel.Actividades_Paquete" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Actividades_Destino_Destinos_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Actividades_Itinerario_Actividades_Destino_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Actividades_Paquete_Actividades_Destino_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Descuentos_Actividades_Destino_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Reservas_Actividad_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Actividades_Itinerario_Destinos_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Paquetes_de_viaje_Destinos_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Reseñas_Destinos_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Actividades_Itinerario_Itinerarios_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Itinerarios_Usuarios_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Actividades_Paquete_Paquetes_de_viaje_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Reseñas_Usuarios_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Reservas_Usuarios_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Proyecto_Final_Diseño_WebModel.Tarjetas_Usuarios_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

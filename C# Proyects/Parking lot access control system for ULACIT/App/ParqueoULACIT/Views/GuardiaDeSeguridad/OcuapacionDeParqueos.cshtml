@@ -1,0 +1,290 @@
+﻿@model List<ParqueoULACIT.Models.TableViewModel.Ocupacion>
+@{
+    var parqueoActual = ViewBag.ParqueoActual as ParqueoULACIT.Models.TableViewModel.Ocupacion;
+    Layout = "~/Views/Shared/_LayoutGuardia.cshtml";
+}
+
+<h2 class="titulo">Parqueo Actual</h2>
+
+@if (parqueoActual != null)
+{
+    <div class="card">
+        <h3>@parqueoActual.NombreParqueo</h3>
+        <table border="1" style=text-align:center; width="90%" margin-bottom:20px;" class="table table-striped ">
+            <thead>
+                <tr>
+                    <th>Tipo de Espacio</th>
+                    <th>Capacidad Total</th>
+                    <th>Espacios Ocupados</th>
+                    <th>Espacios Disponibles</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tipo in parqueoActual.EspaciosOcupados)
+                {
+                    <tr>
+                        <td>@tipo[0]</td> <!-- Nombre del Tipo de Espacio -->
+                        <td>@tipo[1]</td> <!-- Capacidad Total -->
+                        <td>@tipo[2]</td> <!-- Espacios Ocupados -->
+                        <td>@tipo[3]</td> <!-- Espacios Disponibles -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>No se ha asignado un parqueo actual para este usuario.</p>
+}
+
+<h2 class="titulo">Otros Parqueos</h2>
+
+@foreach (var ocupacion in Model)
+{
+    <div class="card">
+        <h3>@ocupacion.NombreParqueo</h3>
+        <table border="1" style= text-align:center; width="90%"; margin-bottom:20px;" class="table table-striped ">
+            <thead>
+                <tr>
+                    <th>Tipo de Espacio</th>
+                    <th>Capacidad Total</th>
+                    <th>Espacios Ocupados</th>
+                    <th>Espacios Disponibles</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tipo in ocupacion.EspaciosOcupados)
+                {
+                    <tr>
+                        <td>@tipo[0]</td> <!-- Nombre del Tipo de Espacio -->
+                        <td>@tipo[1]</td> <!-- Capacidad Total -->
+                        <td>@tipo[2]</td> <!-- Espacios Ocupados -->
+                        <td>@tipo[3]</td> <!-- Espacios Disponibles -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<style>
+
+            /* General body style */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'body';
+        background-image: url('@Url.Content("~/Content/images/ocupacionParqueos.jpg")');
+        background-size: cover;
+        background-repeat: round;
+        background-attachment: fixed;
+        background-color: black;
+        backdrop-filter: blur(4px);
+    }
+
+    /* Navbar styles */
+    .navbar {
+        background: linear-gradient(to left, #ffffff00 0%, #6f2c91 100%);
+    }
+
+    .navbar-nav .nav-link {
+        color: #fff !important;
+        font-weight: 500;
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: #fff !important;
+        background-color: #9c4dcc;
+        border-radius: 5px;
+    }
+
+    .navbar-brand, .navbar-toggler-icon {
+        color: #fff !important;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #9c4dcc;
+        border-color: #9c4dcc;
+        color: #fff;
+    }
+
+    /* Custom card style for form container */
+    .card {
+        padding:20px;
+        align-items: center;
+        
+        margin: auto; 
+        margin-bottom: 15px;
+        display: flex;
+        color: white;
+        background: rgb(14 11 16 / 43%);
+        /* backdrop-filter: blur(10px); */
+        border-radius: 1rem;
+        border: 1px solid rgb(201 0 255 / 50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+    }
+
+    /* Custom button style */
+    .btn-primary {
+        background-color: #6f42c1;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #5a32a3;
+    }
+
+    /* Title animation */
+.titulo {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: white;
+    z-index: 1;
+    padding: 15px;
+}
+
+    .titulo {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+        font-weight: bold;
+        color: white;
+        z-index: 1;
+        padding: 15px 30px; /* Más espacio para acomodar la flecha */
+
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent; /* 40px height (20+20) */
+        border-left: 20px solid #6f42c1 !important
+    }
+
+        .titulo:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #6f42c1;
+            z-index: -1;
+            animation: slideIn 3s forwards;
+            border-top: 20px solid transparent;
+            border-bottom: 20px solid transparent; /* 40px height (20+20) */
+            border-left: 20px solid #6f42c1 !important
+        }
+
+        .titulo:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+
+            z-index: -1;
+            width: 0;
+            height: 0;
+
+
+        }
+
+@@keyframes slideIn {
+    from { left: -100%; }
+    to { left: 0; }
+}
+
+
+    /*ESTILOS DE TABLA*/
+    .table-striped > tbody > tr:nth-of-type(odd) > * {
+        color: white !important;
+        --bs-table-color-type: var(--bs-table-striped-color);
+        --bs-table-bg-type: var(--bs-table-striped-bg);
+    }
+
+    .table-striped > tbody > tr:nth-of-type(odd) > * {
+        --bs-table-accent-bg: var(--bs-table-striped-bg);
+        /* color: var(--bs-table-striped-color); */
+    }
+
+    table.table-striped th, table.table-striped td {
+        /* padding: 15px; */
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #fff;
+    }
+
+    .table > :not(caption) > * > * {
+        /* padding: .5rem .5rem; */
+        /* color: var(--bs-table-color-state, var(--bs-table-color-type, var(--bs-table-color))); */
+        /* background-color: var(--bs-table-bg); */
+        /* border-bottom-width: var(--bs-border-width); */
+        /* box-shadow: inset 0 0 0 9999px var(--bs-table-bg-state, var(--bs-table-bg-type, var(--bs-table-accent-bg))); */
+    }
+
+    .table > thead {
+        background-color: #6f42c1 !important;
+    }
+
+    .table > tbody {
+        background-color: #000000cc;
+    }
+
+    .table > :not(caption) > * > * {
+        font-size: large;
+        font-weight: bold;
+        text-align: center;
+        padding: 0.5rem 0.5rem;
+        background-color: var(--bs-table-bg);
+        border-bottom-width: 1px;
+        box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
+    }
+
+    tbody, td, tfoot, th, thead, tr {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+    }
+
+    thead, tbody, tfoot, tr, td, th {
+        border-color: inherit;
+        border-style: solid;
+        border-width: 0;
+    }
+
+
+
+    *, ::after, ::before {
+        box-sizing: border-box;
+    }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+    user agent stylesheet
+    td {
+        display: table-cell;
+        vertical-align: inherit;
+        unicode-bidi: isolate;
+    }
+
+    table.table-striped {
+        width: 100%;
+        border-collapse: collapse;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+
+
+
+
+
+</style>

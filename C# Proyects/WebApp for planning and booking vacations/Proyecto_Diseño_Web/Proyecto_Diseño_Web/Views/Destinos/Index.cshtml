@@ -1,0 +1,66 @@
+﻿@model Proyecto_Diseño_Web.Models.TableViewModels.DestinosTVM
+@{
+    ViewBag.Title = Model.Nombre;
+}
+
+<main class="product-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                @if (Model.Imagen != null)
+                {
+                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Imagen)" alt="@Model.Nombre" class="img-fluid" />
+                }
+                else
+                {
+                    <p>No hay una imagen disponible para este destino.</p>
+                }
+            </div>
+            <div class="col-md-6">
+                <h1>@Model.Nombre</h1>
+                <p><strong>Provincia:</strong> @Model.Provincia</p>
+                <p><strong>Categoría:</strong> @Model.Categoria</p>
+                <p><strong>Descripción:</strong> @Model.Descripcion</p>
+                <p><strong>Dirección:</strong> @Model.Direccion</p>
+                <p><strong>Precio:</strong> ₡@Model.Precio_Minimo - ₡@Model.Precio_Maximo</p>
+
+                <div class="actions mt-4">
+                    <a href="@Url.Action("ActividadesReservar", "ActividadesDestino", new { idDestino = Model.IdDestino })" class="btn btn-primary">
+                        Ver Actividades
+                    </a>
+                    <a href="@Url.Action("PaquetesReservar", "PaquetesDeViaje", new { idDestino = Model.IdDestino })" class="btn btn-secondary">
+                        Ver Paquetes de Viaje
+                    </a>
+                    <a href="@Url.Action("VerResenas", "Resenas", new { idDestino = Model.IdDestino })" class="btn btn-secondary">
+                        Ver Reseñas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<style>
+    .product-page {
+        margin-top: 20px;
+    }
+
+        .product-page .img-fluid {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-page h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .product-page .actions .btn {
+            margin-right: 10px;
+        }
+</style>
+
+

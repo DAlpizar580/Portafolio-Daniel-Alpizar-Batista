@@ -1,0 +1,12 @@
+DNS 192.168.3.66
+EMAIL 192.168.3.42   /  correo.com
+IOT 192.168.3.114   /  user = redes password = redes
+DHCP 192.168.3.138
+HTTP 1 192.168.3.59   / dirección = http1.com
+HTTP 2 192.168.3.122  / dirección = http2.com
+HTTP 3 192.168.3.130  / dirección = http3.com
+
+
+
+
+

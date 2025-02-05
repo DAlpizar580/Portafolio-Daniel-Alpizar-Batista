@@ -1,0 +1,51 @@
+﻿@model Proyecto_Diseño_Web.Models.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Usuario/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="wrapper">
+        @using (Html.BeginForm("Verify", "Usuario", FormMethod.Post))
+        {
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" name="Correo" placeholder="Username" required />
+                <i class='bx bxs-user'></i>
+            </div>
+
+            <div class="input-box">
+                <input type="password" name="Contraseña" placeholder="Password" required />
+                <i class='bx bxs-lock-alt'></i>
+            </div>
+
+            <div class="remember-forgot">
+                <a href="@Url.Action("RecuperarContrasena", "Usuario")">Forgot password</a>
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+            @*<div class="google-login">
+                <a href="@Url.Action("SolicitarCedulaGoogle", "Usuario")" class="btn-google">Login with Google</a>
+            </div>*@
+
+            <div class="register-link">
+                <p>Don't have an account? @Html.ActionLink("Register", "Registro", "Usuario")</p>
+            </div>
+        }
+        @if (ViewBag.Error != null)
+        {
+            <p style="color:red;">@ViewBag.Error</p>
+        }
+    </div>
+</body>
+</html>

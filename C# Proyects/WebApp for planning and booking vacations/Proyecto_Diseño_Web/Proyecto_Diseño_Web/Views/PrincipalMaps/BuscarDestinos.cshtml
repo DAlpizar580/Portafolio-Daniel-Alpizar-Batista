@@ -1,0 +1,74 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.DestinosTVM>
+
+@{
+    ViewBag.Title = "Búsqueda de Destinos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <h2 class="mt-4">Búsqueda de Destinos</h2>
+    <hr />
+    <!-- Formulario de búsqueda -->
+    <div>
+        @using (Html.BeginForm("BuscarDestinos", "PrincipalMaps", FormMethod.Get))
+        {
+            <div class="form-group">
+                <b>Buscar por:</b>
+                @Html.RadioButton("searchBy", "Nombre", true) Nombre
+                @Html.RadioButton("searchBy", "Provincia") Provincia
+                @Html.RadioButton("searchBy", "Categoria") Categoría
+                @Html.RadioButton("searchBy", "Precio_Minimo") Precio Mínimo
+                @Html.RadioButton("searchBy", "Precio_Maximo") Precio Máximo
+            </div>
+            <div class="form-group">
+                @Html.TextBox("search", "", htmlAttributes: new { @class = "form-control", placeholder = "Ingrese el término de búsqueda" })
+            </div>
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        }
+    </div>
+
+    <hr />
+
+    <!-- Resultados de la búsqueda -->
+    <div class="row">
+        @if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-warning">@ViewBag.ErrorMessage</div>
+        }
+        else if (Model != null && Model.Any())
+        {
+            foreach (var destino in Model)
+            {
+                <div class="col-md-3">
+                    <div class="card">
+                        @if (destino.Imagen != null)
+                        {
+                            <img class="card-img-top"
+                                 src="data:image/jpeg;base64,@Convert.ToBase64String(destino.Imagen)"
+                                 alt="@destino.Nombre" style="width:100%; height:150px;">
+                        }
+                        else
+                        {
+                            <div class="bg-secondary d-flex justify-content-center align-items-center"
+                                 style="width:100%; height:150px;">
+                                <span class="text-white">Sin Imagen</span>
+                            </div>
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@destino.Nombre</h5>
+                            <p class="card-text">Provincia: @destino.Provincia</p>
+                            <p class="card-text">Categoría: @destino.Categoria</p>
+                            <p class="card-text">Precio Mínimo: @destino.Precio_Minimo</p>
+                            <p class="card-text">Precio Máximo: @destino.Precio_Maximo</p>
+                            <p class="card-text">Dirección: @destino.Direccion</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="alert alert-info">No hay destinos disponibles para mostrar.</div>
+        }
+    </div>
+</main>

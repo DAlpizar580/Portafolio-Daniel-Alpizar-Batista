@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SistemaParqueoModelStoreContainer" CdmEntityContainer="SistemaParqueoEntities">
+    <EntitySetMapping Name="Bitacora">
+      <EntityTypeMapping TypeName="SistemaParqueoModel.Bitacora">
+        <MappingFragment StoreEntitySet="Bitacora">
+          <ScalarProperty Name="ID_Bitacora" ColumnName="ID_Bitacora" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="Hora" ColumnName="Hora" />
+          <ScalarProperty Name="Numero_Placa" ColumnName="Numero_Placa" />
+          <ScalarProperty Name="ID_Movimiento" ColumnName="ID_Movimiento" />
+          <ScalarProperty Name="ID_Parqueo" ColumnName="ID_Parqueo" />
+          <ScalarProperty Name="ID_Tipo" ColumnName="ID_Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movimiento">
+      <EntityTypeMapping TypeName="SistemaParqueoModel.Movimiento">
+        <MappingFragment StoreEntitySet="Movimiento">
+          <ScalarProperty Name="ID_Movimiento" ColumnName="ID_Movimiento" />
+          <ScalarProperty Name="Tipo_Movimiento" ColumnName="Tipo_Movimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parqueo">
+      <EntityTypeMapping TypeName="SistemaParqueoModel.Parqueo">
+        <MappingFragment StoreEntitySet="Parqueo">
+          <ScalarProperty Name="ID_Parqueo" ColumnName="ID_Parqueo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Capacidad_Espacios_Regulares" ColumnName="Capacidad_Espacios_Regulares" />
+          <ScalarProperty Name="Capacidad_Espacios_Moto" ColumnName="Capacidad_Espacios_Moto" />
+          <ScalarProperty Name="Capacidad_Espacios_7600" ColumnName="Capacidad_Espacios_7600" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="SistemaParqueoModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+          <ScalarProperty Name="Nombre_Rol" ColumnName="Nombre_Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_Vehiculo">
+      <EntityTypeMapping TypeName="SistemaParqueoModel.Tipo_Vehiculo">
+        <MappingFragment StoreEntitySet="Tipo_Vehiculo">
+          <ScalarProperty Name="ID_Tipo" ColumnName="ID_Tipo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="SistemaParqueoModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido_1" ColumnName="Apellido_1" />
+          <ScalarProperty Name="Apellido_2" ColumnName="Apellido_2" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Fecha_Nacimiento" ColumnName="Fecha_Nacimiento" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Numero_Carne" ColumnName="Numero_Carne" />
+          <ScalarProperty Name="ID_Rol" ColumnName="ID_Rol" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehiculo">
+      <EntityTypeMapping TypeName="SistemaParqueoModel.Vehiculo">
+        <MappingFragment StoreEntitySet="Vehiculo">
+          <ScalarProperty Name="ID_Vehiculo" ColumnName="ID_Vehiculo" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Numero_Placa" ColumnName="Numero_Placa" />
+          <ScalarProperty Name="ID_Tipo" ColumnName="ID_Tipo" />
+          <ScalarProperty Name="ID_Usuario" ColumnName="ID_Usuario" />
+          <ScalarProperty Name="Espacio_7600" ColumnName="Espacio_7600" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,95 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.ActividadesDestinoTVM>
+@{
+    ViewBag.Title = "Actividades";
+}
+
+<main>
+    <h2 class="mt-4">Actividades Disponibles</h2><hr />
+
+    <div>
+        @using (Html.BeginForm("ActividadesReservar", "ActividadesDestino", FormMethod.Get))
+        {
+            <b>Buscar por:</b>
+            @Html.RadioButton("SearchBy", "Nombre", true) <text>Nombre</text>
+            @Html.RadioButton("SearchBy", "Descripcion") <text>Descripción</text> <br />
+            @Html.TextBox("search", "", htmlAttributes: new { @class = "w-50 form-control" })
+            <input type="hidden" name="idDestino" value="@Model.FirstOrDefault().Destinos_IdDestino" />
+            <input type="submit" value="Buscar" class="btn btn-success" />
+        }
+    </div>
+
+    <div class="calendar">
+        @foreach (var fechaGrupo in Model.OrderBy(a => a.Fecha).GroupBy(a => a.Fecha.Value.Date))
+        {
+            <div class="calendar-day">
+                <h4>@fechaGrupo.Key.ToString("dd/MM/yyyy")</h4>
+                <div class="row">
+                    @foreach (var actividad in fechaGrupo)
+                    {
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@actividad.Nombre</h5>
+                                    <p class="card-text">Descripción: @actividad.Descripcion</p>
+                                    <p class="card-text">Precio: @actividad.Precio</p>
+                                    <button type="button" class="btn btn-primary" onclick="confirmReservar(@actividad.IdActividad)">
+                                        Reservar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+
+    <!-- Modal para mensajes -->
+    <div id="reservarConfirmationModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="reservarConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reservarConfirmationModalLabel">Confirmar Reserva</h5>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas reservar esta actividad?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="reservarActividad()">Confirmar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cancelReservar()">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    var actividadIdSeleccionada = null;
+
+    function confirmReservar(id) {
+        actividadIdSeleccionada = id;
+        $('#reservarConfirmationModal').modal('show');
+    }
+
+    function reservarActividad() {
+        if (actividadIdSeleccionada) {
+            $.post('@Url.Action("Reservar", "ActividadesDestino")', { idActividad: actividadIdSeleccionada }, function (response) {
+                if (response.success) {
+                    window.location.href = response.redirectUrl;
+                } else {
+                    alert(response.message);
+                }
+            }).fail(function () {
+                alert("Ocurrió un error al procesar la reserva.");
+            });
+
+            $('#reservarConfirmationModal').modal('hide');
+        }
+    }
+
+    function cancelReservar() {
+        actividadIdSeleccionada = null;
+        $('#reservarConfirmationModal').modal('hide');
+    }
+</script>

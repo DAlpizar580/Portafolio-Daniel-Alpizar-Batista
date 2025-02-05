@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c09791e9c54b47e78f0904414a43bc3b" Name="Diagram1">
+        <EntityTypeShape EntityType="SistemaParqueoModel.Bitacora" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaParqueoModel.Movimiento" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaParqueoModel.Parqueo" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaParqueoModel.Rol" Width="1.5" PointX="1.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaParqueoModel.Tipo_Vehiculo" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaParqueoModel.Usuario" Width="1.5" PointX="3.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SistemaParqueoModel.Vehiculo" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="SistemaParqueoModel.FK_Bitacora_Movimiento" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaParqueoModel.FK_Bitacora_Parqueo" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaParqueoModel.FK_Bitacora_Tipo_Vehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaParqueoModel.FK_Usuario_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaParqueoModel.FK_Vehiculo_Tipo" ManuallyRouted="false" />
+        <AssociationConnector Association="SistemaParqueoModel.FK_Vehiculo_Usuario" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

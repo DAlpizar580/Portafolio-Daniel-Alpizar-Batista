@@ -1,0 +1,96 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.DestinosTVM>
+@{
+    ViewBag.Title = "Destinos";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+<main>
+    <h2 class="mt-4">Destinos</h2><hr />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("Crear", "Destinos")'">
+                Añadir Destino
+            </button>
+        </div>
+    </div>
+
+    <div>
+        @using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+        {
+            <b>Buscar por:</b>
+            @Html.RadioButton("SearchBy", "Nombre", true) <text>Nombre</text>
+            @Html.RadioButton("SearchBy", "Provincia") <text>Provincia</text>
+            @Html.RadioButton("SearchBy", "Categoría") <text>Categoría</text> <br />
+            @Html.TextBox("search", "", htmlAttributes: new { @class = "w-50 form-control" })
+            <input type="submit" value="Buscar" class="btn btn-success" />
+        }
+    </div>
+
+    <div class="row">
+        @foreach (var destino in Model)
+        {
+            <div class="col-3">
+                <div class="card">
+                    @if (destino.Imagen != null)
+                    {
+                        <img class="card-img-top"
+                             src="data:image/jpeg;base64,@Convert.ToBase64String(destino.Imagen)"
+                             alt="@destino.Nombre" style="width:286px; height:180px;">
+                    }
+                    else
+                    {
+                        <div class="bg-secondary d-flex justify-content-center align-items-center"
+                             style="width:286px; height:180px;">
+                            <span class="h4">No Imagen</span>
+                        </div>
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="@Url.Action("Edit", "Destinos", new { id = destino.IdDestino })">@destino.Nombre</a></h5>
+                        <p class="card-text">Provincia: @destino.Provincia</p>
+                        <p class="card-text">Categoría: @destino.Categoria</p>
+                        <p class="card-text">Precio Mínimo: @destino.Precio_Minimo</p>
+                        <p class="card-text">Precio Máximo: @destino.Precio_Maximo</p>
+                        <p class="card-text">Dirección: @destino.Direccion</p>
+
+                        <button type="button" class="btn btn-danger" onclick="confirmDelete(@destino.IdDestino)">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div id="deleteConfirmationModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmar Eliminación</h5>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar este destino?
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteForm" method="post" action="@Url.Action("Delete", "Destinos")">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" id="deleteId" />
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cancelDelete()">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function confirmDelete(id) {
+        document.getElementById('deleteId').value = id;
+        $('#deleteConfirmationModal').modal('show');
+    }
+
+    function cancelDelete() {
+        $('#deleteConfirmationModal').modal('hide');
+    }
+</script>

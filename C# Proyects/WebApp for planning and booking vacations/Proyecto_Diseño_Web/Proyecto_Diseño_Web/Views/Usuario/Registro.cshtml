@@ -1,0 +1,78 @@
+﻿﻿@model Proyecto_Diseño_Web.Models.ViewModels.RegistroViewModel
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Usuario/_LayoutPage2.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="stylesRegistro.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <div class="wrapper">
+        @using (Html.BeginForm("Registro", "Usuario", FormMethod.Post))
+        {
+            <h1>Registration</h1>
+            <div class="input-box">
+                @* Nombre *@
+                <div class="input-field">
+                    <input type="text" name="Nombre" placeholder="Name" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                @* Apellidoa *@
+                <div class="input-field">
+                    <input type="text" name="Apellidos" placeholder="Last Name" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="Cedula" placeholder="Id" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-field">
+                    <input type="text" name="Correo" placeholder="Email or Account" required>
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="Telefono" placeholder="Phone" required>
+                    <i class='bx bxs-phone'></i>
+                </div>
+                <div class="input-field">
+                    <input type="date" name="FechaDeNacimiento" placeholder="Date of birth" required>
+                    <i class='bx bx-child'></i>
+                </div>
+                <div class="input-field">
+                    <select name="Genero" required>
+                        <option value="" disabled selected>
+                            Select
+                            Gender
+                        </option>
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                        <option value="O">O</option>
+                    </select>
+                    <i class='bx bx-body'></i>
+                </div>
+                <div class="input-field">
+                    <input type="password" name="Contraseña" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+
+            </div>
+
+            <div class="input-field">
+                <button class="btn" type="submit">Register</button>
+            </div>
+        }
+        @if (ViewBag.Error != null)
+        {
+            <p style="color:red;">@ViewBag.Error</p>
+        }
+    </div>
+</body>
+</html>

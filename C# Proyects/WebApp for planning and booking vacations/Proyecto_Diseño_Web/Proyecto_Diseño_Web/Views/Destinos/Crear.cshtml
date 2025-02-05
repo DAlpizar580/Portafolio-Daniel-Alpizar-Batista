@@ -1,0 +1,89 @@
+﻿@model Proyecto_Diseño_Web.Models.TableViewModels.DestinosTVM
+@{
+    ViewBag.Title = "Create Destination";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+<main>
+    <h2>Create Destination</h2>
+
+    @using (Html.BeginForm("Crear", "Destinos", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Destination</h4>
+            <hr />
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Provincia, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Provincia, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Provincia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Categoria, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Categoria, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Precio_Minimo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Precio_Minimo, new { @class = "form-control", type = "number", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Precio_Minimo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Precio_Maximo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Precio_Maximo, new { @class = "form-control", type = "number", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Precio_Maximo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Descripcion, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Direccion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Direccion, new { @class = "form-control", @required = "required" })
+                    @Html.ValidationMessageFor(model => model.Direccion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Nueva imagen", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="NewImage" />
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+    }
+</main>

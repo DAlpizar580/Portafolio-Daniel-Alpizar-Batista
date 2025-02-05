@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Mapa Interactivo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Mapa Interactivo</h2>
+    <hr />
+
+    <!-- Mapa Interactivo -->
+    <div id="map" style="width: 100%; height: 500px; border: 1px solid #ddd; margin-bottom: 20px;"></div>
+
+    
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    // Crear el mapa interactivo
+    var map = L.map('map').setView([9.8564, -83.9167], 9); // Coordenadas de Cartago
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Definir puntos de interés
+    var puntos = [
+        { id: 1, lat: 9.9833, lng: -83.8667, nombre: "Volcán Irazú" },
+        { id: 2, lat: 9.5667, lng: -83.8500, nombre: "Cerro de la Muerte" },
+        { id: 3, lat: 9.7572, lng: -83.8491, nombre: "Parque Nacional Tapantí" },
+        { id: 4, lat: 9.8000, lng: -83.9000, nombre: "Valle de Orosi" },
+        { id: 5, lat: 10.1000, lng: -83.9500, nombre: "Laguna de Hule" },
+        { id: 6, lat: 9.4748, lng: -83.5630, nombre: "Cerro Chirripó" },
+        { id: 7, lat: 9.6500, lng: -83.7750, nombre: "Reserva Forestal Río Macho" },
+        { id: 8, lat: 9.8636, lng: -83.9142, nombre: "Cerro Dragón" }
+    ];
+
+    // Agregar marcadores al mapa
+    puntos.forEach(function (punto) {
+        L.marker([punto.lat, punto.lng]).addTo(map)
+            .bindPopup(`<b>${punto.nombre}</b>`)
+            .on('click', function () {
+                cargarDestinoAsociado(punto.id);
+            });
+    });
+
+    // Función para cargar destinos asociados al lugar
+    function cargarDestinoAsociado(id) {
+        $.getJSON('@Url.Action("GetDestinosPorLugar", "Mapa")', { id: id }, function (data) {
+            var tbody = $('#destinosTable tbody');
+            tbody.empty();
+            tbody.append(`
+                <tr>
+                    <td>${data.IdDestino}</td>
+                    <td><a href="@Url.Action("BuscarDestinos", "PrincipalMaps")?searchBy=IdDestino&search=${data.IdDestino}" class="text-primary">${data.Nombre}</a></td>
+                    <td>${data.Categoria}</td>
+                    <td>${data.Precio_Minimo}</td>
+                    <td>${data.Precio_Maximo}</td>
+                    <td>${data.Descripcion}</td>
+                    <td>${data.Direccion}</td>
+                </tr>
+            `);
+        });
+    }
+</script>

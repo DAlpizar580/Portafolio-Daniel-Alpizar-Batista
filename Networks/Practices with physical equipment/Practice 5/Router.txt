@@ -1,0 +1,103 @@
+
+Building configuration...
+
+Current configuration : 1410 bytes
+!
+! Last configuration change at 18:16:54 UTC Tue Jul 9 2024
+! NVRAM config last updated at 18:10:15 UTC Tue Jul 9 2024
+! NVRAM config last updated at 18:10:15 UTC Tue Jul 9 2024
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+no ipv6 cef
+ip source-route
+ip cef
+!
+!
+!
+!
+ip dhcp pool PoolGrupo1
+ network 10.10.10.0 255.255.255.0
+ default-router 10.10.10.1
+!
+!
+multilink bundle-name authenticated
+!
+!
+crypto pki token default removal timeout 0
+!
+!
+license udi pid CISCO2901/K9 sn FTX161382NH
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ ip address 10.10.10.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ no fair-queue
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ shutdown
+ clock rate 2000000
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+end

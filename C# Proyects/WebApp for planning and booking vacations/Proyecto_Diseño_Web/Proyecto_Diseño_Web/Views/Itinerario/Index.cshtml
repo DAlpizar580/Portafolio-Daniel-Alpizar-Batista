@@ -1,0 +1,82 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.ActividadesItinerarioTVM>
+
+@{
+    ViewBag.Title = "Actividades del Itinerario";
+}
+
+<main class="container mt-4">
+    <h2 class="mb-4">Actividades del Itinerario</h2>
+
+    <!-- Botón para agregar una nueva actividad -->
+    <div class="mb-3 text-end">
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Destinos", "Itinerario")'">
+            Agregar Actividad
+        </button>
+    </div>
+
+    <!-- Tabla para mostrar las actividades -->
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Descripción</th>
+                <th>Fecha de la Actividad</th>
+                <th>Destino</th>
+                <th>Actividad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaActividad)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DestinoNombre)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ActividadNombre)</td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="eliminarActividad(@item.ItinerarioId, @item.ActividadId, @item.DestinoId)">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center">No hay actividades en este itinerario.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>
+
+<script>
+    function eliminarActividad(idItinerario, idActividad, idDestino) {
+        if (confirm('¿Estás seguro de que deseas eliminar esta actividad del itinerario?')) {
+            $.ajax({
+                url: '@Url.Action("Delete", "Itinerario")',
+                type: 'POST',
+                data: {
+                    id: idItinerario,
+                    idActividad: idActividad,
+                    idDestino: idDestino
+                },
+                success: function (response) {
+                    if (response.success) {
+                        alert(response.message);
+                        location.reload(); // Recarga la página para mostrar el itinerario actualizado
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function () {
+                    alert("Ocurrió un error al eliminar la actividad.");
+                }
+            });
+        }
+    }
+</script>
+

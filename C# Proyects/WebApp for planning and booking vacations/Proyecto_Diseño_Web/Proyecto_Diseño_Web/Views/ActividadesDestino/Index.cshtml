@@ -1,0 +1,91 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.ActividadesDestinoTVM>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout - Admin.cshtml";
+}
+
+<main>
+    <h2 class="mt-4">Actividades</h2><hr />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="button" class="btn btn-secondary" onclick="window.location.href='@Url.Action("Crear", "ActividadesDestino", new { idDestino = Model[0].Destinos_IdDestino })'">
+                Crear Actividad
+            </button>
+        </div>
+    </div>
+    @if (Model.Count == 0)
+    {
+        <p>No hay actividades</p>
+    }
+    else
+    {
+    <div>
+        @using (Html.BeginForm("Index", "ActividadesDestino", FormMethod.Get))
+        {
+            <b>Buscar por:</b>
+            @Html.RadioButton("SearchBy", "Nombre", true) <text>Nombre</text>
+            @Html.RadioButton("SearchBy", "Descripcion") <text>Descripción</text> <br />
+            @Html.TextBox("search", "", htmlAttributes: new { @class = "w-50 form-control" })
+            <input type="hidden" name="idDestino" value="@Model[0].Destinos_IdDestino" />
+            <input type="submit" value="Buscar" class="btn btn-success" />
+        }
+    </div>
+
+
+    
+    <div class="row">
+        @foreach (var actividad in Model)
+        {
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="@Url.Action("Edit", "ActividadesDestino", new { id = actividad.IdActividad })">@actividad.Nombre</a></h5>
+                        <p class="card-text">Descripción: @actividad.Descripcion</p>
+                        <p class="card-text">Fecha: @actividad.Fecha.Value.ToString("dd/MM/yyyy")</p>
+                        <p class="card-text">Precio: @actividad.Precio</p>
+
+                        <button type="button" class="btn btn-danger" onclick="confirmDelete(@actividad.IdActividad)">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    }
+
+    <div id="deleteConfirmationModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmar Eliminación</h5>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que deseas eliminar esta actividad?
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteForm" method="post">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cancelDelete()">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    function confirmDelete(id) {
+        var form = document.getElementById('deleteForm');
+        form.action = '@Url.Action("Delete", "ActividadesDestino")/' + id;
+
+        $('#deleteConfirmationModal').modal('show');
+    }
+
+    function cancelDelete() {
+        $('#deleteConfirmationModal').modal('hide');
+    }
+</script>

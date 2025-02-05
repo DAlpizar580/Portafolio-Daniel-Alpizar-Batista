@@ -1,0 +1,153 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|e:\\documentos\\portafolio\\portafolio-daniel-alpizar-batista\\proyectos c#\\sistema de control de ingreso para parqueos de ulacit\\parqueoulacit\\models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|solutionrelative:models\\model1.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\controllers\\personaladministrativocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|solutionrelative:controllers\\personaladministrativocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\views\\personaladministrativo\\historialadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|solutionrelative:views\\personaladministrativo\\historialadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\views\\shared\\_layoutpersonaladmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|solutionrelative:views\\shared\\_layoutpersonaladmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|e:\\documentos\\portafolio\\portafolio-daniel-alpizar-batista\\proyectos c#\\sistema de control de ingreso para parqueos de ulacit\\parqueoulacit\\views\\estudiante\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|solutionrelative:views\\estudiante\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\views\\personaladministrativo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|solutionrelative:views\\personaladministrativo\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\views\\estudiante\\historialestudiante.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C8139F04-AAC4-45F6-96DE-2C70340AE7DD}|ParqueoULACIT.csproj|solutionrelative:views\\estudiante\\historialestudiante.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Model1.edmx [Diagram1]",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Models\\Model1.edmx",
+              "RelativeDocumentMoniker": "Models\\Model1.edmx",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Models\\Model1.edmx [Diagram1]",
+              "RelativeToolTip": "Models\\Model1.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-02-05T08:35:45.215Z",
+              "EditorCaption": " [Diagram1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Web.config",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAEoAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-12-21T16:14:36.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\Estudiante\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Estudiante\\Index.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\Estudiante\\Index.cshtml",
+              "RelativeToolTip": "Views\\Estudiante\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T16:11:33.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_LayoutPersonalAdmin.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\Shared\\_LayoutPersonalAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_LayoutPersonalAdmin.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\Shared\\_LayoutPersonalAdmin.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_LayoutPersonalAdmin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T16:10:47.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HistorialAdmin.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\PersonalAdministrativo\\HistorialAdmin.cshtml",
+              "RelativeDocumentMoniker": "Views\\PersonalAdministrativo\\HistorialAdmin.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\PersonalAdministrativo\\HistorialAdmin.cshtml",
+              "RelativeToolTip": "Views\\PersonalAdministrativo\\HistorialAdmin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T15:55:44.792Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\PersonalAdministrativo\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\PersonalAdministrativo\\Index.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\PersonalAdministrativo\\Index.cshtml",
+              "RelativeToolTip": "Views\\PersonalAdministrativo\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T15:49:40.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PersonalAdministrativoController.cs",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Controllers\\PersonalAdministrativoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PersonalAdministrativoController.cs",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Controllers\\PersonalAdministrativoController.cs",
+              "RelativeToolTip": "Controllers\\PersonalAdministrativoController.cs",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAUwHUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-21T15:34:06.279Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "HistorialEstudiante.cshtml",
+              "DocumentMoniker": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\Estudiante\\HistorialEstudiante.cshtml",
+              "RelativeDocumentMoniker": "Views\\Estudiante\\HistorialEstudiante.cshtml",
+              "ToolTip": "E:\\Documentos\\Portafolio\\Portafolio-Daniel-Alpizar-Batista\\Proyectos C#\\Sistema de control de ingreso para parqueos de ULACIT\\ParqueoULACIT\\Views\\Estudiante\\HistorialEstudiante.cshtml",
+              "RelativeToolTip": "Views\\Estudiante\\HistorialEstudiante.cshtml",
+              "ViewState": "AQIAAG8AAAAAAAAAAAAAAAYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-21T15:23:06.851Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

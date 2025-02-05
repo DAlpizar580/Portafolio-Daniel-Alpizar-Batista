@@ -1,0 +1,37 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.PaquetesDestinoTVM>
+@{
+    ViewBag.Title = "Paquetes de Viaje";
+}
+
+<main>
+    <h2 class="mt-4">Paquetes Disponibles</h2><hr />
+
+    <div>
+        @using (Html.BeginForm("PaquetesReservar", "PaquetesDeViaje", FormMethod.Get))
+        {
+            <b>Buscar por:</b>
+            @Html.RadioButton("SearchBy", "Nombre", true) <text>Nombre</text>
+            @Html.RadioButton("SearchBy", "Descripcion") <text>Descripción</text> <br />
+            @Html.TextBox("search", "", htmlAttributes: new { @class = "w-50 form-control" })
+            <input type="hidden" name="idDestino" value="@Model.FirstOrDefault().Destinos_IdDestino" />
+            <input type="submit" value="Buscar" class="btn btn-success" />
+        }
+    </div>
+
+    <div class="calendar">
+        <div class="row">
+            @foreach (var paquete in Model.OrderBy(p => p.Nombre_del_paquete))
+            {
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="@Url.Action("ActividadesReservar", "PaquetesDeViaje", new { idPaquete = paquete.IdPaquete })">@paquete.Nombre_del_paquete</a></h5>
+                            <p class="card-text">Descripción: @paquete.Descripcion</p>
+                            <p class="card-text">Precio: @paquete.Precio</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</main>

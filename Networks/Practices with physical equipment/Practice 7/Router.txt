@@ -1,0 +1,224 @@
+Router 1
+
+Router#show run
+Building configuration...
+
+Current configuration : 1489 bytes
+!
+! Last configuration change at 18:20:24 UTC Tue Aug 6 2024
+! NVRAM config last updated at 18:20:18 UTC Tue Aug 6 2024
+! NVRAM config last updated at 18:20:18 UTC Tue Aug 6 2024
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+ipv6 unicast-routing
+ipv6 cef
+ip source-route
+ip cef
+!
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+crypto pki token default removal timeout 0
+!
+!
+license udi pid CISCO2901/K9 sn FTX161382NH
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+ ipv6 address FD00:DB8:CAFE:1::1/64
+ ipv6 enable
+ ipv6 ospf 1 area 0
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ no fair-queue
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ ipv6 address 2001:DB8:ACAD:1::1/64
+ ipv6 enable
+ ipv6 ospf 1 area 0
+ clock rate 2000000
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+ipv6 router ospf 1
+ router-id 10.10.10.1
+!
+!
+!
+!
+control-plane
+!
+!
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+end
+
+
+_______________________________________________________________________________________________________
+
+ROUER 2
+
+Router#sho
+Aug  6 17:18:21.887: %SYS-5-CONFIG_I: Configured from console by consolew run
+Building configuration...
+
+Current configuration : 1469 bytes
+!
+! Last configuration change at 17:18:21 UTC Tue Aug 6 2024
+! NVRAM config last updated at 17:18:16 UTC Tue Aug 6 2024
+! NVRAM config last updated at 17:18:16 UTC Tue Aug 6 2024
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+ipv6 unicast-routing
+ipv6 cef
+ip source-route
+ip cef
+!
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+crypto pki token default removal timeout 0
+!
+!
+license udi pid CISCO2901/K9 sn FTX161382NC
+!
+!
+!
+!
+!
+!
+!
+!
+interface Embedded-Service-Engine0/0
+ no ip address
+ shutdown
+!
+interface GigabitEthernet0/0
+ no ip address
+ duplex auto
+ speed auto
+ ipv6 address FD00:DB8:CAFE:2::1/64
+ ipv6 enable
+ ipv6 ospf 1 area 0
+!
+interface GigabitEthernet0/1
+ no ip address
+ shutdown
+ duplex auto
+ speed auto
+!
+interface Serial0/0/0
+ no ip address
+ shutdown
+ no fair-queue
+ clock rate 2000000
+!
+interface Serial0/0/1
+ no ip address
+ ipv6 address 2001:DB8:ACDC:1::2/64
+ ipv6 enable
+ ipv6 ospf 1 area 0
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+ipv6 router ospf 1
+ router-id 10.10.10.2
+!
+!
+!
+!
+control-plane
+!
+!
+!
+line con 0
+line aux 0
+line 2
+ no activation-character
+ no exec
+ transport preferred none
+ transport input all
+ transport output pad telnet rlogin lapb-ta mop udptn v120 ssh
+ stopbits 1
+line vty 0 4
+ login
+ transport input all
+!
+scheduler allocate 20000 1000
+end

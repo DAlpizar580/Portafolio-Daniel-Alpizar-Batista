@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "ElejirParqueo";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+
+
+<style>
+
+        @@font-face {
+    font-family: 'body';
+    src: url('@Url.Content("~/Content/Font/Roboto-Regular.otf")') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+  body {
+    margin: 0;
+    padding: 0;
+    color: white;
+    overflow:hidden;
+    font-family: 'body';
+    background-image: url('@Url.Content("~/Content/images/flecha.jpg")');
+    background-size: cover;
+    background-repeat: round;
+    background-attachment: fixed;
+    background-color: black;
+}
+
+    .card {
+        background: rgb(107 0 221 / 72%);
+        backdrop-filter: blur(10px);
+        border-radius: 1rem;
+        border: 1px solid rgb(201 0 255 / 50%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+.btn-primary {
+    background-color: #6f42c1; /* Color púrpura */
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #5a32a3; /* Color púrpura más oscuro */
+}
+
+
+    .fix {
+        display: flex;
+        padding: 109px !important;
+        justify-content: center;
+    }
+
+</style>
+
+
+<head>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+
+<section class="vh-100 ">
+    <div class="container py-5 h-100" style="position: fixed;">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="fix card-body p-5 text-center">
+                        <form id="frm" method="post" action="/Login/ElejirParqueo">
+                            <h3 class="mb-1">Elegir parqueo</h3>
+                            <hr class="mb-4">
+                            <div class="form-floating mb-4">
+                                @Html.DropDownList("txtParqueo",
+                                                   (SelectList)ViewBag.Parqueos,
+                                                   "Selecciona un parqueo",
+                                                   new { @class = "form-select", @id = "txtParqueo" })
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg">Elegir Parqueo</button>
+                            </div>
+
+                            <div style="margin-top: 54px;">
+                                <a href="@Url.Action("Index", "Login")" class="btn btn-danger mb-4">Regresar</a>
+                            </div>
+
+
+
+
+                        </form>
+                        <hr class="my-4">
+
+
+                        <!--SWEET ALERT-->
+                        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                        {
+                            <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '@HttpUtility.JavaScriptStringEncode(ViewBag.ErrorMessage)'
+        });
+                            </script>
+                        }
+                        <!--SWEET ALERT-->
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> 
+
+

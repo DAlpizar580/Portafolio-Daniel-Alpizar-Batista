@@ -1,0 +1,61 @@
+﻿ @model Proyecto_Diseño_Web.Models.ViewModels.PasarelaPago
+@{
+    ViewBag.Title = "PasarelaPago";
+    Layout = "~/Views/Pago/_LayoutPago.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="~/Styles/stylesPago.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        @using (Html.BeginForm("Pago", "Pago", FormMethod.Post))
+        {
+            <h1>Payment Method</h1>
+            <div class="input-box">
+                <input type="hidden" name="idReserva" value="@Model.ActividadesDestinoIdActividad" />
+                <input type="hidden" name="Usuarios_Id" value="@Model.Usuarios_Id" />
+                @* Nombre *@
+                <div class="input-field">
+                    <input type="text" name="Nombre" placeholder="Name" required>
+                </div>
+                @* Apellidos *@
+                <div class="input-field">
+                    <input type="text" name="Apellidos" placeholder="Last Name" required>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="NumeroTarjeta" placeholder="Card Number" required>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="FechaExpiracion" placeholder="Expiration Date" required>
+                </div>
+                <div class="input-field">
+                    <input type="number" name="CodigoSeguridad" placeholder="Security Code" required>
+                </div>
+
+            </div>
+
+            <div class="input-field">
+                <button class="btn" type="submit">Finalize Payment</button>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                    Agree to terms and conditions
+                </label>
+            </div>
+        }
+        @if (ViewBag.Error != null)
+        {
+            <p style="color:red;">@ViewBag.Error</p>
+        }
+    </div>
+</body>
+</html>
+

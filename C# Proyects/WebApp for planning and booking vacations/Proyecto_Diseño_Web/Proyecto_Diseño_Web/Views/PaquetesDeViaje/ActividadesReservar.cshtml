@@ -1,0 +1,87 @@
+﻿@model List<Proyecto_Diseño_Web.Models.TableViewModels.ActividadesPaqueteTVM>
+@{
+    ViewBag.Title = "Actividades del Paquete";
+}
+
+<main>
+    <h2 class="mt-4">Actividades del Paquete</h2><hr />
+
+    <button type="button" class="btn btn-primary" onclick="confirmReservar(@Model[0].Paquetes_de_viaje_IdPaquete)">
+        Reservar Paquete
+    </button>
+    <div>
+        @using (Html.BeginForm("ActividadesReservar", "PaquetesDeViaje", FormMethod.Get))
+        {
+            <b>Buscar por:</b>
+            @Html.RadioButton("SearchBy", "Nombre", true) <text>Nombre</text>
+            @Html.RadioButton("SearchBy", "Descripcion") <text>Descripción</text> <br />
+            @Html.TextBox("search", "", htmlAttributes: new { @class = "w-50 form-control" })
+            <input type="hidden" name="idPaquete" value="@Model.FirstOrDefault().Paquetes_de_viaje_IdPaquete" />
+            <input type="submit" value="Buscar" class="btn btn-success" />
+        }
+    </div>
+
+    <div class="calendar">
+        <div class="row">
+            @foreach (var actividad in Model.OrderBy(a => a.Nombre_actividad))
+            {
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">@actividad.Nombre_actividad</h5>
+                            <p class="card-text">Descripción: @actividad.Descripcion</p>
+                            <p class="card-text">Precio: @actividad.Precio</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+        <!-- Modal para mensajes -->
+        <div id="reservarConfirmationModal" class="modal" tabindex="-1" role="dialog" aria-labelledby="reservarConfirmationModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="reservarConfirmationModalLabel">Confirmar Reserva</h5>
+                    </div>
+                    <div class="modal-body">
+                        ¿Estás seguro de que deseas reservar este paquete?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" onclick="reservarPaquete()">Confirmar</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cancelReservar()">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</main>
+
+<script>
+    var paqueteIdSeleccionado = null;
+
+    function confirmReservar(id) {
+        paqueteIdSeleccionado = id;
+        $('#reservarConfirmationModal').modal('show');
+    }
+
+    function reservarPaquete() {
+        if (paqueteIdSeleccionado) {
+            $.post('@Url.Action("Reservar", "PaquetesDeViaje")', { idPaquete: paqueteIdSeleccionado }, function (response) {
+                if (response.success) {
+                    window.location.href = response.redirectUrl;
+                } else {
+                    alert(response.message);
+                }
+            }).fail(function () {
+                alert("Ocurrió un error al procesar la reserva.");
+            });
+
+            $('#reservarConfirmationModal').modal('hide');
+        }
+    }
+
+    function cancelReservar() {
+        paqueteIdSeleccionado = null;
+        $('#reservarConfirmationModal').modal('hide');
+    }
+</script>

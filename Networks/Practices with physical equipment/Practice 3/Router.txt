@@ -1,0 +1,79 @@
+Router 1
+
+Router#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES unset  administratively down down
+GigabitEthernet0/0         10.10.10.1      YES manual up                    up  
+GigabitEthernet0/1         unassigned      YES unset  administratively down down
+Serial0/0/0                unassigned      YES unset  administratively down down
+Serial0/0/1                10.10.10.67     YES manual up                    up  
+Router#sh
+Router#show run
+Building configuration...
+
+Current configuration : 1372 bytes
+!
+! Last configuration change at 18:02:10 UTC Tue Jun 25 2024
+! NVRAM config last updated at 18:00:52 UTC Tue Jun 25 2024
+! NVRAM config last updated at 18:00:52 UTC Tue Jun 25 2024
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+no ipv6 cef
+ip source-route
+ip cef
+!
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+Router 2
+
+Router#show ip interface brief
+Interface                  IP-Address      OK? Method Status                Protocol
+Embedded-Service-Engine0/0 unassigned      YES NVRAM  administratively down down
+GigabitEthernet0/0         10.10.10.129    YES manual up                    up  
+GigabitEthernet0/1         unassigned      YES NVRAM  administratively down down
+Serial0/0/0                unassigned      YES NVRAM  administratively down down
+Serial0/0/1                10.10.10.66     YES manual up                    up  
+Router#sh
+Router#show run
+Building configuration...
+
+Current configuration : 1438 bytes
+!
+! Last configuration change at 16:51:45 UTC Tue Jun 25 2024
+! NVRAM config last updated at 16:44:35 UTC Tue Jun 25 2024
+! NVRAM config last updated at 16:44:35 UTC Tue Jun 25 2024
+version 15.1
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname Router
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+no ipv6 cef
+ip source-route
+ip cef
+!
+
+
+

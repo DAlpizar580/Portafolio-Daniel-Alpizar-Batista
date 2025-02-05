@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Crear Tarjeta";
+    var userId = Convert.ToDecimal(Session["UserId"]);
+}
+
+<main>
+    <h2>Crear Tarjeta</h2>
+
+    @using (Html.BeginForm("CrearTarjetaPaquete", "Pago", new { idPaquete = ViewBag.IdPaquete }, FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Tarjeta</h4>
+            <hr />
+            <!-- Usuario ID oculto -->
+            <input type="hidden" name="Usuarios_Id" value="@userId" />
+
+            <input type="hidden" name="idPaquete" value="@ViewBag.IdPaquete" />
+
+            <div class="form-group">
+                @Html.Label("Numero_de_tarjeta", "Número de tarjeta", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="number" name="Numero_de_tarjeta" class="form-control" value="" required />
+                    @Html.ValidationMessage("Numero_de_tarjeta", "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Fecha_de_vencimiento", "Fecha de vencimiento", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="date" name="Fecha_de_vencimiento" class="form-control" value="" required />
+                    @Html.ValidationMessage("Fecha_de_vencimiento", "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Codigo_de_seguridad", "Código de seguridad", new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="number" name="Codigo_de_seguridad" class="form-control" value="" required />
+                    @Html.ValidationMessage("Codigo_de_seguridad", "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <br />
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+
+   
+</main>
+
+<!-- CSS para desactivar las flechas de los inputs tipo number -->
+<style>
+    /* Ocultar las flechas del input de tipo number */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield; /* Firefox */
+    }
+</style>
+
