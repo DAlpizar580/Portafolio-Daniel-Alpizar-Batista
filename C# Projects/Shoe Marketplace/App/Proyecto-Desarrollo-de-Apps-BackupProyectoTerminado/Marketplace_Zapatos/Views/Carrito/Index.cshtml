@@ -1,0 +1,62 @@
+﻿@model Marketplace_Zapatos.Models.TableViewModels.CarritoConProductos_CarritoTableViewModel
+@{
+    var errorMessage = TempData["ErrorMessage"] as string;
+    if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <script type="text/javascript">
+            alert('@errorMessage');
+        </script>
+    }
+}
+<h2>Carrito de Compras</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Talla</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Funciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model.Productos)
+        {
+            <tr id="producto_@producto.Producto_IdProducto">
+                <td>@producto.Modelo</td>
+                <td>@producto.Marca.Nombre</td>
+                <td>@producto.Talla.Numero</td>
+                <td>@producto.Cantidad</td>
+                <td>@producto.precio.ToString("C")</td>
+                <td>@(producto.precio * producto.Cantidad)</td>
+                <td>
+                    @using (Html.BeginForm("Eliminar", "Carrito", FormMethod.Post))
+                    {
+                        @Html.Hidden("CarritoDeCompras_IdCarrito", producto.CarritoDeCompras_IdCarrito)
+                        @Html.Hidden("Producto_IdProducto", producto.Producto_IdProducto)
+
+                        <input class="btn-primary" type="submit" value="Eliminar" />
+                    }
+                    @using (Html.BeginForm("Agregar", "Carrito", FormMethod.Post))
+                    {
+                        @Html.Hidden("CarritoDeCompras_IdCarrito", producto.CarritoDeCompras_IdCarrito)
+                        @Html.Hidden("Producto_IdProducto", producto.Producto_IdProducto)
+                        @Html.Hidden("Stock", producto.Stock)
+
+                        <input class="btn-primary" type="submit" value="Agregar" />
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<h3>Total del Carrito: <span id="totalCarrito">@Model.Carrito.Precio.ToString("C")</span></h3>
+
+<button class="btn btn-primary"
+        onclick="document.location.href='@Url.Content("~/Order/Index/")'">
+    Iniciar Proceso de Compra
+</button>

@@ -1,0 +1,51 @@
+﻿@model Marketplace_Zapatos.Models.ViewModels.PersonaViewModel
+@{
+    ViewBag.Title = "Registrar";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+@using (Html.BeginForm("Add", "Login", FormMethod.Post, new { role = "form", @class = "" }))
+{
+    @Html.AntiForgeryToken();
+
+
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <form id="frm">
+                            <h3 class="mb-1">Registrarse</h3>
+                            <hr class="mb-4">
+                                @Html.LabelFor(p => p.Nombre)
+                                @Html.TextBoxFor(p => p.Nombre, new { @class = "form-control"})
+                                @Html.ValidationMessageFor(p => p.Nombre, "", new { @class = "d-block text-danger mb-2" })
+
+                                @Html.LabelFor(p => p.Correo)
+                                @Html.TextBoxFor(p => p.Correo, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(p => p.Correo, "", new { @class = "d-block text-danger mb-2" })
+
+                                @Html.LabelFor(p => p.Password)
+                                @Html.TextBoxFor(p => p.Password, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(p => p.Password, "", new { @class = "d-block text-danger mb-2" })
+
+                                @Html.LabelFor(p => p.Telefono)
+                                @Html.TextBoxFor(p => p.Telefono, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(p => p.Telefono, "", new { @class = "d-block text-danger mb-2" })
+
+                                @Html.LabelFor(p => p.Edad)
+                                @Html.TextBoxFor(p => p.Edad, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(p => p.Edad, "", new { @class = "d-block text-danger mb-2" })
+                                <div class="d-grid gap-2">
+                                    <button type="submit" name="action" value="Comprador" class="btn btn-primary">Registrar Comprador</button>
+                                    <button type="submit" name="action" value="Vendedor" class="btn btn-primary">Registrar Vendedor</button>
+                                </div>
+                        </form>
+                        <hr class="my-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

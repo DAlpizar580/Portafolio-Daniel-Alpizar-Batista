@@ -1,0 +1,52 @@
+﻿@model Marketplace_Zapatos.Models.TableViewModels.ProductoConImagenesTableViewModel
+@{
+    ViewBag.Title = "Home";
+}
+
+<main>
+    <h2 class="mt-4">Productos Disponibles</h2><hr />
+
+        <div>
+            @using (Html.BeginForm("Index", "PincipalComprador", FormMethod.Get))
+            {
+                <b>Buscar por:</b>
+                @Html.RadioButton("SearchBy", "Modelo", true) <text > Modelo</text>
+                @Html.RadioButton("SearchBy", "Marca") <text>Marca</text>
+                @Html.RadioButton("SearchBy", "Talla") <text > Talla</text>
+                @Html.RadioButton("SearchBy", "Categoria") <text>Categoria</text>
+                @Html.RadioButton("SearchBy", "Color") <text > Color</text>
+                @Html.RadioButton("SearchBy", "Precio") <text > Precio</text> <br />
+                @Html.TextBox("search", "", htmlAttributes: new {@class=" w-50 form-control"})
+                <input type="submit" value="Search" class="btn btn-success"/>
+            }
+        </div>
+
+        <div class="row">
+            @foreach (var prod in Model.Productos)
+            {
+                <div class="col-3">
+                    <div class="card">
+                        @if (Model.Imagenes.FirstOrDefault(img => img.Producto_IdProducto == prod.IdProducto)?.Imagen != null)
+                        {
+                            <img class="card-img-top"
+                                 src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Imagenes.FirstOrDefault(img => img.Producto_IdProducto == prod.IdProducto).Imagen)"
+                                 alt="@prod.Modelo" style="width:286px; height:180px;">
+                        }
+                        else
+                        {
+                            <div class="bg-secondary d-flex justify-content-center align-items-center"
+                                 style="width:286px; height:180px;">
+                                <span class="h4">No Imagen</span>
+                            </div>
+                        }
+                    <div class="card-body">
+                        <h5 class="card-title"><a href="@Url.Action("Index", "Producto", new { id = prod.IdProducto })">@prod.Modelo</a></h5>
+                        <p class="card-text">Marca: @prod.Marca.Nombre</p>
+                        <p class="card-text">Precio: @prod.Precio</p>
+                        <p class="card-text">Color: @prod.Color</p>
+                    </div>
+                    </div>
+                </div>
+            }
+        </div>
+</main>

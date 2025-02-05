@@ -1,0 +1,120 @@
+@model Marketplace_Zapatos.Models.TableViewModels.ProductoConImagenesTableViewModel
+
+@{
+    ViewBag.Title = "Detalle del Producto";
+}
+
+<main class="container">
+    <h2 class="mt-4">Detalles del Producto</h2>
+    <hr />
+
+    <div class="row">
+        @if (Model.Productos.Any())
+        {
+            foreach (var prod in Model.Productos)
+            {
+                <div class="col-12 mb-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <!-- Left Column / Product Image -->
+                        <div class="left-column col-md-6">
+                            @if (Model.Imagenes.Any(img => img.Producto_IdProducto == prod.IdProducto))
+                            {
+                                var image = Model.Imagenes.FirstOrDefault(img => img.Producto_IdProducto == prod.IdProducto)?.Imagen;
+                                if (image != null)
+                                {
+                                    <img data-image="@prod.Color" src="data:image/jpeg;base64,@Convert.ToBase64String(image)" alt="@prod.Modelo" class="img-fluid" style="width:100%; height:auto;">
+                                }
+                                else
+                                {
+                                    <div class="bg-secondary d-flex justify-content-center align-items-center" style="width:100%; height:400px;">
+                                        <span class="h4 text-white">No Imagen</span>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="bg-secondary d-flex justify-content-center align-items-center" style="width:100%; height:400px;">
+                                    <span class="h4 text-white">No Imagen</span>
+                                </div>
+                            }
+                        </div>
+
+                        <!-- Right Column / Product Details -->
+                        <div class="right-column col-md-6 text-right" style="margin-left: 30px;">
+                            <div class="product-description">
+                                <span>@prod.Marca.Nombre</span>
+                                <h1 style="font-size: 50px;">@prod.Modelo</h1>
+                                <h1 style="font-size: 15px;">
+                                    <a href="@Url.Action("ReviewVendedor", "Producto", new { id = prod.Vendedor_IdVendedor })">
+                                        @prod.Vendedor.Nombre
+                                    </a>
+                                </h1>
+                                <h1 style="font-size: 20px;">Color: @prod.Color</h1>
+                                <h1 style="font-size: 15px;">Talla: @prod.Talla.Numero</h1>
+                            </div>
+
+                            <div class="product-price">
+                                <span style="font-size: 30px;">@prod.Precio$</span>
+                            </div>
+                            <div class="product-price">
+                                <span style="font-size: 30px;">Stock: @prod.Stock</span>
+                            </div>
+
+                            <form action="@Url.Action("AddToCart", "Producto")" method="post">
+
+                                @Html.Hidden("Producto_IdProducto", prod.IdProducto)
+                                @Html.Hidden("precio", prod.Precio)
+                                <div class="form-group">
+                                    <label for="cantidad">Cantidad:</label>
+                                    <input type="number" id="cantidad" name="Cantidad" value="1" min="1" class="form-control" />
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Agregar a Carrito</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <h2 class="mt-4">Reviews</h2>
+            <form action="@Url.Action("AddReview", "Producto")" method="post">
+                <input type="hidden" name="Producto_IdProducto" value="@Model.Productos.First().IdProducto" />
+                <div class="col-12 mb-10 review-form">
+                    <textarea id="idReview" name="Comentario" rows="4" cols="1000">Escriba su review del producto</textarea>
+                    <br>
+                    <label for="calificacion">Calificacion:</label>
+                    <select id="calificacion" name="Calificacion">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <br>
+                    <input type="submit" value="Enviar">
+                </div>
+            </form>
+
+            <div class="Reseñas review-list">
+                @if (Model.Review.Any())
+                {
+                    foreach (var review in Model.Review)
+                    {
+                        <div class="review-item">
+                            <p><strong>@review.comprador.Nombre:</strong> @review.Comentario</p>
+                            <p>Calificacion: @review.Calificacion</p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No hay reviews para este producto.</p>
+                }
+            </div>
+        }
+        else
+        {
+            <p>No se encontraron detalles para el producto.</p>
+        }
+    </div>
+</main>

@@ -1,0 +1,64 @@
+﻿@model Marketplace_Zapatos.Models.ViewModels.FinalizarCompraViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Finalizar Compra</h1>
+
+
+<h4>Productos</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Marca</th>
+            <th>Talla</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model.Productos)
+        {
+            <tr id="producto_@producto.Producto_IdProducto">
+                <td>@producto.Modelo</td>
+                <td>@producto.Marca.Nombre</td>
+                <td>@producto.Talla.Numero</td>
+                <td>@producto.Cantidad</td>
+                <td>@producto.precio.ToString("C")</td>
+                <td>@(producto.precio * producto.Cantidad)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm("FinalizarCompra", "Order", FormMethod.Post))
+{
+    <div class="mb-3">
+        @Html.LabelFor(order => order.DireccionID)
+        @Html.DropDownListFor(order => order.DireccionID,
+                              (SelectList)ViewBag.Direcciones,
+                              "Seleccione Dirección",
+                              new { @class = "form-select" })
+        @Html.ValidationMessageFor(order => order.DireccionID, "", new { @class = "d-block text-danger mb-2" })
+    </div>
+    
+    <div class="mb-3 mt-4">
+        @Html.LabelFor(order => order.NumeroTarjeta)
+        @Html.DropDownListFor(order => order.NumeroTarjeta,
+                              (SelectList)ViewBag.Tarjetas,
+                              "Seleccione Tarjeta de Crédito",
+                              new { @class = "form-select" })
+        @Html.ValidationMessageFor(order => order.NumeroTarjeta, "", new { @class = "d-block text-danger mb-2" })
+    </div>
+    
+    @Html.Hidden("MontoTotal", ((Model.Carrito.Precio * 1.13) + 2000))
+    @Html.Hidden("PrecioEnvio", 2000)
+    @Html.Hidden("CompradorID", Model.CompradorID)
+    <h4>Precio de envio: ₡2000</h4>
+    <h4>Impuestos: 13%</h4>
+    <h4>Total: ₡@((Model.Carrito.Precio * 1.13) + 2000)</h4>
+    <button class="btn btn-primary" type="submit">Finalizar Compra</button>
+}
+
+

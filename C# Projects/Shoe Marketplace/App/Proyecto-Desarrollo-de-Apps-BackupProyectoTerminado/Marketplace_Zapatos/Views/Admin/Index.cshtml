@@ -1,0 +1,49 @@
+﻿@model Marketplace_Zapatos.Models.TableViewModels.ProductoConImagenesTableViewModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<main>
+    <h2 class="mt-4">Productos Por Aprobar</h2><hr />
+    <div class="row">
+        @foreach (var prod in Model.Productos)
+        {
+            <div class="col-3">
+                <div class="card">
+                    @if (Model.Imagenes.FirstOrDefault(img => img.Producto_IdProducto == prod.IdProducto)?.Imagen != null)
+                    {
+                        <img class="card-img-top"
+                             src="data:image/jpeg;base64,@Convert.ToBase64String(Model.Imagenes.FirstOrDefault(img => img.Producto_IdProducto == prod.IdProducto).Imagen)"
+                             alt="@prod.Modelo" style="width:286px; height:180px;">
+                    }
+                    else
+                    {
+                        <div class="bg-secondary d-flex justify-content-center align-items-center"
+                             style="width:286px; height:180px;">
+                            <span class="h4">No Imagen</span>
+                        </div>
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@prod.Modelo</h5>
+                        <p class="card-text">Marca: @prod.Marca.Nombre</p>
+                        <p class="card-text">Categoria: @prod.Categoria.Nombre</p>
+                        <p class="card-text">Color: @prod.Color</p>
+                        <p class="card-text">Talla: @prod.Talla.Numero</p>
+                        <p class="card-text">Stock: @prod.Stock</p>
+                        <p class="card-text">Precio: @prod.Precio</p>
+                        <p class="card-text">Vendedor: @prod.Vendedor.Nombre</p>
+                    </div>
+                    @using (Html.BeginForm("Aprobar", "Admin", FormMethod.Post))
+                    {
+                        @Html.Hidden("ProductoID", prod.IdProducto)
+
+                        <input class="btn-primary" type="submit" value="Aprobar" />
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</main>
+
+

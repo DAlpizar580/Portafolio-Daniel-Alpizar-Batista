@@ -1,0 +1,78 @@
+﻿@model Marketplace_Zapatos.Models.TableViewModels.EditTableViewModel
+
+@{
+    ViewBag.Title = "Add Product";
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+
+<h2>Add Product</h2>
+
+@using (Html.BeginForm("Add", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Producto.Modelo)
+        @Html.TextBoxFor(model => model.Producto.Modelo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Producto.Modelo)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Producto.Precio)
+        @Html.TextBoxFor(model => model.Producto.Precio, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Producto.Precio)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Producto.Stock)
+        @Html.TextBoxFor(model => model.Producto.Stock, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Producto.Stock)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Producto.Color)
+        @Html.TextBoxFor(model => model.Producto.Color, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Producto.Color)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Producto.Disponibilidad)
+        @Html.TextBoxFor(model => model.Producto.Disponibilidad, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Producto.Disponibilidad)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Producto.Marca_IdMarca, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Producto.Marca_IdMarca, (SelectList)ViewBag.marca, "Select Marca", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Producto.Marca_IdMarca, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Producto.Talla_IdTalla, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.DropDownListFor(model => model.Producto.Talla_IdTalla,
+                              (SelectList)ViewBag.Talla,
+                              "Seleccione Talla",
+                              new { @class = "form-select" })
+        @Html.ValidationMessageFor(model => model.Producto.Talla_IdTalla, "", new { @class = "d-block text-danger mb-2" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Producto.Categoria_IdCategoria, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.Producto.Categoria_IdCategoria, (SelectList)ViewBag.Categoria, "Select Categoria", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Producto.Categoria_IdCategoria, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @Html.Hidden("Producto.Vendedor_IdVendedor", Model.VendedorId)
+
+    <div class="form-group">
+        <label for="NewImages">Product Images</label>
+        <input type="file" name="NewImages" id="NewImages" multiple class="form-control" />
+        @Html.ValidationMessageFor(model => model.NewImages)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Product</button>
+}

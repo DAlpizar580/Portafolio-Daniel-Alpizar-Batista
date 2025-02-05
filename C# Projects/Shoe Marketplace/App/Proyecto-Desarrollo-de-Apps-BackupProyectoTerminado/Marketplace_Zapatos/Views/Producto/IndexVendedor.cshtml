@@ -1,0 +1,114 @@
+﻿@model Marketplace_Zapatos.Models.TableViewModels.ProductoConImagenesTableViewModel
+
+@{
+    ViewBag.Title = "Detalle del Producto";
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+
+<main class="container">
+    <h2 class="mt-4">Detalles del Producto</h2>
+    <hr />
+
+    <div class="row">
+        @if (Model.Productos.Any())
+        {
+            foreach (var prod in Model.Productos)
+            {
+                <div class="col-12 mb-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <!-- Left Column / Product Image -->
+                        <div class="left-column col-md-6">
+                            @if (Model.Imagenes.Any(img => img.Producto_IdProducto == prod.IdProducto))
+                            {
+                                var image = Model.Imagenes.FirstOrDefault(img => img.Producto_IdProducto == prod.IdProducto)?.Imagen;
+                                if (image != null)
+                                {
+                                    <img data-image="@prod.Color" src="data:image/jpeg;base64,@Convert.ToBase64String(image)" alt="@prod.Modelo" class="img-fluid" style="width:100%; height:auto;">
+                                }
+                                else
+                                {
+                                    <div class="bg-secondary d-flex justify-content-center align-items-center" style="width:100%; height:400px;">
+                                        <span class="h4 text-white">No Imagen</span>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="bg-secondary d-flex justify-content-center align-items-center" style="width:100%; height:400px;">
+                                    <span class="h4 text-white">No Imagen</span>
+                                </div>
+                            }
+                        </div>
+
+                        <!-- Right Column / Product Details -->
+                        <div class="right-column col-md-6 text-right" style="margin-left: 30px;">
+                            <div class="product-description">
+                                <span>@prod.Marca.Nombre</span>
+                                <h1 style="font-size: 50px;">@prod.Modelo</h1>
+                                <h1 style="font-size: 15px;"><a href="@Url.Action("Index", "Vendedor", new { id = prod.IdProducto })">@prod.Vendedor.Nombre</a></h1>
+                                <h1 style="font-size: 20px;">Color: @prod.Color</h1>
+                            </div>
+
+                            <div class="product-price">
+                                <span style="font-size: 30px;">@prod.Precio$</span>
+                            </div>
+
+                            <div class="producto-carrito mt-3">
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("Edit", "Producto", new { id = prod.IdProducto })'">Editar</button>
+                                <button type="button" class="btn btn-warning" onclick="borrar('@prod.IdProducto')">Eliminar</button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="Reseñas review-list">
+                @if (Model.Review.Any())
+                {
+                    foreach (var review in Model.Review)
+                    {
+                        <div class="review-item">
+                            <p><strong>@review.comprador.Nombre:</strong> @review.Comentario</p>
+                            <p>Calificación: @review.Calificacion</p>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No hay reseñas para este producto.</p>
+                }
+            </div>
+        }
+        else
+        {
+            <p>No se encontraron detalles para el producto.</p>
+        }
+    </div>
+</main>
+
+@section Scripts
+{
+    <script>
+        function borrar(id) {
+            if (confirm("Desea borrar el registro?")) {
+                const url = `@Url.Action("Delete", "Producto")/${id}`;
+
+                $.post(url, function(respuesta){
+                    if (respuesta === "200") {
+                        window.location.href = "@Url.Action("Index", "Vendedor")";
+                    } else if (respuesta === "401") {
+                        alert("No autorizado. Por favor, inicie sesión.");
+                        window.location.href = "@Url.Action("Login", "Account")";
+                    } else if (respuesta === "404") {
+                        alert("No se encontró el registro.");
+                    } else if (respuesta === "500") {
+                        alert("Error interno del servidor. Inténtelo de nuevo más tarde.");
+                    } else {
+                        alert("Ocurrió un error inesperado.");
+                    }
+                });
+            }
+        }
+    </script>
+}

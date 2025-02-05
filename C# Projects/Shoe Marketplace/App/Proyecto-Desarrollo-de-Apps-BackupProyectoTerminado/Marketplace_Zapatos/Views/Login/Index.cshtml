@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<section class="vh-100 bg-dark">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <form id="frm">
+                            <h3 class="mb-1">Log in</h3>
+                            <hr class="mb-4">
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control" id="txtCorreo" name="txtCorreo" placeholder="Correo" />
+                                <label class="form-label" for="txtCorreo">Correo</label>
+                            </div>
+
+                            <div class="form-floating mb-4">
+                                <input type="password" class="form-control" id="txtPassword" name="txtPassword" placeholder="Clave">
+                                <label for="txtPassword">Clave</label>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="button" class="btn btn-primary btn-lg" id="btnComprador">Login Comprador</button>
+                                <button type="button" class="btn btn-primary btn-lg" id="btnVendedor">Login Vendedor</button>
+                                <button type="button" class="btn btn-primary btn-lg" id="btnAdmin">Login Administrador</button>
+                                <h5><a href="@Url.Action("Add", "Login")">¿No tienes cuenta? Registrate</a></h5>
+                            </div>
+                        </form>
+                        <hr class="my-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#btnComprador').click(function () {
+                loginUser("EnterComprador");
+            });
+
+            $('#btnVendedor').click(function () {
+                loginUser("EnterVendedor");
+            });
+
+            $('#btnAdmin').click(function () {
+                loginUser("EnterAdministrador");
+            });
+
+            function loginUser(actionName) {
+                let URL;
+
+                if (actionName === "EnterComprador") {
+                    URL = `@Url.Action("EnterComprador", "Login")`;
+                } else if (actionName === "EnterVendedor") {
+                    URL = `@Url.Action("EnterVendedor", "Login")`;
+                } else if (actionName === "EnterAdministrador") {
+                    URL = `@Url.Action("EnterAdministrador", "Login")`;
+                }
+
+                const parametros = {
+                    txtCorreo: $('#txtCorreo').val(),
+                    txtPassword: $('#txtPassword').val()
+                };
+
+                $.post(URL, parametros, function (respuesta) {
+                    if (respuesta === "Ok" && actionName === "EnterComprador") {
+                        document.location.href = "@Url.Content("~/PincipalComprador/Index")";
+                    } else if (respuesta === "Ok" && actionName === "EnterVendedor") {
+                        document.location.href = "@Url.Content("~/Vendedor/Index")";
+                    } else if (respuesta === "Ok" && actionName === "EnterAdministrador") {
+                        document.location.href = "@Url.Content("~/Admin/Index")";
+                    } else {
+                        alert(respuesta);
+                    }
+                });
+            }
+        });
+    </script>
+}
+}
+

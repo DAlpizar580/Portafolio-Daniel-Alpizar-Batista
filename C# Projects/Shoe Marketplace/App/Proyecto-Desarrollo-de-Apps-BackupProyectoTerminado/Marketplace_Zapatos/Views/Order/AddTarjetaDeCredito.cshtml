@@ -1,0 +1,40 @@
+﻿@model Marketplace_Zapatos.Models.ViewModels.TarjetaDeCreditoViewModel
+@{
+    ViewBag.Title = "Add Tarjeta de Crédito";
+}
+
+<h2>Agregar Tarjeta de Crédito</h2>
+<hr />
+
+@using (Html.BeginForm("AddTarjetaDeCredito", "Order", FormMethod.Post, new { role = "form", @class = "" }))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="row">
+        <div class="col-6">
+            @Html.LabelFor(tc => tc.NombreTarjetahabiente)
+            @Html.TextBoxFor(tc => tc.NombreTarjetahabiente, new { @class = "form-control" })
+            @Html.ValidationMessageFor(tc => tc.NombreTarjetahabiente, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(tc => tc.FechaVencimiento)
+            @Html.TextBoxFor(tc => tc.FechaVencimiento, new { @class = "form-control" })
+            @Html.ValidationMessageFor(tc => tc.FechaVencimiento, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(tc => tc.NumeroTarjeta)
+            @Html.TextBoxFor(tc => tc.NumeroTarjeta, new { @class = "form-control" })
+            @Html.ValidationMessageFor(tc => tc.NumeroTarjeta, "", new { @class = "d-block text-danger mb-2" })
+        </div>
+
+        <div class="col-6">
+            @Html.LabelFor(tc => tc.CVV)
+            @Html.TextBoxFor(tc => tc.CVV, new { @class = "form-control" })
+            @Html.ValidationMessageFor(tc => tc.CVV, "", new { @class = "d-block text-danger mb-2" })
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-outline-danger" onclick="document.location.href = '@Url.Content("~/Perfil/EditComprador")'">Regresar</button>
+        </div>
+    </div>
+}
+

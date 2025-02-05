@@ -1,0 +1,44 @@
+﻿@model Marketplace_Zapatos.Models.TableViewModels.VendedorConReviewTableViewModel
+
+@{
+    ViewBag.Title = "Review Vendedor";
+}
+
+<h2>Review Vendedor</h2>
+
+<h2 class="mt-4">@Model.Review.First().Vendedor.Nombre</h2>
+
+<form action="@Url.Action("AddReviewVendedor", "Producto")" method="post">
+    <input type="hidden" name="Vendedor_IdVendedor" value="@Model.Review.First().Vendedor.IdVendedor" />
+    <div class="col-12 mb-10 review-form">
+        <textarea id="idReview" name="Comentario" rows="4" cols="1000">Escriba su review del producto</textarea>
+        <br>
+        <label for="calificacion">Calificación:</label>
+        <select id="calificacion" name="Calificacion">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <br>
+        <input type="submit" value="Enviar">
+    </div>
+</form>
+
+<div class="Reseñas review-list">
+    @if (Model.Review.Any())
+    {
+        foreach (var review in Model.Review)
+        {
+            <div class="review-item">
+                <p><strong>@review.comprador.Nombre:</strong> @review.Comentario</p>
+                <p>Calificación: @review.Calificacion</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No hay reseñas para este producto.</p>
+    }
+</div>

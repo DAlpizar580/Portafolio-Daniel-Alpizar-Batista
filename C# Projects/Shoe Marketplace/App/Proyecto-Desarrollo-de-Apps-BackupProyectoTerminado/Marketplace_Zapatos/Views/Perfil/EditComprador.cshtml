@@ -1,0 +1,54 @@
+﻿@model Marketplace_Zapatos.Models.ViewModels.CompradorViewModel
+@{
+    ViewBag.Title = "Editar Perfil Comprador";
+}
+
+<h2>Modificar Comprador</h2>
+<hr />
+
+@using (Html.BeginForm("EditComprador", "Perfil", FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="row">
+        @Html.TextBoxFor(c => c.IdComprador, new { @class = "d-none" })
+        <div class="col-6">
+            @Html.LabelFor(c => c.Nombre)
+            @Html.TextBoxFor(c => c.Nombre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Nombre, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(c => c.Correo)
+            @Html.TextBoxFor(c => c.Correo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Correo, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(c => c.Telefono)
+            @Html.TextBoxFor(c => c.Telefono, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Telefono, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(c => c.Edad)
+            @Html.TextBoxFor(c => c.Edad, new { @class = "form-control" })
+            @Html.ValidationMessageFor(c => c.Edad, "", new { @class = "d-block text-danger mb-2" })
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </div>
+}
+@using (Html.BeginForm("DeleteComprador", "Perfil", FormMethod.Post))
+{
+    <button type="submit" class="btn btn-outline-danger">Eliminar Perfil</button>
+}
+<button type="button" class="btn btn-outline-danger"
+        onclick="document.location.href = '@Url.Action("Logout", "Login")'">
+    Logout
+</button>
+<button class="btn btn-primary"
+        onclick="document.location.href='@Url.Content("~/Order/AddTarjetaDeCredito/")'">
+    Agregar Tarjeta de Credito
+</button>
+<button class="btn btn-primary"
+        onclick="document.location.href='@Url.Content("~/Order/AddDireccion/")'">
+    Agregar Direccion
+</button>
+

@@ -1,0 +1,56 @@
+﻿@model Marketplace_Zapatos.Models.TableViewModels.InformeDeVentasTableViewModel
+@{
+    ViewBag.Title = "Historial";
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+<div class="container">
+
+    <div>
+        <h1>Informe de Ventas</h1>
+        <h3>Total de Órdenes: @Model.TotalOrdenes</h3>
+        <h3>Monto Total Ganado: @Model.MontoTotalGanado.ToString("C")</h3>
+    </div>
+    @foreach (var historial in Model.Historiales)
+    {
+        <div class="card mb-3">
+            <div class="card-header">
+                <h5 class="card-title">Orden ID: @historial.IdOrden</h5>
+                <p><strong>Fecha:</strong> @historial.Fecha.ToString("dd/MM/yyyy")</p>
+                <p><strong>Metodo de Pago:</strong> @historial.MetodoDePago</p>
+                <p><strong>Dirección de Envío:</strong> @historial.Direccion</p>
+                <p><strong>Estado:</strong> @historial.Estado</p>
+                <p><strong>Comprador:</strong> @historial.NombreComprador (@historial.CorreoComprador)</p>
+            </div>
+            <div class="card-body">
+                <h6>Productos:</h6>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Marca</th>
+                            <th>Talla</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var producto in historial.Productos)
+                        {
+                            <tr>
+                                <td>@producto.Modelo</td>
+                                <td>@producto.Marca.Nombre</td>
+                                <td>@producto.Talla.Numero</td>
+                                <td>@producto.Cantidad</td>
+                                <td>@producto.precio.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer">
+                <h5>Total: @historial.TotalOrden.ToString("C")</h5>
+            </div>
+        </div>
+    }
+</div>
+

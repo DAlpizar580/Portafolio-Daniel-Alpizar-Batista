@@ -1,0 +1,141 @@
+﻿@model Marketplace_Zapatos.Models.TableViewModels.EditTableViewModel
+
+@{
+    ViewBag.Title = "Edit Producto";
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+
+<h2>Edit Producto</h2>
+
+@using (Html.BeginForm("Edit", "Producto", FormMethod.Post, new { enctype = "multipart/form-data", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Producto</h4>
+        <hr />
+
+        <!-- Display error if Producto is null -->
+        @if (Model.Producto == null)
+        {
+            <p class="text-danger">Product details are missing or not loaded correctly.</p>
+        }
+        else
+        {
+            <!-- Hidden field for IdProducto -->
+            @Html.HiddenFor(model => model.Producto.IdProducto)
+
+            <!-- Modelo Field -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Producto.Modelo, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Producto.Modelo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Producto.Modelo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Precio Field -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Producto.Precio, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Producto.Precio, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Producto.Precio, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Stock Field -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Producto.Stock, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Producto.Stock, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Producto.Stock, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Color Field -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Producto.Color, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Producto.Color, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Producto.Color, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Disponibilidad Field -->
+            <div class="form-group">
+                @Html.LabelFor(model => model.Producto.Disponibilidad, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Producto.Disponibilidad, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Producto.Disponibilidad, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Producto.Marca_IdMarca, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Producto.Marca_IdMarca, (SelectList)ViewBag.marca, "Select Marca", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Producto.Marca_IdMarca, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Producto.Categoria_IdCategoria, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Producto.Categoria_IdCategoria, (SelectList)ViewBag.Categoria, "Select Categoria", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Producto.Categoria_IdCategoria, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Producto.Talla_IdTalla, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.DropDownListFor(model => model.Producto.Talla_IdTalla,
+                                      (SelectList)ViewBag.Talla,
+                                      "Seleccione Talla",
+                                      new { @class = "form-select" })
+                @Html.ValidationMessageFor(model => model.Producto.Talla_IdTalla, "", new { @class = "d-block text-danger mb-2" })
+            </div>
+
+
+
+
+
+            <label class="control-label col-md-2">Existing Images</label>
+            <div class="col-md-10">
+                @if (Model.Imagenes != null && Model.Imagenes.Any())
+                {
+                    foreach (var img in Model.Imagenes)
+                    {
+                        <div class="existing-image">
+                            <img src="data:image/jpeg;base64,@Convert.ToBase64String(img.Imagen)" alt="Product Image" style="width:100px;height:100px;" />
+                            <input type="checkbox" name="DeleteImages" value="@img.Producto_IdProducto" /> Delete
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>No images available.</p>
+                }
+            </div>
+
+            <!-- File Input for New Images -->
+            <div class="form-group">
+                @Html.Label("New Images", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input type="file" name="NewImages" multiple />
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-primary" onclick="document.location.href=@Url.Content("~/Vendedor/Index")">
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Vendedor")
+</div>

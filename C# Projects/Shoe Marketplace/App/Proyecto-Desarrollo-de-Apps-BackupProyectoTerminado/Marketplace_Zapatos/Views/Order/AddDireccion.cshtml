@@ -1,0 +1,42 @@
+﻿@model Marketplace_Zapatos.Models.ViewModels.DireccionCompradorViewModel
+@{
+    ViewBag.Title = "Agregar Dirección";
+}
+
+<h2>Agregar Dirección</h2>
+<hr />
+
+@using (Html.BeginForm("AddDireccion", "Order", FormMethod.Post, new { role = "form", @class = "" }))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="row">
+        <div class="col-6">
+            @Html.LabelFor(dir => dir.Ciudad)
+            @Html.TextBoxFor(dir => dir.Ciudad, new { @class = "form-control" })
+            @Html.ValidationMessageFor(dir => dir.Ciudad, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(dir => dir.Pais)
+            @Html.TextBoxFor(dir => dir.Pais, new { @class = "form-control" })
+            @Html.ValidationMessageFor(dir => dir.Pais, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(dir => dir.CodigoPostal)
+            @Html.TextBoxFor(dir => dir.CodigoPostal, new { @class = "form-control" })
+            @Html.ValidationMessageFor(dir => dir.CodigoPostal, "", new { @class = "d-block text-danger mb-2" })
+        </div>
+
+        <div class="col-6">
+            @Html.LabelFor(dir => dir.Descripcion)
+            @Html.TextBoxFor(dir => dir.Descripcion, new { @class = "form-control" })
+            @Html.ValidationMessageFor(dir => dir.Descripcion, "", new { @class = "d-block text-danger mb-2" })
+
+            <!-- El campo comprador_IdComprador se gestiona desde el controlador, no se incluye en el formulario -->
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-outline-danger" onclick="document.location.href = '@Url.Content("~/Perfil/EditComprador")'">Regresar</button>
+        </div>
+    </div>
+}
+

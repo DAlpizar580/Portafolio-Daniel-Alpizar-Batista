@@ -1,0 +1,1407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProyectoDiseñoDeAplicacionesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="IdAdministrador" />
+          </Key>
+          <Property Name="IdAdministrador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Edad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarritoDeCompras">
+          <Key>
+            <PropertyRef Name="IdCarrito" />
+          </Key>
+          <Property Name="IdCarrito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Precio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Carrito-Producto">
+          <Key>
+            <PropertyRef Name="CarritoDeCompras_IdCarrito" />
+            <PropertyRef Name="Producto_IdProducto" />
+          </Key>
+          <Property Name="CarritoDeCompras_IdCarrito" Type="int" Nullable="false" />
+          <Property Name="Producto_IdProducto" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comprador">
+          <Key>
+            <PropertyRef Name="IdComprador" />
+          </Key>
+          <Property Name="IdComprador" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Edad" Type="int" Nullable="false" />
+          <Property Name="CarritoDeCompras_IdCarrito" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DireccionComprador">
+          <Key>
+            <PropertyRef Name="IdDirreccion" />
+          </Key>
+          <Property Name="Ciudad" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="IdDirreccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pais" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CodigoPostal" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="int" />
+        </EntityType>
+        <EntityType Name="DireccionVendedor">
+          <Key>
+            <PropertyRef Name="IdDirrecionVendedor" />
+          </Key>
+          <Property Name="IdDirrecionVendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Pais" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CodigoPostal" Type="int" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Vendedor_IdVendedor" Type="int" />
+        </EntityType>
+        <EntityType Name="HistorialPedidos">
+          <Key>
+            <PropertyRef Name="IdHistorial" />
+          </Key>
+          <Property Name="Vendedor" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="DireccionEnvio" Type="varchar" MaxLength="70" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="MetodoDePago" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Orden_IdOrden" Type="int" Nullable="false" />
+          <Property Name="IdHistorial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Imagenes_Producto">
+          <Key>
+            <PropertyRef Name="Producto_IdProducto" />
+          </Key>
+          <Property Name="Imagen" Type="image" />
+          <Property Name="Producto_IdProducto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+          </Key>
+          <Property Name="IdMarca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orden">
+          <Key>
+            <PropertyRef Name="IdOrden" />
+          </Key>
+          <Property Name="MontoTotal" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="IdOrden" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PrecioEnvio" Type="int" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="int" Nullable="false" />
+          <Property Name="FormaDePago" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Modelo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Precio" Type="int" Nullable="false" />
+          <Property Name="Stock" Type="int" Nullable="false" />
+          <Property Name="Color" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Disponibilidad" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Vendedor_IdVendedor" Type="int" Nullable="false" />
+          <Property Name="Marca_IdMarca" Type="int" Nullable="false" />
+          <Property Name="Talla_IdTalla" Type="int" Nullable="false" />
+          <Property Name="Categoria_IdCategoria" Type="int" Nullable="false" />
+          <Property Name="Aprobado" Type="bit" Nullable="false" />
+          <Property Name="Administrador_IdAdministrador" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Producto-Orden">
+          <Key>
+            <PropertyRef Name="Producto_IdProducto" />
+            <PropertyRef Name="Orden_IdOrden" />
+          </Key>
+          <Property Name="Producto_IdProducto" Type="int" Nullable="false" />
+          <Property Name="Orden_IdOrden" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReviewProducto">
+          <Key>
+            <PropertyRef Name="IdReviewProducto" />
+          </Key>
+          <Property Name="IdReviewProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Calificacion" Type="int" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="int" Nullable="false" />
+          <Property Name="Producto_IdProducto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReviewVendedor">
+          <Key>
+            <PropertyRef Name="IdReview" />
+          </Key>
+          <Property Name="IdReview" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comentario" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Calificacion" Type="int" Nullable="false" />
+          <Property Name="Vendedor_IdVendedor" Type="int" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Talla">
+          <Key>
+            <PropertyRef Name="IdTalla" />
+          </Key>
+          <Property Name="IdTalla" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numero" Type="int" Nullable="false" />
+          <Property Name="TipoTalla" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TarjetaCredito">
+          <Key>
+            <PropertyRef Name="NumeroTarjeta" />
+            <PropertyRef Name="CVV" />
+          </Key>
+          <Property Name="NombreTarjetahabiente" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FechaVencimiento" Type="date" Nullable="false" />
+          <Property Name="NumeroTarjeta" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CVV" Type="int" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vendedor">
+          <Key>
+            <PropertyRef Name="IdVendedor" />
+          </Key>
+          <Property Name="IdVendedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Correo" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Telefono" Type="int" Nullable="false" />
+          <Property Name="Edad" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vendedor_Orden">
+          <Key>
+            <PropertyRef Name="Vendedor_IdVendedor" />
+            <PropertyRef Name="Orden_IdOrden" />
+          </Key>
+          <Property Name="Vendedor_IdVendedor" Type="int" Nullable="false" />
+          <Property Name="Orden_IdOrden" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="Carrito-Producto_CarritoDeCompras_FK">
+          <End Role="CarritoDeCompras" Type="Self.CarritoDeCompras" Multiplicity="1" />
+          <End Role="Carrito-Producto" Type="Self.Carrito-Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarritoDeCompras">
+              <PropertyRef Name="IdCarrito" />
+            </Principal>
+            <Dependent Role="Carrito-Producto">
+              <PropertyRef Name="CarritoDeCompras_IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Carrito-Producto_Producto_FK">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Carrito-Producto" Type="Self.Carrito-Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Carrito-Producto">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="comprador_CarritoDeCompras_FK">
+          <End Role="CarritoDeCompras" Type="Self.CarritoDeCompras" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comprador" Type="Self.comprador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarritoDeCompras">
+              <PropertyRef Name="IdCarrito" />
+            </Principal>
+            <Dependent Role="comprador">
+              <PropertyRef Name="CarritoDeCompras_IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DireccionComprador_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DireccionComprador" Type="Self.DireccionComprador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="DireccionComprador">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DireccionVendedor_Vendedor_FK">
+          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DireccionVendedor" Type="Self.DireccionVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="IdVendedor" />
+            </Principal>
+            <Dependent Role="DireccionVendedor">
+              <PropertyRef Name="Vendedor_IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orden">
+          <End Role="Orden" Type="Self.Orden" Multiplicity="1" />
+          <End Role="Vendedor_Orden" Type="Self.Vendedor_Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="IdOrden" />
+            </Principal>
+            <Dependent Role="Vendedor_Orden">
+              <PropertyRef Name="Orden_IdOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vendedor">
+          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1" />
+          <End Role="Vendedor_Orden" Type="Self.Vendedor_Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="IdVendedor" />
+            </Principal>
+            <Dependent Role="Vendedor_Orden">
+              <PropertyRef Name="Vendedor_IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HistorialPedidos_Orden_FK">
+          <End Role="Orden" Type="Self.Orden" Multiplicity="1" />
+          <End Role="HistorialPedidos" Type="Self.HistorialPedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="IdOrden" />
+            </Principal>
+            <Dependent Role="HistorialPedidos">
+              <PropertyRef Name="Orden_IdOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Imagenes_Producto_Producto_FK">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Imagenes_Producto" Type="Self.Imagenes_Producto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Imagenes_Producto">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Orden_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="1" />
+          <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="Orden">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Administrador_FK">
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrador">
+              <PropertyRef Name="IdAdministrador" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Administrador_IdAdministrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Categoria_FK">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Categoria_IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Marca_FK">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Marca_IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Talla_FK">
+          <End Role="Talla" Type="Self.Talla" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talla">
+              <PropertyRef Name="IdTalla" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Talla_IdTalla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Vendedor_FK">
+          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="IdVendedor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Vendedor_IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto-Orden_Orden_FK">
+          <End Role="Orden" Type="Self.Orden" Multiplicity="1" />
+          <End Role="Producto-Orden" Type="Self.Producto-Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="IdOrden" />
+            </Principal>
+            <Dependent Role="Producto-Orden">
+              <PropertyRef Name="Orden_IdOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto-Orden_Producto_FK">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Producto-Orden" Type="Self.Producto-Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Producto-Orden">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReviewProducto_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="1" />
+          <End Role="ReviewProducto" Type="Self.ReviewProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="ReviewProducto">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReviewProducto_Producto_FK">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReviewProducto" Type="Self.ReviewProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="ReviewProducto">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReviewVendedor_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="1" />
+          <End Role="ReviewVendedor" Type="Self.ReviewVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="ReviewVendedor">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReviewVendedor_Vendedor_FK">
+          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReviewVendedor" Type="Self.ReviewVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="IdVendedor" />
+            </Principal>
+            <Dependent Role="ReviewVendedor">
+              <PropertyRef Name="Vendedor_IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TarjetaCredito_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoDiseñoDeAplicacionesModelStoreContainer">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CarritoDeCompras" EntityType="Self.CarritoDeCompras" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carrito-Producto" EntityType="Self.Carrito-Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comprador" EntityType="Self.comprador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DireccionComprador" EntityType="Self.DireccionComprador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DireccionVendedor" EntityType="Self.DireccionVendedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HistorialPedidos" EntityType="Self.HistorialPedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imagenes_Producto" EntityType="Self.Imagenes_Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orden" EntityType="Self.Orden" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto-Orden" EntityType="Self.Producto-Orden" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewProducto" EntityType="Self.ReviewProducto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReviewVendedor" EntityType="Self.ReviewVendedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Talla" EntityType="Self.Talla" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TarjetaCredito" EntityType="Self.TarjetaCredito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendedor" EntityType="Self.Vendedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendedor_Orden" EntityType="Self.Vendedor_Orden" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Carrito-Producto_CarritoDeCompras_FK" Association="Self.Carrito-Producto_CarritoDeCompras_FK">
+            <End Role="CarritoDeCompras" EntitySet="CarritoDeCompras" />
+            <End Role="Carrito-Producto" EntitySet="Carrito-Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Carrito-Producto_Producto_FK" Association="Self.Carrito-Producto_Producto_FK">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Carrito-Producto" EntitySet="Carrito-Producto" />
+          </AssociationSet>
+          <AssociationSet Name="comprador_CarritoDeCompras_FK" Association="Self.comprador_CarritoDeCompras_FK">
+            <End Role="CarritoDeCompras" EntitySet="CarritoDeCompras" />
+            <End Role="comprador" EntitySet="comprador" />
+          </AssociationSet>
+          <AssociationSet Name="DireccionComprador_comprador_FK" Association="Self.DireccionComprador_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="DireccionComprador" EntitySet="DireccionComprador" />
+          </AssociationSet>
+          <AssociationSet Name="DireccionVendedor_Vendedor_FK" Association="Self.DireccionVendedor_Vendedor_FK">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="DireccionVendedor" EntitySet="DireccionVendedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orden" Association="Self.FK_Orden">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="Vendedor_Orden" EntitySet="Vendedor_Orden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vendedor" Association="Self.FK_Vendedor">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="Vendedor_Orden" EntitySet="Vendedor_Orden" />
+          </AssociationSet>
+          <AssociationSet Name="HistorialPedidos_Orden_FK" Association="Self.HistorialPedidos_Orden_FK">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="HistorialPedidos" EntitySet="HistorialPedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Imagenes_Producto_Producto_FK" Association="Self.Imagenes_Producto_Producto_FK">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Imagenes_Producto" EntitySet="Imagenes_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Orden_comprador_FK" Association="Self.Orden_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="Orden" EntitySet="Orden" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Administrador_FK" Association="Self.Producto_Administrador_FK">
+            <End Role="Administrador" EntitySet="Administrador" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Categoria_FK" Association="Self.Producto_Categoria_FK">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Marca_FK" Association="Self.Producto_Marca_FK">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Talla_FK" Association="Self.Producto_Talla_FK">
+            <End Role="Talla" EntitySet="Talla" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Vendedor_FK" Association="Self.Producto_Vendedor_FK">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto-Orden_Orden_FK" Association="Self.Producto-Orden_Orden_FK">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="Producto-Orden" EntitySet="Producto-Orden" />
+          </AssociationSet>
+          <AssociationSet Name="Producto-Orden_Producto_FK" Association="Self.Producto-Orden_Producto_FK">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Producto-Orden" EntitySet="Producto-Orden" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewProducto_comprador_FK" Association="Self.ReviewProducto_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="ReviewProducto" EntitySet="ReviewProducto" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewProducto_Producto_FK" Association="Self.ReviewProducto_Producto_FK">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ReviewProducto" EntitySet="ReviewProducto" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewVendedor_comprador_FK" Association="Self.ReviewVendedor_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="ReviewVendedor" EntitySet="ReviewVendedor" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewVendedor_Vendedor_FK" Association="Self.ReviewVendedor_Vendedor_FK">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="ReviewVendedor" EntitySet="ReviewVendedor" />
+          </AssociationSet>
+          <AssociationSet Name="TarjetaCredito_comprador_FK" Association="Self.TarjetaCredito_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProyectoDiseñoDeAplicacionesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Administrador">
+          <Key>
+            <PropertyRef Name="IdAdministrador" />
+          </Key>
+          <Property Name="IdAdministrador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Correo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.Producto_Administrador_FK" FromRole="Administrador" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="CarritoDeCompras">
+          <Key>
+            <PropertyRef Name="IdCarrito" />
+          </Key>
+          <Property Name="IdCarrito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Precio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Carrito_Producto" Relationship="Self.Carrito_Producto_CarritoDeCompras_FK" FromRole="CarritoDeCompras" ToRole="Carrito_Producto" />
+          <NavigationProperty Name="comprador" Relationship="Self.comprador_CarritoDeCompras_FK" FromRole="CarritoDeCompras" ToRole="comprador" />
+        </EntityType>
+        <EntityType Name="Carrito_Producto">
+          <Key>
+            <PropertyRef Name="CarritoDeCompras_IdCarrito" />
+            <PropertyRef Name="Producto_IdProducto" />
+          </Key>
+          <Property Name="CarritoDeCompras_IdCarrito" Type="Int32" Nullable="false" />
+          <Property Name="Producto_IdProducto" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarritoDeCompras" Relationship="Self.Carrito_Producto_CarritoDeCompras_FK" FromRole="Carrito_Producto" ToRole="CarritoDeCompras" />
+          <NavigationProperty Name="Producto" Relationship="Self.Carrito_Producto_Producto_FK" FromRole="Carrito_Producto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Categoria">
+          <Key>
+            <PropertyRef Name="IdCategoria" />
+          </Key>
+          <Property Name="IdCategoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.Producto_Categoria_FK" FromRole="Categoria" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="comprador">
+          <Key>
+            <PropertyRef Name="IdComprador" />
+          </Key>
+          <Property Name="IdComprador" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <Property Name="CarritoDeCompras_IdCarrito" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CarritoDeCompras" Relationship="Self.comprador_CarritoDeCompras_FK" FromRole="comprador" ToRole="CarritoDeCompras" />
+          <NavigationProperty Name="DireccionComprador" Relationship="Self.DireccionComprador_comprador_FK" FromRole="comprador" ToRole="DireccionComprador" />
+          <NavigationProperty Name="ReviewProducto" Relationship="Self.ReviewProducto_comprador_FK" FromRole="comprador" ToRole="ReviewProducto" />
+          <NavigationProperty Name="ReviewVendedor" Relationship="Self.ReviewVendedor_comprador_FK" FromRole="comprador" ToRole="ReviewVendedor" />
+          <NavigationProperty Name="TarjetaCredito" Relationship="Self.TarjetaCredito_comprador_FK" FromRole="comprador" ToRole="TarjetaCredito" />
+          <NavigationProperty Name="Orden" Relationship="ProyectoDiseñoDeAplicacionesModel.Orden_comprador_FK" FromRole="comprador" ToRole="Orden" />
+        </EntityType>
+        <EntityType Name="DireccionComprador">
+          <Key>
+            <PropertyRef Name="IdDirreccion" />
+          </Key>
+          <Property Name="Ciudad" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdDirreccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pais" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoPostal" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="Int32" />
+          <NavigationProperty Name="comprador" Relationship="Self.DireccionComprador_comprador_FK" FromRole="DireccionComprador" ToRole="comprador" />
+        </EntityType>
+        <EntityType Name="DireccionVendedor">
+          <Key>
+            <PropertyRef Name="IdDirrecionVendedor" />
+          </Key>
+          <Property Name="IdDirrecionVendedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Pais" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoPostal" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vendedor_IdVendedor" Type="Int32" />
+          <NavigationProperty Name="Vendedor" Relationship="Self.DireccionVendedor_Vendedor_FK" FromRole="DireccionVendedor" ToRole="Vendedor" />
+        </EntityType>
+        <EntityType Name="HistorialPedidos">
+          <Key>
+            <PropertyRef Name="IdHistorial" />
+          </Key>
+          <Property Name="Vendedor" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DireccionEnvio" Type="String" MaxLength="70" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MetodoDePago" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Orden_IdOrden" Type="Int32" Nullable="false" />
+          <Property Name="IdHistorial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Orden" Relationship="ProyectoDiseñoDeAplicacionesModel.HistorialPedidos_Orden_FK" FromRole="HistorialPedidos" ToRole="Orden" />
+        </EntityType>
+        <EntityType Name="Marca">
+          <Key>
+            <PropertyRef Name="IdMarca" />
+          </Key>
+          <Property Name="IdMarca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.Producto_Marca_FK" FromRole="Marca" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Modelo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Precio" Type="Int32" Nullable="false" />
+          <Property Name="Stock" Type="Int32" Nullable="false" />
+          <Property Name="Color" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Disponibilidad" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vendedor_IdVendedor" Type="Int32" Nullable="false" />
+          <Property Name="Marca_IdMarca" Type="Int32" Nullable="false" />
+          <Property Name="Talla_IdTalla" Type="Int32" Nullable="false" />
+          <Property Name="Categoria_IdCategoria" Type="Int32" Nullable="false" />
+          <Property Name="Aprobado" Type="Boolean" Nullable="false" />
+          <Property Name="Administrador_IdAdministrador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Administrador" Relationship="Self.Producto_Administrador_FK" FromRole="Producto" ToRole="Administrador" />
+          <NavigationProperty Name="Carrito_Producto" Relationship="Self.Carrito_Producto_Producto_FK" FromRole="Producto" ToRole="Carrito_Producto" />
+          <NavigationProperty Name="Categoria" Relationship="Self.Producto_Categoria_FK" FromRole="Producto" ToRole="Categoria" />
+          <NavigationProperty Name="Marca" Relationship="Self.Producto_Marca_FK" FromRole="Producto" ToRole="Marca" />
+          <NavigationProperty Name="Talla" Relationship="Self.Producto_Talla_FK" FromRole="Producto" ToRole="Talla" />
+          <NavigationProperty Name="Vendedor" Relationship="Self.Producto_Vendedor_FK" FromRole="Producto" ToRole="Vendedor" />
+          <NavigationProperty Name="Producto_Orden" Relationship="Self.Producto_Orden_Producto_FK" FromRole="Producto" ToRole="Producto_Orden" />
+          <NavigationProperty Name="ReviewProducto" Relationship="Self.ReviewProducto_Producto_FK" FromRole="Producto" ToRole="ReviewProducto" />
+          <NavigationProperty Name="Imagenes_Producto" Relationship="ProyectoDiseñoDeAplicacionesModel.Imagenes_Producto_Producto_FK" FromRole="Producto" ToRole="Imagenes_Producto" />
+        </EntityType>
+        <EntityType Name="Producto_Orden">
+          <Key>
+            <PropertyRef Name="Producto_IdProducto" />
+            <PropertyRef Name="Orden_IdOrden" />
+          </Key>
+          <Property Name="Producto_IdProducto" Type="Int32" Nullable="false" />
+          <Property Name="Orden_IdOrden" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.Producto_Orden_Producto_FK" FromRole="Producto_Orden" ToRole="Producto" />
+          <NavigationProperty Name="Orden" Relationship="ProyectoDiseñoDeAplicacionesModel.Producto_Orden_Orden_FK" FromRole="Producto_Orden" ToRole="Orden" />
+        </EntityType>
+        <EntityType Name="ReviewProducto">
+          <Key>
+            <PropertyRef Name="IdReviewProducto" />
+          </Key>
+          <Property Name="IdReviewProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comentario" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Calificacion" Type="Int32" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="Int32" Nullable="false" />
+          <Property Name="Producto_IdProducto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="comprador" Relationship="Self.ReviewProducto_comprador_FK" FromRole="ReviewProducto" ToRole="comprador" />
+          <NavigationProperty Name="Producto" Relationship="Self.ReviewProducto_Producto_FK" FromRole="ReviewProducto" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="ReviewVendedor">
+          <Key>
+            <PropertyRef Name="IdReview" />
+          </Key>
+          <Property Name="IdReview" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comentario" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Calificacion" Type="Int32" Nullable="false" />
+          <Property Name="Vendedor_IdVendedor" Type="Int32" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="comprador" Relationship="Self.ReviewVendedor_comprador_FK" FromRole="ReviewVendedor" ToRole="comprador" />
+          <NavigationProperty Name="Vendedor" Relationship="Self.ReviewVendedor_Vendedor_FK" FromRole="ReviewVendedor" ToRole="Vendedor" />
+        </EntityType>
+        <EntityType Name="Talla">
+          <Key>
+            <PropertyRef Name="IdTalla" />
+          </Key>
+          <Property Name="IdTalla" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <Property Name="TipoTalla" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="Self.Producto_Talla_FK" FromRole="Talla" ToRole="Producto" />
+        </EntityType>
+        <EntityType Name="TarjetaCredito">
+          <Key>
+            <PropertyRef Name="NumeroTarjeta" />
+            <PropertyRef Name="CVV" />
+          </Key>
+          <Property Name="NombreTarjetahabiente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="NumeroTarjeta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CVV" Type="Int32" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="comprador" Relationship="Self.TarjetaCredito_comprador_FK" FromRole="TarjetaCredito" ToRole="comprador" />
+        </EntityType>
+        <EntityType Name="Vendedor">
+          <Key>
+            <PropertyRef Name="IdVendedor" />
+          </Key>
+          <Property Name="IdVendedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="Int32" Nullable="false" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DireccionVendedor" Relationship="Self.DireccionVendedor_Vendedor_FK" FromRole="Vendedor" ToRole="DireccionVendedor" />
+          <NavigationProperty Name="Producto" Relationship="Self.Producto_Vendedor_FK" FromRole="Vendedor" ToRole="Producto" />
+          <NavigationProperty Name="ReviewVendedor" Relationship="Self.ReviewVendedor_Vendedor_FK" FromRole="Vendedor" ToRole="ReviewVendedor" />
+          <NavigationProperty Name="Orden" Relationship="ProyectoDiseñoDeAplicacionesModel.Vendedor_Orden" FromRole="Vendedor" ToRole="Orden" />
+        </EntityType>
+        <Association Name="Producto_Administrador_FK">
+          <End Role="Administrador" Type="Self.Administrador" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Administrador">
+              <PropertyRef Name="IdAdministrador" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Administrador_IdAdministrador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Carrito_Producto_CarritoDeCompras_FK">
+          <End Role="CarritoDeCompras" Type="Self.CarritoDeCompras" Multiplicity="1" />
+          <End Role="Carrito_Producto" Type="Self.Carrito_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarritoDeCompras">
+              <PropertyRef Name="IdCarrito" />
+            </Principal>
+            <Dependent Role="Carrito_Producto">
+              <PropertyRef Name="CarritoDeCompras_IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="comprador_CarritoDeCompras_FK">
+          <End Role="CarritoDeCompras" Type="Self.CarritoDeCompras" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comprador" Type="Self.comprador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CarritoDeCompras">
+              <PropertyRef Name="IdCarrito" />
+            </Principal>
+            <Dependent Role="comprador">
+              <PropertyRef Name="CarritoDeCompras_IdCarrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Carrito_Producto_Producto_FK">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Carrito_Producto" Type="Self.Carrito_Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Carrito_Producto">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Categoria_FK">
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categoria">
+              <PropertyRef Name="IdCategoria" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Categoria_IdCategoria" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DireccionComprador_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DireccionComprador" Type="Self.DireccionComprador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="DireccionComprador">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReviewProducto_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="1" />
+          <End Role="ReviewProducto" Type="Self.ReviewProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="ReviewProducto">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReviewVendedor_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="1" />
+          <End Role="ReviewVendedor" Type="Self.ReviewVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="ReviewVendedor">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TarjetaCredito_comprador_FK">
+          <End Role="comprador" Type="Self.comprador" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TarjetaCredito" Type="Self.TarjetaCredito" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="TarjetaCredito">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DireccionVendedor_Vendedor_FK">
+          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="DireccionVendedor" Type="Self.DireccionVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="IdVendedor" />
+            </Principal>
+            <Dependent Role="DireccionVendedor">
+              <PropertyRef Name="Vendedor_IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Marca_FK">
+          <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Marca">
+              <PropertyRef Name="IdMarca" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Marca_IdMarca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Talla_FK">
+          <End Role="Talla" Type="Self.Talla" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Talla">
+              <PropertyRef Name="IdTalla" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Talla_IdTalla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Vendedor_FK">
+          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="IdVendedor" />
+            </Principal>
+            <Dependent Role="Producto">
+              <PropertyRef Name="Vendedor_IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Orden_Producto_FK">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="Producto_Orden" Type="Self.Producto_Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Producto_Orden">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReviewProducto_Producto_FK">
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReviewProducto" Type="Self.ReviewProducto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="ReviewProducto">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ReviewVendedor_Vendedor_FK">
+          <End Role="Vendedor" Type="Self.Vendedor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ReviewVendedor" Type="Self.ReviewVendedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vendedor">
+              <PropertyRef Name="IdVendedor" />
+            </Principal>
+            <Dependent Role="ReviewVendedor">
+              <PropertyRef Name="Vendedor_IdVendedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProyectoDiseñoDeAplicacionesEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Administrador" EntityType="Self.Administrador" />
+          <EntitySet Name="CarritoDeCompras" EntityType="Self.CarritoDeCompras" />
+          <EntitySet Name="Carrito_Producto" EntityType="Self.Carrito_Producto" />
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" />
+          <EntitySet Name="comprador" EntityType="Self.comprador" />
+          <EntitySet Name="DireccionComprador" EntityType="Self.DireccionComprador" />
+          <EntitySet Name="DireccionVendedor" EntityType="Self.DireccionVendedor" />
+          <EntitySet Name="HistorialPedidos" EntityType="Self.HistorialPedidos" />
+          <EntitySet Name="Marca" EntityType="Self.Marca" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" />
+          <EntitySet Name="Producto_Orden" EntityType="Self.Producto_Orden" />
+          <EntitySet Name="ReviewProducto" EntityType="Self.ReviewProducto" />
+          <EntitySet Name="ReviewVendedor" EntityType="Self.ReviewVendedor" />
+          <EntitySet Name="Talla" EntityType="Self.Talla" />
+          <EntitySet Name="TarjetaCredito" EntityType="Self.TarjetaCredito" />
+          <EntitySet Name="Vendedor" EntityType="Self.Vendedor" />
+          <AssociationSet Name="Producto_Administrador_FK" Association="Self.Producto_Administrador_FK">
+            <End Role="Administrador" EntitySet="Administrador" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Carrito_Producto_CarritoDeCompras_FK" Association="Self.Carrito_Producto_CarritoDeCompras_FK">
+            <End Role="CarritoDeCompras" EntitySet="CarritoDeCompras" />
+            <End Role="Carrito_Producto" EntitySet="Carrito_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="comprador_CarritoDeCompras_FK" Association="Self.comprador_CarritoDeCompras_FK">
+            <End Role="CarritoDeCompras" EntitySet="CarritoDeCompras" />
+            <End Role="comprador" EntitySet="comprador" />
+          </AssociationSet>
+          <AssociationSet Name="Carrito_Producto_Producto_FK" Association="Self.Carrito_Producto_Producto_FK">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Carrito_Producto" EntitySet="Carrito_Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Categoria_FK" Association="Self.Producto_Categoria_FK">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="DireccionComprador_comprador_FK" Association="Self.DireccionComprador_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="DireccionComprador" EntitySet="DireccionComprador" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewProducto_comprador_FK" Association="Self.ReviewProducto_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="ReviewProducto" EntitySet="ReviewProducto" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewVendedor_comprador_FK" Association="Self.ReviewVendedor_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="ReviewVendedor" EntitySet="ReviewVendedor" />
+          </AssociationSet>
+          <AssociationSet Name="TarjetaCredito_comprador_FK" Association="Self.TarjetaCredito_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="TarjetaCredito" EntitySet="TarjetaCredito" />
+          </AssociationSet>
+          <AssociationSet Name="DireccionVendedor_Vendedor_FK" Association="Self.DireccionVendedor_Vendedor_FK">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="DireccionVendedor" EntitySet="DireccionVendedor" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Marca_FK" Association="Self.Producto_Marca_FK">
+            <End Role="Marca" EntitySet="Marca" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Talla_FK" Association="Self.Producto_Talla_FK">
+            <End Role="Talla" EntitySet="Talla" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Vendedor_FK" Association="Self.Producto_Vendedor_FK">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Orden_Producto_FK" Association="Self.Producto_Orden_Producto_FK">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Producto_Orden" EntitySet="Producto_Orden" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewProducto_Producto_FK" Association="Self.ReviewProducto_Producto_FK">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ReviewProducto" EntitySet="ReviewProducto" />
+          </AssociationSet>
+          <AssociationSet Name="ReviewVendedor_Vendedor_FK" Association="Self.ReviewVendedor_Vendedor_FK">
+            <End Role="Vendedor" EntitySet="Vendedor" />
+            <End Role="ReviewVendedor" EntitySet="ReviewVendedor" />
+          </AssociationSet>
+          <EntitySet Name="Orden" EntityType="ProyectoDiseñoDeAplicacionesModel.Orden" />
+          <AssociationSet Name="Orden_comprador_FK" Association="ProyectoDiseñoDeAplicacionesModel.Orden_comprador_FK">
+            <End Role="comprador" EntitySet="comprador" />
+            <End Role="Orden" EntitySet="Orden" />
+          </AssociationSet>
+          <AssociationSet Name="HistorialPedidos_Orden_FK" Association="ProyectoDiseñoDeAplicacionesModel.HistorialPedidos_Orden_FK">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="HistorialPedidos" EntitySet="HistorialPedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Producto_Orden_Orden_FK" Association="ProyectoDiseñoDeAplicacionesModel.Producto_Orden_Orden_FK">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="Producto_Orden" EntitySet="Producto_Orden" />
+          </AssociationSet>
+          <AssociationSet Name="Vendedor_Orden" Association="ProyectoDiseñoDeAplicacionesModel.Vendedor_Orden">
+            <End Role="Orden" EntitySet="Orden" />
+            <End Role="Vendedor" EntitySet="Vendedor" />
+          </AssociationSet>
+          <EntitySet Name="Imagenes_Producto" EntityType="ProyectoDiseñoDeAplicacionesModel.Imagenes_Producto" />
+          <AssociationSet Name="Imagenes_Producto_Producto_FK" Association="ProyectoDiseñoDeAplicacionesModel.Imagenes_Producto_Producto_FK">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="Imagenes_Producto" EntitySet="Imagenes_Producto" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Orden">
+          <Key>
+            <PropertyRef Name="IdOrden" />
+          </Key>
+          <Property Name="MontoTotal" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="Estado" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IdOrden" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PrecioEnvio" Type="Int32" Nullable="false" />
+          <Property Name="comprador_IdComprador" Type="Int32" Nullable="false" />
+          <Property Name="FormaDePago" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="comprador" Relationship="ProyectoDiseñoDeAplicacionesModel.Orden_comprador_FK" FromRole="Orden" ToRole="comprador" />
+          <NavigationProperty Name="HistorialPedidos" Relationship="ProyectoDiseñoDeAplicacionesModel.HistorialPedidos_Orden_FK" FromRole="Orden" ToRole="HistorialPedidos" />
+          <NavigationProperty Name="Producto_Orden" Relationship="ProyectoDiseñoDeAplicacionesModel.Producto_Orden_Orden_FK" FromRole="Orden" ToRole="Producto_Orden" />
+          <NavigationProperty Name="Vendedor" Relationship="ProyectoDiseñoDeAplicacionesModel.Vendedor_Orden" FromRole="Orden" ToRole="Vendedor" />
+        </EntityType>
+        <Association Name="Orden_comprador_FK">
+          <End Type="ProyectoDiseñoDeAplicacionesModel.comprador" Role="comprador" Multiplicity="1" />
+          <End Type="ProyectoDiseñoDeAplicacionesModel.Orden" Role="Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comprador">
+              <PropertyRef Name="IdComprador" />
+            </Principal>
+            <Dependent Role="Orden">
+              <PropertyRef Name="comprador_IdComprador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="HistorialPedidos_Orden_FK">
+          <End Type="ProyectoDiseñoDeAplicacionesModel.Orden" Role="Orden" Multiplicity="1" />
+          <End Type="ProyectoDiseñoDeAplicacionesModel.HistorialPedidos" Role="HistorialPedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="IdOrden" />
+            </Principal>
+            <Dependent Role="HistorialPedidos">
+              <PropertyRef Name="Orden_IdOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Producto_Orden_Orden_FK">
+          <End Type="ProyectoDiseñoDeAplicacionesModel.Orden" Role="Orden" Multiplicity="1" />
+          <End Type="ProyectoDiseñoDeAplicacionesModel.Producto_Orden" Role="Producto_Orden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orden">
+              <PropertyRef Name="IdOrden" />
+            </Principal>
+            <Dependent Role="Producto_Orden">
+              <PropertyRef Name="Orden_IdOrden" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Vendedor_Orden">
+          <End Type="ProyectoDiseñoDeAplicacionesModel.Orden" Role="Orden" Multiplicity="*" />
+          <End Type="ProyectoDiseñoDeAplicacionesModel.Vendedor" Role="Vendedor" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Imagenes_Producto">
+          <Key>
+            <PropertyRef Name="Producto_IdProducto" />
+          </Key>
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Producto_IdProducto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Producto" Relationship="ProyectoDiseñoDeAplicacionesModel.Imagenes_Producto_Producto_FK" FromRole="Imagenes_Producto" ToRole="Producto" />
+        </EntityType>
+        <Association Name="Imagenes_Producto_Producto_FK">
+          <End Type="ProyectoDiseñoDeAplicacionesModel.Producto" Role="Producto" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ProyectoDiseñoDeAplicacionesModel.Imagenes_Producto" Role="Imagenes_Producto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Producto">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Imagenes_Producto">
+              <PropertyRef Name="Producto_IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProyectoDiseñoDeAplicacionesModelStoreContainer" CdmEntityContainer="ProyectoDiseñoDeAplicacionesEntities">
+          <EntitySetMapping Name="Administrador">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Administrador">
+              <MappingFragment StoreEntitySet="Administrador">
+                <ScalarProperty Name="IdAdministrador" ColumnName="IdAdministrador" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CarritoDeCompras">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.CarritoDeCompras">
+              <MappingFragment StoreEntitySet="CarritoDeCompras">
+                <ScalarProperty Name="IdCarrito" ColumnName="IdCarrito" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carrito_Producto">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Carrito_Producto">
+              <MappingFragment StoreEntitySet="Carrito-Producto">
+                <ScalarProperty Name="CarritoDeCompras_IdCarrito" ColumnName="CarritoDeCompras_IdCarrito" />
+                <ScalarProperty Name="Producto_IdProducto" ColumnName="Producto_IdProducto" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categoria">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Categoria">
+              <MappingFragment StoreEntitySet="Categoria">
+                <ScalarProperty Name="IdCategoria" ColumnName="IdCategoria" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comprador">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.comprador">
+              <MappingFragment StoreEntitySet="comprador">
+                <ScalarProperty Name="IdComprador" ColumnName="IdComprador" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="CarritoDeCompras_IdCarrito" ColumnName="CarritoDeCompras_IdCarrito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DireccionComprador">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.DireccionComprador">
+              <MappingFragment StoreEntitySet="DireccionComprador">
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="IdDirreccion" ColumnName="IdDirreccion" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="comprador_IdComprador" ColumnName="comprador_IdComprador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DireccionVendedor">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.DireccionVendedor">
+              <MappingFragment StoreEntitySet="DireccionVendedor">
+                <ScalarProperty Name="IdDirrecionVendedor" ColumnName="IdDirrecionVendedor" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Vendedor_IdVendedor" ColumnName="Vendedor_IdVendedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HistorialPedidos">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.HistorialPedidos">
+              <MappingFragment StoreEntitySet="HistorialPedidos">
+                <ScalarProperty Name="Vendedor" ColumnName="Vendedor" />
+                <ScalarProperty Name="DireccionEnvio" ColumnName="DireccionEnvio" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="MetodoDePago" ColumnName="MetodoDePago" />
+                <ScalarProperty Name="Orden_IdOrden" ColumnName="Orden_IdOrden" />
+                <ScalarProperty Name="IdHistorial" ColumnName="IdHistorial" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Marca">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Marca">
+              <MappingFragment StoreEntitySet="Marca">
+                <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Producto">
+              <MappingFragment StoreEntitySet="Producto">
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Stock" ColumnName="Stock" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
+                <ScalarProperty Name="Vendedor_IdVendedor" ColumnName="Vendedor_IdVendedor" />
+                <ScalarProperty Name="Marca_IdMarca" ColumnName="Marca_IdMarca" />
+                <ScalarProperty Name="Talla_IdTalla" ColumnName="Talla_IdTalla" />
+                <ScalarProperty Name="Categoria_IdCategoria" ColumnName="Categoria_IdCategoria" />
+                <ScalarProperty Name="Aprobado" ColumnName="Aprobado" />
+                <ScalarProperty Name="Administrador_IdAdministrador" ColumnName="Administrador_IdAdministrador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Producto_Orden">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Producto_Orden">
+              <MappingFragment StoreEntitySet="Producto-Orden">
+                <ScalarProperty Name="Producto_IdProducto" ColumnName="Producto_IdProducto" />
+                <ScalarProperty Name="Orden_IdOrden" ColumnName="Orden_IdOrden" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReviewProducto">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.ReviewProducto">
+              <MappingFragment StoreEntitySet="ReviewProducto">
+                <ScalarProperty Name="IdReviewProducto" ColumnName="IdReviewProducto" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="comprador_IdComprador" ColumnName="comprador_IdComprador" />
+                <ScalarProperty Name="Producto_IdProducto" ColumnName="Producto_IdProducto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReviewVendedor">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.ReviewVendedor">
+              <MappingFragment StoreEntitySet="ReviewVendedor">
+                <ScalarProperty Name="IdReview" ColumnName="IdReview" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="Calificacion" ColumnName="Calificacion" />
+                <ScalarProperty Name="Vendedor_IdVendedor" ColumnName="Vendedor_IdVendedor" />
+                <ScalarProperty Name="comprador_IdComprador" ColumnName="comprador_IdComprador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Talla">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Talla">
+              <MappingFragment StoreEntitySet="Talla">
+                <ScalarProperty Name="IdTalla" ColumnName="IdTalla" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="TipoTalla" ColumnName="TipoTalla" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TarjetaCredito">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.TarjetaCredito">
+              <MappingFragment StoreEntitySet="TarjetaCredito">
+                <ScalarProperty Name="NombreTarjetahabiente" ColumnName="NombreTarjetahabiente" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="NumeroTarjeta" ColumnName="NumeroTarjeta" />
+                <ScalarProperty Name="CVV" ColumnName="CVV" />
+                <ScalarProperty Name="comprador_IdComprador" ColumnName="comprador_IdComprador" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendedor">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Vendedor">
+              <MappingFragment StoreEntitySet="Vendedor">
+                <ScalarProperty Name="IdVendedor" ColumnName="IdVendedor" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orden">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Orden">
+              <MappingFragment StoreEntitySet="Orden">
+                <ScalarProperty Name="FormaDePago" ColumnName="FormaDePago" />
+                <ScalarProperty Name="comprador_IdComprador" ColumnName="comprador_IdComprador" />
+                <ScalarProperty Name="PrecioEnvio" ColumnName="PrecioEnvio" />
+                <ScalarProperty Name="IdOrden" ColumnName="IdOrden" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="MontoTotal" ColumnName="MontoTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Vendedor_Orden" TypeName="ProyectoDiseñoDeAplicacionesModel.Vendedor_Orden" StoreEntitySet="Vendedor_Orden">
+            <EndProperty Name="Vendedor">
+              <ScalarProperty Name="IdVendedor" ColumnName="Vendedor_IdVendedor" />
+            </EndProperty>
+            <EndProperty Name="Orden">
+              <ScalarProperty Name="IdOrden" ColumnName="Orden_IdOrden" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Imagenes_Producto">
+            <EntityTypeMapping TypeName="ProyectoDiseñoDeAplicacionesModel.Imagenes_Producto">
+              <MappingFragment StoreEntitySet="Imagenes_Producto">
+                <ScalarProperty Name="Producto_IdProducto" ColumnName="Producto_IdProducto" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

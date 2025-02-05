@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0506202c22c4c608a3e62adf8a7b62e" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Administrador" Width="1.5" PointX="10.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.CarritoDeCompras" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Carrito_Producto" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Categoria" Width="1.5" PointX="10.5" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.comprador" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.DireccionComprador" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.DireccionVendedor" Width="1.5" PointX="9.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.HistorialPedidos" Width="1.5" PointX="7.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Marca" Width="1.5" PointX="10.5" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Producto" Width="1.5" PointX="12.75" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Producto_Orden" Width="1.5" PointX="10.5" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.ReviewProducto" Width="1.5" PointX="15" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.ReviewVendedor" Width="1.5" PointX="12.75" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Talla" Width="1.5" PointX="10.5" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.TarjetaCredito" Width="1.5" PointX="5.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Vendedor" Width="1.5" PointX="7.5" PointY="20.75" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Producto_Administrador_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Carrito_Producto_CarritoDeCompras_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.comprador_CarritoDeCompras_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Carrito_Producto_Producto_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Producto_Categoria_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.DireccionComprador_comprador_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.ReviewProducto_comprador_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.ReviewVendedor_comprador_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.TarjetaCredito_comprador_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.DireccionVendedor_Vendedor_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Producto_Marca_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Producto_Talla_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Producto_Vendedor_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Producto_Orden_Producto_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.ReviewProducto_Producto_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.ReviewVendedor_Vendedor_FK" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Orden" Width="1.5" PointX="5.25" PointY="16.25" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Orden_comprador_FK" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.HistorialPedidos_Orden_FK" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Producto_Orden_Orden_FK" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Vendedor_Orden" />
+        <EntityTypeShape EntityType="ProyectoDiseñoDeAplicacionesModel.Imagenes_Producto" Width="1.5" PointX="15" PointY="23.375" />
+        <AssociationConnector Association="ProyectoDiseñoDeAplicacionesModel.Imagenes_Producto_Producto_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

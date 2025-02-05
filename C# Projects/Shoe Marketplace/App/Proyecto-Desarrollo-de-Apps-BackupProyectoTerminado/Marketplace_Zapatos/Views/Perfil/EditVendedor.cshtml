@@ -1,0 +1,47 @@
+﻿@model Marketplace_Zapatos.Models.ViewModels.VendedorViewModel
+@{
+    ViewBag.Title = "Editar Perfil Vendedor";
+    Layout = "~/Views/Shared/_LayoutVendedor.cshtml";
+}
+
+<h2>Modificar Vendedor</h2>
+<hr />
+
+@using (Html.BeginForm("EditVendedor", "Perfil", FormMethod.Post, new { role = "form" }))
+{
+    @Html.AntiForgeryToken();
+
+    <div class="row">
+        @Html.TextBoxFor(v => v.IdVendedor, new { @class = "d-none" })
+        <div class="col-6">
+            @Html.LabelFor(v => v.Nombre)
+            @Html.TextBoxFor(v => v.Nombre, new { @class = "form-control" })
+            @Html.ValidationMessageFor(v => v.Nombre, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(v => v.Correo)
+            @Html.TextBoxFor(v => v.Correo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(v => v.Correo, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(v => v.Telefono)
+            @Html.TextBoxFor(v => v.Telefono, new { @class = "form-control" })
+            @Html.ValidationMessageFor(v => v.Telefono, "", new { @class = "d-block text-danger mb-2" })
+
+            @Html.LabelFor(v => v.Edad)
+            @Html.TextBoxFor(v => v.Edad, new { @class = "form-control" })
+            @Html.ValidationMessageFor(v => v.Edad, "", new { @class = "d-block text-danger mb-2" })
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </div>
+    </div>
+}
+@using (Html.BeginForm("DeleteVendedor", "Perfil", FormMethod.Post))
+{
+    <button type="submit" class="btn btn-outline-danger">Eliminar Perfil</button>
+}
+<button type="button" class="btn btn-outline-danger"
+        onclick="document.location.href = '@Url.Action("Logout", "Login")'">
+    Logout
+</button>
+
